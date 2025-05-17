@@ -58,7 +58,7 @@ const Hero = () => {
             </Button>
           </div>
           <div className="animate-in animate-delay-500 mt-8 flex space-x-4">
-            <a href="https://linkedin.com/in/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
+            <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
               <Linkedin size={24} />
             </a>
             <a href="https://github.com/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
