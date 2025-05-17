@@ -52,7 +52,7 @@ const Hero = () => {
               variant="outline"
               size="lg"
               className="px-8 py-6"
-              onClick={() => window.open("/DhruvDaberao_Resume-26-4-25.pdf", "_blank")}
+              onClick={() => window.open("/DhruvDaberao-Resume.pdf", "_blank")}
             >
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Button>

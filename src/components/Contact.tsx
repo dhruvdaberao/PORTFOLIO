@@ -52,7 +52,7 @@ const Contact = () => {
                   <div>
                     <div className="font-medium">LinkedIn</div>
                     <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
-                      linkedin.com/in/dhruvdaberao
+                      linkedin.com/in/dhruvdaberao-30976b25a
                     </a>
                   </div>
                 </CardContent>
