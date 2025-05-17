@@ -23,7 +23,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop",
       tags: ["React", "JavaScript", "Animation", "Mental Health", "AI"],
       githubUrl: "https://github.com/dhruvdaberao/therapy-cat",
-      liveUrl: "#" // Replace with actual live URL when available
+      liveUrl: "https://therapy-cat-dbl1.onrender.com/" // Replace with actual live URL when available
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=800&auto=format&fit=crop",
       tags: ["Python", "Machine Learning", "React", "Agricultural Tech"],
       githubUrl: "https://github.com/dhruvdaberao/agrigains",
-      liveUrl: "#" // Replace with actual live URL when available
+      liveUrl: "https://agrigains.onrender.com" // Replace with actual live URL when available
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop",
       tags: ["Node.js", "Express.js", "MongoDB", "Text Analytics"],
       githubUrl: "https://github.com/dhruvdaberao/resume-insight",
-      liveUrl: "#" // Replace with actual live URL when available
+      liveUrl: "https://resume-insight.vercel.app/" // Replace with actual live URL when available
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop",
       tags: ["React", "MongoDB", "Health Tech", "Productivity"],
       githubUrl: "https://github.com/dhruvdaberao/dopa-track",
-      liveUrl: "#" // Replace with actual live URL when available
+      liveUrl: "https://vercel.com/dhruvdaberaos-projects/dopa-track" // Replace with actual live URL when available
     },
     {
       id: 5,
