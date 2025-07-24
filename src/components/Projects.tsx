@@ -20,7 +20,7 @@ const Projects = () => {
       id: 1,
       title: "Therapy-Cat",
       description: "A mental wellness assistant using calming cat animations and AI-driven affirmation suggestions. Helps users relax using guided interactions.",
-      image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?q=80&w=800&auto=format&fit=crop",
+      image: "/1747499228183.jpg",
       tags: ["React", "JavaScript", "Animation", "Mental Health", "AI"],
       githubUrl: "https://github.com/dhruvdaberao/therapy-cat",
       liveUrl: "https://therapy-cat-dbl1.onrender.com/" // Replace with actual live URL when available
@@ -29,7 +29,7 @@ const Projects = () => {
       id: 2,
       title: "AgriGains",
       description: "ML-based crop yield and suggestion system using user input. Helps farmers optimize their agricultural practices with data-driven insights.",
-      image: "https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?q=80&w=800&auto=format&fit=crop",
+      image: "/1728845924768.jpg",
       tags: ["Python", "Machine Learning", "React", "Agricultural Tech"],
       githubUrl: "https://github.com/dhruvdaberao/agrigains",
       liveUrl: "https://agrigains.onrender.com" // Replace with actual live URL when available
@@ -38,7 +38,7 @@ const Projects = () => {
       id: 3,
       title: "Resume Insight",
       description: "Resume analyzer with intelligent scoring and feedback. An automated tool that provides insights to improve job application success.",
-      image: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop",
+      image: "/1745746187888.jpg",
       tags: ["Node.js", "Express.js", "MongoDB", "Text Analytics"],
       githubUrl: "https://github.com/dhruvdaberao/resume-insight",
       liveUrl: "https://resume-insight.vercel.app/" // Replace with actual live URL when available
@@ -47,20 +47,12 @@ const Projects = () => {
       id: 4,
       title: "Dopa Track",
       description: "A dopamine-based productivity tracker that helps users monitor activities that impact dopamine levels and optimize their productivity patterns.",
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop",
+      image: "/1745747227381.jpg",
       tags: ["React", "MongoDB", "Health Tech", "Productivity"],
       githubUrl: "https://github.com/dhruvdaberao/dopa-track",
-      liveUrl: "https://dopa-track-dfq917yo0-dhruvdaberaos-projects.vercel.app/" // Replace with actual live URL when available
+      liveUrl: "https://dopa-track.vercel.app/" // Replace with actual live URL when available
     },
-    {
-      id: 5,
-      title: "Saat Bara Digitization",
-      description: "Land record digitization system using React and Firebase. A digital solution for efficiently managing and accessing land records.",
-      image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?q=80&w=800&auto=format&fit=crop",
-      tags: ["Firebase", "React", "Government Tech", "Database"],
-      githubUrl: "https://github.com/dhruvdaberao/saat-bara-digitization",
-      liveUrl: "#" // Replace with actual live URL when available
-    },
+    
   ];
 
   return (

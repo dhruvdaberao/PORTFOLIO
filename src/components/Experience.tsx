@@ -25,7 +25,7 @@ const Experience = () => {
         "Implemented classification algorithms for real-world data",
         "Completed practical assignments using Python ML ecosystem"
       ],
-      certificate: "#" // Replace with actual certificate link
+      certificate: "/Virtual_Internship_Eduskill.pdf" // Replace with actual certificate link
     },
     {
       position: "UI Developer Intern",
@@ -37,7 +37,7 @@ const Experience = () => {
         "Collaborated with cross-functional teams to improve user experience",
         "Implemented responsive design principles for mobile and desktop users"
       ],
-      certificate: "#" // Replace with actual certificate link
+      certificate: "/Inhouse-certificate.pdf" // Replace with actual certificate link
     },
     {
       position: "In-House Developer Intern",
@@ -49,7 +49,7 @@ const Experience = () => {
         "Improved resume scoring model accuracy by 15%",
         "Implemented text analytics features to enhance evaluation capabilities"
       ],
-      certificate: "#" // Replace with actual certificate link
+      certificate: "/Muskurahat-foundation.pdf" // Replace with actual certificate link
     }
   ];
 

@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
 
           <div className="flex space-x-4 mt-6 md:mt-0">
-            <a href="https://linkedin.com/in/dhruvdaberao" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <div className="h-10 w-10 rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 flex items-center justify-center transition-colors">
                 <Linkedin className="h-5 w-5" />
               </div>

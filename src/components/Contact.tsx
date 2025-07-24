@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,12 +6,12 @@ import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const Contact = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // In a real application, you would handle form submission here
-    console.log("Form submitted");
-    alert("Thanks for your message! I'll get back to you soon.");
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   // In a real application, you would handle form submission here
+  //   console.log("Form submitted");
+  //   alert("Thanks for your message! I'll get back to you soon.");
+  // };
 
   return (
     <section id="contact" className="py-20 bg-secondary/30">
@@ -22,7 +21,7 @@ const Contact = () => {
           <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 max-w-5xl mx-auto">
           <div className="animate-in">
             <h3 className="text-xl font-medium mb-4">Contact Information</h3>
             <p className="mb-8 text-muted-foreground">
@@ -82,7 +81,7 @@ const Contact = () => {
                     <Button 
                       variant="link" 
                       className="p-0 h-auto text-muted-foreground hover:text-accent"
-                      onClick={() => window.open("/resume.pdf", "_blank")}
+                      onClick={() => window.open("/DhruvDaberao-Resume.pdf", "_blank")}
                     >
                       Download my resume
                     </Button>
@@ -92,7 +91,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="animate-in animate-delay-100">
+          {/* <div className="animate-in animate-delay-100">
             <h3 className="text-xl font-medium mb-4">Send Me a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
@@ -113,7 +112,7 @@ const Contact = () => {
                 </Button>
               </div>
             </form>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

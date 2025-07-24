@@ -17,7 +17,9 @@ interface Certification {
   issuer: string;
   date: string;
   description: string;
-  certificate?: string;
+ skills?: string[];
+  credentialId?: string;
+ certificate?: string;
 }
 
 const Publications = () => {
@@ -26,34 +28,97 @@ const Publications = () => {
       title: "Resume Insight",
       venue: "PICT",
       date: "April 2024",
-      description: "Presented Resume Insight as a smart ML project that helps evaluate and improve resumes for better job application outcomes.",
-      link: "#" // Replace with actual link when available
-    }
+      description:
+        "Presented Resume Insight as a smart ML project that helps evaluate and improve resumes for better job application outcomes.",
+      link: "#" // Replace with actual link (e.g., '/publications/resume_insight.pdf' or external URL)
+    },
+    {
+      title: "Optimizing Federated Learning  for Non-IID Data and Edge Devices",
+      venue: "In Progress",
+      date: "Ongoing",
+      description:
+        "Researching federated learning techniques to enable more optimised and privacy-preserving machine learning on decentralized datasets. Exploring optimization algorithms, model aggregation, and secure communication protocols to enhance scalability and robustness in real-world applications.",
+      link: "#" // Replace with actual link when available (e.g., '/publications/federated_learning.pdf' or external URL)
+    },
   ];
 
   const certifications: Certification[] = [
-    {
-      title: "AI/ML Virtual Internship Certificate",
-      issuer: "EduSkills/Google",
-      date: "2024",
-      description: "Completed a comprehensive internship program focused on practical machine learning and AI applications.",
-      certificate: "#" // Replace with actual certificate link
-    },
-    {
-      title: "Frontend Development",
-      issuer: "Online Platform",
-      date: "2023",
-      description: "Completed coursework in modern frontend development techniques and frameworks.",
-      certificate: "#" // Replace with actual certificate link
-    },
-    {
-      title: "IPR Course",
-      issuer: "Alison",
-      date: "2023",
-      description: "Completed a course on Intellectual Property Rights and their applications in the tech industry.",
-      certificate: "#" // Replace with actual certificate link
-    }
-  ];
+  {
+    title: "Startup India Learning Program",
+    issuer: "Startup India",
+    date: "Oct 2024",
+    description:
+      "Completed the Startup India Learning Program, gaining insights into entrepreneurship, business planning, fundraising, and startup growth strategies. Developed knowledge of key aspects of building and scaling a successful startup.",
+    certificate: "/certificates/Certificate_upGrad.pdf", // Path to file in public folder
+    skills: [
+      "Startup Ecosystems",
+      "Market Analysis",
+      "Business Planning",
+      "Investor Pitching",
+    ],
+    credentialId: "671233dc21538e175099f418",
+  },
+  {
+    title: "Fundamentals of Cloud Computing",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed the Fundamentals of Cloud Computing course from upGrad, gaining a deep understanding of cloud architecture, service models (IaaS, PaaS, SaaS), and deployment models (public, private, hybrid). The course also covered cloud security, virtualization, and how cloud computing drives scalability and cost-efficiency for businesses.",
+    certificate: "/CloudComputing.pdf",
+    skills: [
+      "Cloud Architecture",
+      "Virtualization",
+      "Infrastructure as a Service (IaaS)",
+      "Platform as a Service (PaaS)",
+      "Software as a Service (SaaS)",
+      "Cloud Security",
+    ],
+    credentialId: "badf7556-37f2-40e9-929b-3f11544d35ca",
+  },
+  {
+    title: "Fundamentals of Deep Learning of Neural Networks",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed a course on Deep Learning fundamentals, covering neural networks, backpropagation, and model optimization. Gained practical experience in building and training deep learning models, with a focus on real-world applications in AI and data analysis.",
+    certificate: "/DeepLearning.pdf",
+    skills: [
+      "Neural Networks",
+      "Deep Learning Algorithms",
+      "Backpropagation",
+      "Model Optimization",
+      "Hyperparameter Tuning",
+      "Data Preprocessing",
+      "TensorFlow/PyTorch Proficiency",
+    ],
+    credentialId: "593a38eb-b23e-438a-858f-7367588e93d5",
+  },
+  {
+    title: "Introduction to Cryptocurrency",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed a short course on cryptocurrency, gaining a foundational understanding of blockchain technology, digital assets, and decentralized finance. Covered key concepts such as cryptocurrency trading, mining, security, and regulatory challenges, providing insights into the rapidly evolving digital currency landscape.",
+    certificate: "/Cryptocurrency.pdf",
+    skills: ["Blockchain Basics", "Cryptocurrency Trading"],
+    credentialId: "05e1f905-879a-4ce9-aec9-9dc5e85927d9",
+  },
+  {
+    title: "Introduction to Generative AI",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed a course on Generative AI, gaining hands-on experience with AI models, prompt engineering, and content generation. Developed a solid understanding of ethical considerations and real-world applications using tools like OpenAI and Hugging Face.",
+    certificate: "/GenAI.pdf",
+    skills: [
+      "AI Model Training",
+      "Generative Models",
+      "Prompt Engineering",
+      "AI Tools Proficiency",
+    ],
+    credentialId: "bc0c8204-47ec-4a89-bc7e-1a832afde2ad",
+  },
+];
 
   return (
     <section id="publications" className="py-20 bg-secondary/30">
