@@ -114,35 +114,11 @@
 
 
 
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Mail, Linkedin, Github, Download, Phone } from "lucide-react";
 
 const Contact = () => {
-  const [formStatus, setFormStatus] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await window.emailjs.sendForm(
-        "service_le7uj1a", // Your EmailJS Service ID
-        "contact_form", // Replace with your EmailJS Template ID
-        form
-      );
-      setFormStatus("Message sent successfully! I'll get back to you soon.");
-      form.reset();
-    } catch (error) {
-      setFormStatus("Failed to send message. Please try again later.");
-      console.error("EmailJS error:", error);
-    }
-  };
-
   return (
     <section id="contact" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
@@ -208,13 +184,14 @@ const Contact = () => {
                   </div>
                   <div className="flex-1">
                     <div className="font-medium text-sm">Resume</div>
-                    <Button 
-                      variant="link" 
+                    <a 
+                      href="/DhruvDaberao-Resume.pdf" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
                       className="p-0 h-auto text-muted-foreground hover:text-accent text-sm"
-                      onClick={() => window.open("/DhruvDaberao-Resume.pdf", "_blank")}
                     >
                       Download my resume
-                    </Button>
+                    </a>
                   </div>
                 </CardContent>
               </Card>
@@ -233,34 +210,6 @@ const Contact = () => {
                 </CardContent>
               </Card>
             </div>
-          </div>
-
-          <div className="animate-in animate-delay-100">
-            <h3 className="text-xl font-medium mb-4">Send Me a Message</h3>
-            <form id="contact-form" onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <Input type="text" name="name" placeholder="Your Name" required />
-              </div>
-              <div>
-                <Input type="email" name="email" placeholder="Your Email" required />
-              </div>
-              <div>
-                <Input type="text" name="subject" placeholder="Subject" required />
-              </div>
-              <div>
-                <Textarea name="message" placeholder="Your Message" rows={5} required />
-              </div>
-              <div>
-                <Button type="submit" className="w-full bg-accent hover:bg-accent/80">
-                  Send Message
-                </Button>
-              </div>
-              {formStatus && (
-                <p className={`text-sm ${formStatus.includes("successfully") ? "text-green-600" : "text-red-600"}`}>
-                  {formStatus}
-                </p>
-              )}
-            </form>
           </div>
         </div>
       </div>
