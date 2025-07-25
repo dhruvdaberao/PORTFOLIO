@@ -55,10 +55,10 @@ const Experience = () => {
   ];
 
   const achievements = [
-    "Participated and won in Firodiya Karandak theater competition (9 prizes, worked in set & UV art)",
-    "Completed 100km cycling challenge",
-    "Published \"Resume Insight\" as a smart ML project under PICT"
-  ];
+  "Published 'ResumeInsight' ML project for IEEE submission, leveraging NLP for resume analysis",
+  "Developed full-stack e-commerce platform with React, Node.js, and MongoDB, deployed on Vercel",
+  "Earned certifications in Python and JavaScript from Startup India and upGrad"
+];
 
   return (
     <section id="experience" className="py-20 bg-background">
