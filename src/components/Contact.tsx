@@ -1,86 +1,216 @@
-import React from "react";
+// import React from "react";
+// import { Button } from "@/components/ui/button";
+// import { Card, CardContent } from "@/components/ui/card";
+// import { Mail, Linkedin, Github, Download } from "lucide-react";
+
+// const Contact = () => {
+//   return (
+//     <section id="contact" className="py-20 bg-secondary/30">
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mb-16">
+//           <h2 className="text-3xl font-bold">Get In Touch</h2>
+//           <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
+//         </div>
+
+//         <div className="grid grid-cols-1 max-w-5xl mx-auto">
+//           <div className="animate-in">
+//             <h3 className="text-xl font-medium mb-4">Contact Information</h3>
+//             <p className="mb-8 text-muted-foreground">
+//               Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+//             </p>
+
+//             <div className="space-y-6">
+//               <Card>
+//                 <CardContent className="flex items-center gap-4 p-4">
+//                   <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+//                     <Mail className="h-5 w-5 text-accent" />
+//                   </div>
+//                   <div>
+//                     <div className="font-medium">Email</div>
+//                     <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+//                       dhruvdaberao@gmail.com
+//                     </a>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+
+//               <Card>
+//                 <CardContent className="flex items-center gap-4 p-4">
+//                   <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+//                     <Linkedin className="h-5 w-5 text-accent" />
+//                   </div>
+//                   <div>
+//                     <div className="font-medium">LinkedIn</div>
+//                     <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+//                       linkedin.com/in/dhruvdaberao-30976b25a
+//                     </a>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+
+//               <Card>
+//                 <CardContent className="flex items-center gap-4 p-4">
+//                   <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+//                     <Github className="h-5 w-5 text-accent" />
+//                   </div>
+//                   <div>
+//                     <div className="font-medium">GitHub</div>
+//                     <a href="https://github.com/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+//                       github.com/dhruvdaberao
+//                     </a>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+
+//               <Card>
+//                 <CardContent className="flex items-center gap-4 p-4">
+//                   <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
+//                     <Download className="h-5 w-5 text-accent" />
+//                   </div>
+//                   <div className="flex-1">
+//                     <div className="font-medium">Resume</div>
+//                     <Button 
+//                       variant="link" 
+//                       className="p-0 h-auto text-muted-foreground hover:text-accent"
+//                       onClick={() => window.open("/DhruvDaberao-Resume.pdf", "_blank")}
+//                     >
+//                       Download my resume
+//                     </Button>
+//                   </div>
+//                 </CardContent>
+//               </Card>
+//             </div>
+//           </div>
+
+//           {/* <div className="animate-in animate-delay-100">
+//             <h3 className="text-xl font-medium mb-4">Send Me a Message</h3>
+//             <form onSubmit={handleSubmit} className="space-y-4">
+//               <div>
+//                 <Input type="text" placeholder="Your Name" required />
+//               </div>
+//               <div>
+//                 <Input type="email" placeholder="Your Email" required />
+//               </div>
+//               <div>
+//                 <Input type="text" placeholder="Subject" required />
+//               </div>
+//               <div>
+//                 <Textarea placeholder="Your Message" rows={5} required />
+//               </div>
+//               <div>
+//                 <Button type="submit" className="w-full bg-accent hover:bg-accent/80">
+//                   Send Message
+//                 </Button>
+//               </div>
+//             </form>
+//           </div> */}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Contact;
+
+
+
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone, Linkedin, Github, Download } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Mail, Linkedin, Github, Download, Phone } from "lucide-react";
 
 const Contact = () => {
-  // const handleSubmit = (e: React.FormEvent) => {
-  //   e.preventDefault();
-  //   // In a real application, you would handle form submission here
-  //   console.log("Form submitted");
-  //   alert("Thanks for your message! I'll get back to you soon.");
-  // };
+  const [formStatus, setFormStatus] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await window.emailjs.sendForm(
+        "service_le7uj1a", // Your EmailJS Service ID
+        "contact_form", // Replace with your EmailJS Template ID
+        form
+      );
+      setFormStatus("Message sent successfully! I'll get back to you soon.");
+      form.reset();
+    } catch (error) {
+      setFormStatus("Failed to send message. Please try again later.");
+      console.error("EmailJS error:", error);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl font-bold">Get In Touch</h2>
           <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
         </div>
 
-        <div className="grid grid-cols-1 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <div className="animate-in">
             <h3 className="text-xl font-medium mb-4">Contact Information</h3>
-            <p className="mb-8 text-muted-foreground">
-              Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
+            <p className="mb-6 text-muted-foreground">
+              Reach out for collaboration or inquiries.
             </p>
 
-            <div className="space-y-6">
-              <Card>
-                <CardContent className="flex items-center gap-4 p-4">
-                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-accent" />
+            <div className="space-y-4">
+              <Card className="h-20">
+                <CardContent className="flex items-center gap-3 p-3">
+                  <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Mail className="h-4 w-4 text-accent" />
                   </div>
                   <div>
-                    <div className="font-medium">Email</div>
-                    <a href="mailto:dhruvdaberao@gmail.com" className="text-muted-foreground hover:text-accent">
+                    <div className="font-medium text-sm">Email</div>
+                    <a href="https://mail.google.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent text-sm">
                       dhruvdaberao@gmail.com
                     </a>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="flex items-center gap-4 p-4">
-                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Linkedin className="h-5 w-5 text-accent" />
+              <Card className="h-20">
+                <CardContent className="flex items-center gap-3 p-3">
+                  <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Linkedin className="h-4 w-4 text-accent" />
                   </div>
                   <div>
-                    <div className="font-medium">LinkedIn</div>
-                    <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+                    <div className="font-medium text-sm">LinkedIn</div>
+                    <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent text-sm">
                       linkedin.com/in/dhruvdaberao-30976b25a
                     </a>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="flex items-center gap-4 p-4">
-                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Github className="h-5 w-5 text-accent" />
+              <Card className="h-20">
+                <CardContent className="flex items-center gap-3 p-3">
+                  <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Github className="h-4 w-4 text-accent" />
                   </div>
                   <div>
-                    <div className="font-medium">GitHub</div>
-                    <a href="https://github.com/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent">
+                    <div className="font-medium text-sm">GitHub</div>
+                    <a href="https://github.com/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent text-sm">
                       github.com/dhruvdaberao
                     </a>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card>
-                <CardContent className="flex items-center gap-4 p-4">
-                  <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Download className="h-5 w-5 text-accent" />
+              <Card className="h-20">
+                <CardContent className="flex items-center gap-3 p-3">
+                  <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Download className="h-4 w-4 text-accent" />
                   </div>
                   <div className="flex-1">
-                    <div className="font-medium">Resume</div>
+                    <div className="font-medium text-sm">Resume</div>
                     <Button 
                       variant="link" 
-                      className="p-0 h-auto text-muted-foreground hover:text-accent"
+                      className="p-0 h-auto text-muted-foreground hover:text-accent text-sm"
                       onClick={() => window.open("/DhruvDaberao-Resume.pdf", "_blank")}
                     >
                       Download my resume
@@ -88,31 +218,50 @@ const Contact = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              <Card className="h-20">
+                <CardContent className="flex items-center gap-3 p-3">
+                  <div className="h-8 w-8 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Phone className="h-4 w-4 text-accent" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-sm">WhatsApp</div>
+                    <a href="https://wa.me/+919322417084" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent text-sm">
+                      +91 93224 17084
+                    </a>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
 
-          {/* <div className="animate-in animate-delay-100">
+          <div className="animate-in animate-delay-100">
             <h3 className="text-xl font-medium mb-4">Send Me a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form id="contact-form" onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Input type="text" placeholder="Your Name" required />
+                <Input type="text" name="name" placeholder="Your Name" required />
               </div>
               <div>
-                <Input type="email" placeholder="Your Email" required />
+                <Input type="email" name="email" placeholder="Your Email" required />
               </div>
               <div>
-                <Input type="text" placeholder="Subject" required />
+                <Input type="text" name="subject" placeholder="Subject" required />
               </div>
               <div>
-                <Textarea placeholder="Your Message" rows={5} required />
+                <Textarea name="message" placeholder="Your Message" rows={5} required />
               </div>
               <div>
                 <Button type="submit" className="w-full bg-accent hover:bg-accent/80">
                   Send Message
                 </Button>
               </div>
+              {formStatus && (
+                <p className={`text-sm ${formStatus.includes("successfully") ? "text-green-600" : "text-red-600"}`}>
+                  {formStatus}
+                </p>
+              )}
             </form>
-          </div> */}
+          </div>
         </div>
       </div>
     </section>
