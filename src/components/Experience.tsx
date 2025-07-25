@@ -28,18 +28,6 @@ const Experience = () => {
       certificate: "/Virtual_Internship_Eduskill.pdf" // Replace with actual certificate link
     },
     {
-      position: "UI Developer Intern",
-      company: "Crowdfunding Platform (Remote)",
-      period: "Oct 2024 - Nov 2024",
-      description: "Built UI for campaign modules using HTML/CSS/JavaScript.",
-      achievements: [
-        "Designed a UI module that boosted user engagement by 30%",
-        "Collaborated with cross-functional teams to improve user experience",
-        "Implemented responsive design principles for mobile and desktop users"
-      ],
-      certificate: "/Inhouse-certificate.pdf" // Replace with actual certificate link
-    },
-    {
       position: "In-House Developer Intern",
       company: "Resume Insight at PICT",
       period: "Feb 2025 - Apr 2025",
@@ -49,6 +37,19 @@ const Experience = () => {
         "Improved resume scoring model accuracy by 15%",
         "Implemented text analytics features to enhance evaluation capabilities"
       ],
+      certificate: "/Inhouse-certificate.pdf" // Replace with actual certificate link
+    },
+    {
+      position: "UI Developer Intern",
+      company: "Crowdfunding Platform (Remote)",
+      period: "Oct 2024 - Nov 2024",
+      description: "Built UI for campaign modules using HTML/CSS/JavaScript.",
+      achievements: [
+        "Designed a UI module that boosted user engagement by 30%",
+        "Collaborated with cross-functional teams to improve user experience",
+        "Implemented responsive design principles for mobile and desktop users"
+      ],
+      
       certificate: "/Muskurahat-foundation.pdf" // Replace with actual certificate link
     }
   ];
