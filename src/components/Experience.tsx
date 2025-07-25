@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Award, FileText, ExternalLink } from "lucide-react";
@@ -49,16 +48,9 @@ const Experience = () => {
         "Collaborated with cross-functional teams to improve user experience",
         "Implemented responsive design principles for mobile and desktop users"
       ],
-      
       certificate: "/Muskurahat-foundation.pdf" // Replace with actual certificate link
     }
   ];
-
-  const achievements = [
-  "Published 'ResumeInsight' ML project for IEEE submission, leveraging NLP for resume analysis",
-  "Developed full-stack e-commerce platform with React, Node.js, and MongoDB, deployed on Vercel",
-  "Earned certifications in Python and JavaScript from Startup India and upGrad"
-];
 
   return (
     <section id="experience" className="py-20 bg-background">
@@ -111,21 +103,6 @@ const Experience = () => {
                 </Card>
               </div>
             ))}
-          </div>
-
-          <div className="mt-16">
-            <h3 className="text-2xl font-bold text-center mb-8">Achievements</h3>
-            <Card>
-              <CardContent className="p-6">
-                <ul className="list-disc list-inside space-y-4 text-muted-foreground">
-                  {achievements.map((achievement, index) => (
-                    <li key={index} className="animate-in" style={{ animationDelay: `${index * 100}ms` }}>
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </div>
