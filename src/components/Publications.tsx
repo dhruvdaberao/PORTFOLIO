@@ -157,7 +157,7 @@ const Publications = () => {
                           <Button variant="outline" size="sm" asChild>
                             <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                               <ExternalLink className="h-4 w-4" />
-                              View Publication
+                              Yet To Be Published
                             </a>
                           </Button>
                         )}
