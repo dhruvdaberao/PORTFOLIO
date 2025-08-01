@@ -52,6 +52,24 @@ const Projects = () => {
       githubUrl: "https://github.com/dhruvdaberao/dopa-track",
       liveUrl: "https://dopa-track.vercel.app/" // Replace with actual live URL when available
     },
+        {
+      id: 5,
+      title: "BrandPulse",
+      description: "A cloud-based tool to monitor LeapScholar’s online reputation with real-time sentiment analysis and interactive charts.",
+      image: "/brandpulse.jpg", // Replace with actual image path
+      tags: ["Flask", "Render", "Chart.js", "Google Sheets API", "Cloud"],
+      githubUrl: "https://github.com/dhruvdaberao/BrandPulse",
+      liveUrl: "https://brandpulse.onrender.com"
+    },
+    {
+      id: 6,
+      title: "Resume Project",
+      description: "An AI-driven resume builder and analyzer to optimize job applications with personalized feedback.",
+      image: "/resumeproject.jpg", // Replace with actual image path
+      tags: ["Python", "Flask", "NLP", "scikit-learn"],
+      githubUrl: "https://github.com/dhruvdaberao/resume-project", // Replace with actual GitHub URL
+      liveUrl: "#" // Replace with actual live URL when available
+    },
     
   ];
 
