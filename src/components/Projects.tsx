@@ -63,7 +63,7 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: "Resume Project",
+      title: "Portfolio",
       description: "An AI-driven resume builder and analyzer to optimize job applications with personalized feedback.",
       image: "/Portfolio.jpg", // Replace with actual image path
       tags: ["Python", "Flask", "NLP", "scikit-learn"],
