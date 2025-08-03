@@ -26,7 +26,7 @@ const Publications = () => {
     {
       title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
       venue: "IEEE GITCON 2025",
-      date: "Accepted April 2025",
+      date: "Accepted July 2025",
       description:
         "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3\% F1-score for skill tagging and 75\% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 (Paper ID: 703) and published on IEEE Xplore.",
       link: "https://github.com/dhruvdaberao/resume-insight" // GitHub link from resume
