@@ -220,7 +220,7 @@ const Projects = () => {
       id: 7,
       title: "AI Certificate Verifier",
       description: "An AI-powered web app that verifies the authenticity of certificates and diplomas. Extracts key details, detects tampering signs, and provides an authenticity score with detailed red flags.",
-      image: "/AICertVerifier.jpg",
+      image: "/ai-certificate-verifer.png",
       tags: ["TypeScript", "HTML/CSS", "AI", "Document Analysis"],
       githubUrl: "https://github.com/dhruvdaberao/ai-certificate-verifier",
       liveUrl: "https://ai-cert-verifier.vercel.app"
@@ -229,28 +229,37 @@ const Projects = () => {
       id: 8,
       title: "Culinary Lens",
       description: "An AI-driven kitchen assistant that analyzes food freshness, generates recipes from ingredients, and estimates calories. Designed with a modern UI and seamless AI integration.",
-      image: "/CulinaryLens.jpg",
+      image: "/culinary-lens.png",
       tags: ["React", "TypeScript", "TailwindCSS", "AI"],
       githubUrl: "https://github.com/dhruvdaberao/culinary-lens",
       liveUrl: "https://culinary-lens.vercel.app"
     },
-    {
+       {
       id: 9,
+      title: "Intra-Quest",
+      description: "A personality insights platform that combines quizzes with AI-powered analysis. Provides detailed personality breakdowns, strengths, weaknesses, and lifestyle recommendations.",
+      image: "/intraquest.png",
+      tags: ["React", "TypeScript", "TailwindCSS", "AI"],
+      githubUrl: "https://github.com/dhruvdaberao/clarity",
+      liveUrl: "https://intra-quest.vercel.app"
+    },
+    {
+      id: 10,
       title: "Raccoon Scan",
       description: "A quirky text-scanning app that lets users scan text using their camera and instantly get answers. Great for solving homework, extracting code, and quick document understanding.",
-      image: "/RaccoonScan.jpg",
+      image: "/raccoon-scan.png",
       tags: ["React", "Camera API", "AI", "Utility"],
       githubUrl: "https://github.com/dhruvdaberao/raccoon-scan",
       liveUrl: "https://raccoon-scan.vercel.app"
     },
     {
-      id: 10,
+      id: 11,
       title: "CROCO",
       description: "A personalized AI chatbot pal designed to feel like a digital friend. Offers engaging, conversational interactions and adapts to user moods and preferences.",
-      image: "/Croco.jpg",
+      image: "/croco.png",
       tags: ["React", "Chatbot", "AI", "Companion"],
       githubUrl: "https://github.com/dhruvdaberao/croco",
-      liveUrl: "https://croco-ai.vercel.app"
+      liveUrl: "https://croco-ai-pal.vercel.app"
     }
   ];
 
