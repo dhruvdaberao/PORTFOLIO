@@ -40,8 +40,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <div className="font-medium text-sm">LinkedIn</div>
-                      <a href="https://www.linkedin.com/in/dhruv-daberao-30976b25a/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent text-sm">
-                        linkedin.com/in/dhruvdaberao-30976b25a
+                      <a href="https://www.linkedin.com/in/dhruvdaberao/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent text-sm">
+                        linkedin.com/in/dhruvdaberao/
                       </a>
                     </div>
                   </CardContent>
