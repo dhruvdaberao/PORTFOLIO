@@ -457,7 +457,7 @@ const Projects = () => {
       image: "/tribe-social.png",
       tags: ["React", "Node.js", "Socket.IO", "MongoDB", "TypeScript", "AI"],
       githubUrl: "https://github.com/dhruvdaberao/tribe-social",
-      liveUrl: "https://tribe-social.onrender.com"
+      liveUrl: "https://tribe-social.vercel.app"
     }
   ];
 
