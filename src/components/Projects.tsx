@@ -350,17 +350,8 @@ interface Project {
 
 const Projects = () => {
   const projects: Project[] = [
-    {
+        {
       id: 1,
-      title: "Therapy-Cat",
-      description: "A calming mental wellness assistant featuring animated cats and AI-powered affirmations. Designed to reduce stress and improve mood through playful guided interactions.",
-      image: "/TherapyCat.jpg",
-      tags: ["React", "JavaScript", "Animation", "Mental Health", "AI"],
-      githubUrl: "https://github.com/dhruvdaberao/therapy-cat",
-      liveUrl: "https://therapy-cat-dbl1.onrender.com/"
-    },
-    {
-      id: 2,
       title: "AgriGains",
       description: "A smart agricultural platform that predicts crop yield, suggests optimal crops, and recommends fertilizers using machine learning and user inputs. Empowers farmers with data-driven insights.",
       image: "/Agrigains.jpg",
@@ -368,8 +359,10 @@ const Projects = () => {
       githubUrl: "https://github.com/dhruvdaberao/agrigains",
       liveUrl: "https://agrigains.onrender.com"
     },
+
+ 
     {
-      id: 3,
+      id: 2,
       title: "Resume Insight",
       description: "An intelligent resume analyzer that scores resumes and provides actionable feedback. Helps job seekers optimize their applications and stand out to recruiters.",
       image: "/ResumeInsight.jpg",
@@ -378,13 +371,22 @@ const Projects = () => {
       liveUrl: "https://resume-insight.vercel.app/"
     },
     {
-      id: 4,
+      id: 3,
       title: "Dopa Track",
       description: "A productivity companion that tracks dopamine-related activities and visualizes patterns. Encourages balanced habits to improve focus and mental health.",
       image: "/DopaTrack.jpg",
       tags: ["React", "MongoDB", "Health Tech", "Productivity"],
       githubUrl: "https://github.com/dhruvdaberao/dopa-track",
       liveUrl: "https://dopa-track.vercel.app/"
+    },
+          {
+      id: 4,
+      title: "Therapy-Cat",
+      description: "A calming mental wellness assistant featuring animated cats and AI-powered affirmations. Designed to reduce stress and improve mood through playful guided interactions.",
+      image: "/TherapyCat.jpg",
+      tags: ["React", "JavaScript", "Animation", "Mental Health", "AI"],
+      githubUrl: "https://github.com/dhruvdaberao/therapy-cat",
+      liveUrl: "https://therapy-cat-dbl1.onrender.com/"
     },
     {
       id: 5,
