@@ -458,7 +458,27 @@ const Projects = () => {
       tags: ["React", "Node.js", "Socket.IO", "MongoDB", "TypeScript", "AI"],
       githubUrl: "https://github.com/dhruvdaberao/tribe-social",
       liveUrl: "https://tribe-social.vercel.app"
-    }
+    },
+      // --- added Counto project (id: 13) ---
+{
+  id: 13,
+  title: "Counto",
+  description:
+    "A quirky, scrapbook-style countdown app for couples and friends. Features real-time shared rooms, draggable stickers, taped photos, bucket lists, looping music, chat, and a beautifully animated countdown. Uses smart polling and sync-locking to enable real-time collaboration without WebSockets.",
+  image: "/counto.png",
+  tags: [
+    "React",
+    "TailwindCSS",
+    "MongoDB",
+    "Vercel Serverless",
+    "Real-Time Sync",
+    "Aesthetic UI"
+  ],
+  githubUrl: "https://github.com/dhruvdaberao/CountDown",
+  liveUrl: "https://counto.vercel.app"
+}
+
+      
   ];
 
   return (
