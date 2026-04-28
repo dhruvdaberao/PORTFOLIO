@@ -29,7 +29,7 @@ const Publications = () => {
       date: "Accepted July 2025",
       description:
         "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3\% F1-score for skill tagging and 75\% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 (Paper ID: 703) and published on IEEE Xplore.",
-      link: "https://github.com/dhruvdaberao/resume-insight" // GitHub link from resume
+      link: "https://ieeexplore.ieee.org/document/11377312" // GitHub link from resume
     },
     {
       title: "Optimizing Federated Learning for Non-IID Data and Edge Devices",
@@ -157,7 +157,7 @@ const Publications = () => {
                           <Button variant="outline" size="sm" asChild>
                             <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
                               <ExternalLink className="h-4 w-4" />
-                              Yet To Be Published
+                              View Publication
                             </a>
                           </Button>
                         )}
