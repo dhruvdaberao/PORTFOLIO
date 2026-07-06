@@ -295,10 +295,10 @@ const Skills = () => {
                       {category.skills.map((skill, skillIndex) => (
                         <div
                           key={skillIndex}
-                          className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground border border-accent/20 rounded font-medium hover:border-accent hover:bg-accent/10 hover:text-accent transition-colors"
+                          className="px-3 py-1.5 text-xs bg-accent/10 border border-accent/40 rounded-md font-semibold shadow-sm hover:bg-accent/20 hover:border-accent transition-all duration-200 flex items-center"
                         >
-                          <span>{skill.name}</span>
-                          <span className="text-[10px] text-muted-foreground ml-1.5">({getLevelLabel(skill.level)})</span>
+                          <span className="text-foreground font-bold">{skill.name}</span>
+                          <span className="text-[10px] text-accent font-semibold ml-1.5">({getLevelLabel(skill.level)})</span>
                         </div>
                       ))}
                     </div>
