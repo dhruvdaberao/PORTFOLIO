@@ -559,7 +559,7 @@ const Projects = () => {
             <div key={project.id} className="group">
               <Card className="h-full overflow-hidden flex flex-col bg-card border border-border shadow-sm hover:shadow-md hover:border-foreground/30 transition-all duration-200 relative">
                 {project.featured && (
-                  <div className="absolute top-3 right-3 z-10 bg-background/90 text-foreground text-[10px] font-semibold px-2.5 py-1 rounded border border-border shadow-sm backdrop-blur-sm flex items-center gap-1">
+                  <div className="absolute top-3 right-3 z-10 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded border border-accent shadow-sm flex items-center gap-1">
                     ⭐ Featured
                   </div>
                 )}
@@ -576,7 +576,7 @@ const Projects = () => {
                 <CardHeader className="pb-2 pt-5 px-6">
                   <div className="flex items-center justify-between gap-2">
                     <CardTitle className="text-base font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">{project.title}</CardTitle>
-                    <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/50">{project.category}</span>
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">{project.category}</span>
                   </div>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between px-6 pb-4">

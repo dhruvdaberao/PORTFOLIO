@@ -147,14 +147,14 @@ const Publications = () => {
                   <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
                     <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-3 pt-5 px-6">
                       <div className="flex items-start gap-4 flex-1">
-                        <div className="h-10 w-10 shrink-0 rounded-lg bg-secondary border border-border flex items-center justify-center mt-0.5">
-                          <FileText className="h-5 w-5 text-foreground" />
+                        <div className="h-10 w-10 shrink-0 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mt-0.5">
+                          <FileText className="h-5 w-5 text-accent" />
                         </div>
                         <div>
                           <CardTitle className="text-base font-bold leading-snug text-foreground">{item.title}</CardTitle>
                           <div className="flex flex-wrap items-center gap-2 mt-1.5">
                             {item.badge && (
-                              <span className="inline-block px-2 py-0.5 text-[11px] font-medium rounded bg-secondary text-foreground border border-border">
+                              <span className="inline-block px-2 py-0.5 text-[11px] font-semibold rounded bg-accent/10 text-accent border border-accent/20">
                                 {item.badge}
                               </span>
                             )}
@@ -162,7 +162,7 @@ const Publications = () => {
                           </div>
                         </div>
                       </div>
-                      <div className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded border border-border shrink-0">
+                      <div className="text-xs font-semibold text-accent px-2.5 py-1 bg-accent/10 rounded border border-accent/20 shrink-0">
                         {item.date}
                       </div>
                     </CardHeader>
@@ -195,40 +195,36 @@ const Publications = () => {
 
           {certifications.length > 0 && (
             <div>
-              <h3 className="text-2xl font-bold text-center mb-8">Certifications</h3>
-              <div className="space-y-8">
+              <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-6">Industry Certifications</h3>
+              <div className="space-y-4">
                 {certifications.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="animate-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <Card>
-                      <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                        <div className="flex items-center gap-4">
-                          <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                            <Award className="h-5 w-5 text-accent" />
-                          </div>
-                          <CardTitle className="text-xl">{item.title}</CardTitle>
+                  <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+                    <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-3 pt-5 px-6">
+                      <div className="flex items-center gap-4">
+                        <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                          <Award className="h-5 w-5 text-accent" />
                         </div>
-                        <div className="mt-2 md:mt-0 text-sm text-muted-foreground px-3 py-1 bg-muted rounded-full">
-                          {item.date}
+                        <div>
+                          <CardTitle className="text-base font-bold text-foreground">{item.title}</CardTitle>
+                          <div className="text-xs font-medium text-muted-foreground mt-0.5">{item.issuer}</div>
                         </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="mb-2 font-medium">{item.issuer}</div>
-                        <p className="mb-4 text-muted-foreground">{item.description}</p>
-                        {item.certificate && (
-                          <Button variant="outline" size="sm" asChild>
-                            <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                              <Download className="h-4 w-4" />
-                              View Certificate
-                            </a>
-                          </Button>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </div>
+                      </div>
+                      <div className="mt-2 md:mt-0 text-xs font-semibold text-accent px-2.5 py-1 bg-accent/10 rounded border border-accent/20 shrink-0">
+                        {item.date}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-1 pb-5 px-6">
+                      <p className="mb-4 text-muted-foreground text-xs leading-relaxed">{item.description}</p>
+                      {item.certificate && (
+                        <Button variant="outline" size="sm" className="border-border hover:bg-secondary font-medium text-xs h-8" asChild>
+                          <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                            <Download className="h-3.5 w-3.5 text-foreground" />
+                            View Certificate
+                          </a>
+                        </Button>
+                      )}
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </div>

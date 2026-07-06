@@ -56,11 +56,11 @@ const Education = () => {
               <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
                 <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center pb-3 pt-5 px-6">
                   <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
+                    <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
                       {index === 0 ? (
-                        <GraduationCap className="h-5 w-5 text-foreground" />
+                        <GraduationCap className="h-5 w-5 text-accent" />
                       ) : (
-                        <Book className="h-5 w-5 text-foreground" />
+                        <Book className="h-5 w-5 text-accent" />
                       )}
                     </div>
                     <div>
@@ -68,7 +68,7 @@ const Education = () => {
                       <div className="text-xs font-medium text-muted-foreground mt-0.5">{item.institution}</div>
                     </div>
                   </div>
-                  <div className="mt-2 md:mt-0 text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded border border-border shrink-0">
+                  <div className="mt-2 md:mt-0 text-xs font-semibold text-accent px-2.5 py-1 bg-accent/10 rounded border border-accent/20 shrink-0">
                     {item.period}
                   </div>
                 </CardHeader>

@@ -20,8 +20,20 @@ const Hero = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center bg-background pt-24 pb-16 relative overflow-hidden">
-      {/* Sleek Fading Checkered / Grid Background Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_35%,#000_60%,transparent_100%)] opacity-70 pointer-events-none"></div>
+      {/* Sleek Fading Chessboard Checkered Background Pattern */}
+      <div 
+        className="absolute inset-0 [mask-image:radial-gradient(ellipse_65%_50%_at_50%_35%,#000_70%,transparent_100%)] opacity-80 pointer-events-none"
+        style={{
+          backgroundImage: `
+            linear-gradient(45deg, hsl(var(--foreground) / 0.04) 25%, transparent 25%, transparent 75%, hsl(var(--foreground) / 0.04) 75%),
+            linear-gradient(45deg, hsl(var(--foreground) / 0.04) 25%, transparent 25%, transparent 75%, hsl(var(--foreground) / 0.04) 75%),
+            linear-gradient(to right, hsl(var(--border) / 0.7) 1px, transparent 1px),
+            linear-gradient(to bottom, hsl(var(--border) / 0.7) 1px, transparent 1px)
+          `,
+          backgroundSize: '48px 48px, 48px 48px, 24px 24px, 24px 24px',
+          backgroundPosition: '0 0, 24px 24px, 0 0, 0 0'
+        }}
+      ></div>
       {/* Subtle Ambient Theme Accent Glow */}
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[280px] bg-accent/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
