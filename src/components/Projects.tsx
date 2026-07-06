@@ -545,8 +545,8 @@ const Projects = () => {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 rounded-md text-xs font-medium transition-all ${
                 activeTab === tab
-                  ? "bg-foreground text-background shadow-sm"
-                  : "bg-secondary/70 text-muted-foreground hover:bg-secondary hover:text-foreground border border-border/50"
+                  ? "bg-accent text-white font-semibold shadow-sm border border-accent"
+                  : "bg-card text-muted-foreground hover:bg-accent/10 hover:text-accent border border-accent/30 hover:border-accent"
               }`}
             >
               {tab}
@@ -585,7 +585,7 @@ const Projects = () => {
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-1.5 py-0.5 text-[9px] font-medium rounded bg-secondary text-secondary-foreground border border-border/40"
+                        className="px-1.5 py-0.5 text-[9px] font-medium rounded bg-accent/10 text-accent border border-accent/20"
                       >
                         {tag}
                       </span>

@@ -52,13 +52,13 @@ const Hero = () => {
 
           {/* Role Badges / Subtitle */}
           <div className="flex flex-wrap justify-center gap-2 mb-6 mt-3">
-            <span className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border">
+            <span className="px-3.5 py-1.5 text-xs font-semibold rounded-md bg-accent/10 text-accent border border-accent/40 shadow-sm hover:bg-accent/20 hover:border-accent transition-all">
               Full-Stack Engineer
             </span>
-            <span className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border">
+            <span className="px-3.5 py-1.5 text-xs font-semibold rounded-md bg-accent/10 text-accent border border-accent/40 shadow-sm hover:bg-accent/20 hover:border-accent transition-all">
               AI/ML Researcher
             </span>
-            <span className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border">
+            <span className="px-3.5 py-1.5 text-xs font-semibold rounded-md bg-accent/10 text-accent border border-accent/40 shadow-sm hover:bg-accent/20 hover:border-accent transition-all">
               4th Year IT @ PICT Pune
             </span>
           </div>
