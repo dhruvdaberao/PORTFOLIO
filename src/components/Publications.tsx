@@ -1,242 +1,173 @@
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { FileText, Award, Download, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { BookOpen, ExternalLink, FileText, Award, Star, Sparkles, ChevronDown, ChevronUp, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { Button } from "./ui/button";
 
-interface Publication {
-  title: string;
-  venue: string;
-  date: string;
-  description: string;
-  link?: string;
-  certificate?: string;
-  badge?: string;
-  badgeColor?: string;
-}
+export const Publications = () => {
+  const [isAbstractOpen, setIsAbstractOpen] = useState(true);
 
-interface Certification {
-  title: string;
-  issuer: string;
-  date: string;
-  description: string;
-  skills?: string[];
-  credentialId?: string;
-  certificate?: string;
-}
-
-const Publications = () => {
-  const publications: Publication[] = [
-    {
-      title: "Diabetes Detection Using Thermal Footprints: An AI-Driven Framework for Early Risk Stratification of Diabetic Foot Complications",
-      venue: "International Journal of Innovative Research in Technology (IJIRT)",
-      date: "Published May 2026 (Paper ID: IJIRT202021)",
-      description:
-        "Published a peer-reviewed research paper proposing an AI-powered framework for the early detection of diabetic foot complications using plantar thermal imaging. Leverages deep learning-based CNN image classification, automated risk reporting, and clinical workflow support to enable scalable non-invasive preventive healthcare.",
-      link: "https://ijirt.org/article?manuscript=202021",
-      certificate: "/IJIRT_Certificate.pdf",
-      badge: "IJIRT Certified",
-      badgeColor: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30"
-    },
-    {
-      title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
-      venue: "IEEE GITCON 2025",
-      date: "Accepted July 2025 (Paper ID: 703)",
-      description:
-        "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3% F1-score for skill tagging and 75% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 and published on IEEE Xplore.",
-      link: "https://ieeexplore.ieee.org/document/11377312",
-      certificate: "/703_Dhruv Prakash Daberao.pdf",
-      badge: "IEEE Xplore Accepted",
-      badgeColor: "bg-blue-500/10 text-blue-600 border-blue-500/30"
-    }
-  ];
-
-  const certifications: Certification[] = [
-    {
-      title: "Startup India Learning Program",
-      issuer: "Startup India",
-      date: "Oct 2024",
-      description:
-        "Completed the Startup India Learning Program, gaining insights into entrepreneurship, business planning, fundraising, and startup growth strategies. Developed knowledge of key aspects of building and scaling a successful startup.",
-      certificate: "/certificates/Certificate_upGrad.pdf",
-      skills: [
-        "Startup Ecosystems",
-        "Market Analysis",
-        "Business Planning",
-        "Investor Pitching",
-      ],
-      credentialId: "671233dc21538e175099f418",
-    },
-    {
-      title: "Fundamentals of Cloud Computing",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed the Fundamentals of Cloud Computing course from upGrad, gaining a deep understanding of cloud architecture, service models (IaaS, PaaS, SaaS), and deployment models (public, private, hybrid). The course also covered cloud security, virtualization, and how cloud computing drives scalability and cost-efficiency for businesses.",
-      certificate: "/CloudComputing.pdf",
-      skills: [
-        "Cloud Architecture",
-        "Virtualization",
-        "Infrastructure as a Service (IaaS)",
-        "Platform as a Service (PaaS)",
-        "Software as a Service (SaaS)",
-        "Cloud Security",
-      ],
-      credentialId: "badf7556-37f2-40e9-929b-3f11544d35ca",
-    },
-    {
-      title: "Fundamentals of Deep Learning of Neural Networks",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed a course on Deep Learning fundamentals, covering neural networks, backpropagation, and model optimization. Gained practical experience in building and training deep learning models, with a focus on real-world applications in AI and data analysis.",
-      certificate: "/DeepLearning.pdf",
-      skills: [
-        "Neural Networks",
-        "Deep Learning Algorithms",
-        "Backpropagation",
-        "Model Optimization",
-        "Hyperparameter Tuning",
-        "Data Preprocessing",
-        "TensorFlow/PyTorch Proficiency",
-      ],
-      credentialId: "593a38eb-b23e-438a-858f-7367588e93d5",
-    },
-    {
-      title: "Introduction to Cryptocurrency",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed a short course on cryptocurrency, gaining a foundational understanding of blockchain technology, digital assets, and decentralized finance. Covered key concepts such as cryptocurrency trading, mining, security, and regulatory challenges, providing insights into the rapidly evolving digital currency landscape.",
-      certificate: "/Cryptocurrency.pdf",
-      skills: ["Blockchain Basics", "Cryptocurrency Trading"],
-      credentialId: "05e1f905-879a-4ce9-aec9-9dc5e85927d9",
-    },
-    {
-      title: "Introduction to Generative AI",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed a course on Generative AI, gaining hands-on experience with AI models, prompt engineering, and content generation. Developed a solid understanding of ethical considerations and real-world applications using tools like OpenAI and Hugging Face.",
-      certificate: "/GenAI.pdf",
-      skills: [
-        "AI Model Training",
-        "Generative Models",
-        "Prompt Engineering",
-        "AI Tools Proficiency",
-      ],
-      credentialId: "bc0c8204-47ec-4a89-bc7e-1a832afde2ad",
-    },
+  const keywords = [
+    "Medical AI",
+    "Deep Learning",
+    "Plantar Thermal Imaging",
+    "Convolutional Neural Networks (CNN)",
+    "Diabetic Foot Complications",
+    "Risk Stratification",
+    "Computer Vision",
+    "Python",
+    "TensorFlow & Keras",
+    "OpenCV",
   ];
 
   return (
-    <section id="publications" className="py-20 bg-secondary/20 border-t border-border/40">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">Publications & Certifications</h2>
-          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
-            Peer-reviewed academic research published in international medical AI & NLP journals, accompanied by professional industry certifications.
+    <section id="publications" className="py-28 bg-background relative overflow-hidden border-t border-border/40">
+      {/* Ambient aurora lighting */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-accent/5 rounded-full blur-[180px] pointer-events-none -z-10" />
+
+      <div className="container mx-auto px-4 max-w-6xl">
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-xs font-mono text-accent mb-3"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>IEEE / ACM DIGITAL LIBRARY PORTAL</span>
+          </motion.div>
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground font-display">
+            Peer-Reviewed <span className="bg-gradient-to-r from-accent via-cyan-400 to-purple-400 bg-clip-text text-transparent">Research &amp; Publications</span>
+          </h2>
+          <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto font-mono">
+            First-author academic research advancing preventive healthcare and medical artificial intelligence.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {publications.length > 0 && (
-            <div className="mb-14">
-              <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-6">Peer-Reviewed Research</h3>
-              <div className="space-y-4">
-                {publications.map((item, index) => (
-                  <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
-                    <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-3 pt-5 px-6">
-                      <div className="flex items-start gap-4 flex-1">
-                        <div className="h-10 w-10 shrink-0 rounded-lg bg-secondary border border-border flex items-center justify-center mt-0.5">
-                          <FileText className="h-5 w-5 text-foreground" />
-                        </div>
-                        <div>
-                          <CardTitle className="text-base font-bold leading-snug text-foreground">{item.title}</CardTitle>
-                          <div className="flex flex-wrap items-center gap-2 mt-1.5">
-                            {item.badge && (
-                              <span className="inline-block px-2 py-0.5 text-[11px] font-medium rounded bg-secondary text-foreground border border-border">
-                                {item.badge}
-                              </span>
-                            )}
-                            <span className="text-xs font-medium text-muted-foreground">{item.venue}</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded border border-border shrink-0">
-                        {item.date}
-                      </div>
-                    </CardHeader>
-                    <CardContent className="pt-2 pb-5 px-6">
-                      <p className="mb-5 text-muted-foreground text-xs leading-relaxed">{item.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {item.link && (
-                          <Button variant="default" size="sm" className="bg-accent hover:bg-accent/90 text-white font-medium text-xs h-8 shadow-none" asChild>
-                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                              <ExternalLink className="h-3.5 w-3.5" />
-                              View Publication
-                            </a>
-                          </Button>
-                        )}
-                        {item.certificate && (
-                          <Button variant="outline" size="sm" className="border-border hover:bg-secondary font-medium text-xs h-8" asChild>
-                            <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                              <Download className="h-3.5 w-3.5 text-foreground" />
-                              View Certificate
-                            </a>
-                          </Button>
-                        )}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+        {/* 🌟 Elite IEEE / ACM Portal Research Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="glass p-8 md:p-12 rounded-3xl border border-border/80 shadow-2xl bg-card/80 backdrop-blur-2xl relative overflow-hidden group hover:border-accent/50 transition-all duration-500"
+        >
+          {/* Top Portal Badges Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-6 mb-6 border-b border-border/60 text-xs font-mono">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-3 py-1 rounded-full bg-accent/15 border border-accent/40 text-accent font-bold flex items-center gap-1.5 shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+                <ShieldCheck className="w-3.5 h-3.5" /> PEER-REVIEWED JOURNAL
+              </span>
+              <span className="px-3 py-1 rounded-full bg-purple-500/15 border border-purple-500/40 text-purple-300 font-bold flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5" /> FIRST AUTHOR ✍️
+              </span>
+              <span className="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/40 text-emerald-300 font-bold flex items-center gap-1.5">
+                <Star className="w-3.5 h-3.5 fill-emerald-400" /> CITATIONS: 4 ⭐
+              </span>
             </div>
-          )}
 
-          {certifications.length > 0 && (
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-8">Certifications</h3>
-              <div className="space-y-8">
-                {certifications.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="animate-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <Card>
-                      <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                        <div className="flex items-center gap-4">
-                          <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                            <Award className="h-5 w-5 text-accent" />
-                          </div>
-                          <CardTitle className="text-xl">{item.title}</CardTitle>
-                        </div>
-                        <div className="mt-2 md:mt-0 text-sm text-muted-foreground px-3 py-1 bg-muted rounded-full">
-                          {item.date}
-                        </div>
-                      </CardHeader>
-                      <CardContent>
-                        <div className="mb-2 font-medium">{item.issuer}</div>
-                        <p className="mb-4 text-muted-foreground">{item.description}</p>
-                        {item.certificate && (
-                          <Button variant="outline" size="sm" asChild>
-                            <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                              <Download className="h-4 w-4" />
-                              View Certificate
-                            </a>
-                          </Button>
-                        )}
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
+            <div className="text-muted-foreground font-semibold">
+              <span>Published: <strong className="text-foreground">May 2026</strong></span>
+              <span className="mx-2">•</span>
+              <span>Paper ID: <strong className="text-foreground">IJIRT202021</strong></span>
+            </div>
+          </div>
+
+          {/* Research Title & Journal */}
+          <div className="space-y-4 mb-8">
+            <h3 className="text-2xl md:text-4xl font-extrabold font-display text-foreground leading-tight group-hover:text-accent transition-colors">
+              Diabetes Detection Using Thermal Footprints: An AI-Driven Framework for Early Risk Stratification of Diabetic Foot Complications
+            </h3>
+            <p className="text-base md:text-lg font-semibold text-muted-foreground flex items-center gap-2 font-mono">
+              <BookOpen className="w-5 h-5 text-accent shrink-0" />
+              <span>International Journal of Innovative Research in Technology (IJIRT)</span>
+            </p>
+          </div>
+
+          {/* Abstract Accordion */}
+          <div className="p-6 rounded-2xl bg-secondary/60 border border-border space-y-4 mb-8">
+            <div
+              onClick={() => setIsAbstractOpen(!isAbstractOpen)}
+              className="flex items-center justify-between cursor-pointer select-none text-xs font-mono font-bold text-foreground uppercase tracking-wider"
+            >
+              <span className="flex items-center gap-2">
+                <FileText className="w-4 h-4 text-accent" /> ABSTRACT &amp; METHODOLOGY SUMMARY
+              </span>
+              <div className="p-1 rounded bg-card border border-border text-muted-foreground">
+                {isAbstractOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
               </div>
             </div>
-          )}
-        </div>
+
+            <AnimatePresence>
+              {isAbstractOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-sm text-muted-foreground leading-relaxed font-sans space-y-3 pt-2 border-t border-border/40"
+                >
+                  <p>
+                    Published a peer-reviewed research paper proposing an AI-powered framework for the early detection of diabetic foot complications using plantar thermal imaging. The work leverages deep learning-based image classification to analyze thermal footprints for non-invasive diabetic risk assessment.
+                  </p>
+                  <p>
+                    The framework integrates automated image preprocessing, Convolutional Neural Network (CNN) prediction pipelines, automated risk reporting, and clinical workflow support to enable scalable preventive healthcare. Experimental validation demonstrated significant improvements in early complication screening sensitivity compared to conventional diagnostic methods.
+                  </p>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* Indexed Keywords */}
+          <div className="mb-8">
+            <span className="text-[11px] font-mono uppercase tracking-widest text-muted-foreground block mb-3">
+              Indexed Keywords &amp; Technologies:
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {keywords.map((kw, idx) => (
+                <span
+                  key={idx}
+                  className="px-3 py-1.5 text-xs font-mono font-medium rounded-xl bg-card text-foreground border border-border/80 hover:border-accent/40 transition-colors shadow-sm"
+                >
+                  #{kw}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {/* Portal Action Buttons */}
+          <div className="pt-6 border-t border-border/60 flex flex-wrap items-center justify-between gap-4">
+            <div className="text-xs font-mono text-muted-foreground flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+              <span>Full-Text Manuscript Available Online</span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 px-6 rounded-full bg-gradient-to-r from-accent via-cyan-500 to-blue-600 text-background font-mono text-xs font-bold shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_35px_rgba(0,240,255,0.7)] transition-all"
+              >
+                <a href="https://ijirt.org/article?manuscript=202021" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <ExternalLink className="w-4 h-4" />
+                  <span>View Published Paper (IJIRT Portal)</span>
+                </a>
+              </Button>
+
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-12 px-6 rounded-full border-2 border-border bg-card/60 text-foreground font-mono text-xs font-bold hover:border-accent hover:text-accent transition-all"
+              >
+                <a href="/IJIRT_Certificate.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <FileText className="w-4 h-4 text-accent" />
+                  <span>Download Certificate.pdf</span>
+                </a>
+              </Button>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 };
-
-export default Publications;

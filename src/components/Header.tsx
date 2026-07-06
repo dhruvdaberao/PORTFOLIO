@@ -5,7 +5,7 @@ import { Download, Moon, Sun } from "lucide-react";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
   // Handle scroll to section
   const scrollToSection = (id: string) => {

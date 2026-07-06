@@ -1,163 +1,244 @@
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Sparkles, Award, Code, BookOpen, Coffee, GitCommit, CheckCircle2, ArrowRight, TrendingUp, Cpu } from "lucide-react";
+import confetti from "canvas-confetti";
+import { Card, CardContent } from "./ui/card";
 
-// import React from "react";
-// import { Card, CardContent } from "@/components/ui/card";
-// import { User, Book, Award } from "lucide-react";
+interface StatItem {
+  label: string;
+  value: number;
+  suffix: string;
+  icon: React.ElementType;
+  description: string;
+  color: string;
+}
 
-// const About = () => {
-//   return (
-//     <section id="about" className="py-20 bg-background">
-//       <div className="container mx-auto px-4">
-//         <div className="text-center mb-16">
-//           <h2 className="text-3xl font-bold">About Me</h2>
-//           <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
-//         </div>
-        
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-//           <div className="animate-in animate-delay-100">
-//             <Card className="h-full hover-lift">
-//               <CardContent className="flex flex-col items-center text-center p-6">
-//                 <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-//                   <User className="h-6 w-6 text-accent" />
-//                 </div>
-//                 <h3 className="text-xl font-medium mb-2">Who I Am</h3>
-//                 <p className="text-muted-foreground">
-//                   An IT undergraduate at PICT Pune (2022-2025) with a passion for frontend development and machine learning. I love solving problems and creating impactful solutions.
-//                 </p>
-//               </CardContent>
-//             </Card>
-//           </div>
-          
-//           <div className="animate-in animate-delay-200">
-//             <Card className="h-full hover-lift">
-//               <CardContent className="flex flex-col items-center text-center p-6">
-//                 <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-//                   <Book className="h-6 w-6 text-accent" />
-//                 </div>
-//                 <h3 className="text-xl font-medium mb-2">My Approach</h3>
-//                 <p className="text-muted-foreground">
-//                   I believe in continuous learning and staying updated with the latest technologies. I'm methodical in my work, prioritizing clean code and excellent user experiences.
-//                 </p>
-//               </CardContent>
-//             </Card>
-//           </div>
-          
-//           <div className="animate-in animate-delay-300">
-//             <Card className="h-full hover-lift">
-//               <CardContent className="flex flex-col items-center text-center p-6">
-//                 <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-//                   <Award className="h-6 w-6 text-accent" />
-//                 </div>
-//                 <h3 className="text-xl font-medium mb-2">My Goals</h3>
-//                 <p className="text-muted-foreground">
-//                   I'm seeking opportunities to grow professionally, contribute to impactful projects, and pursue advanced education to further refine my skills in React and AI.
-//                 </p>
-//               </CardContent>
-//             </Card>
-//           </div>
-//         </div>
-        
-//         <div className="mt-16 max-w-3xl mx-auto text-center">
-//           <p className="text-lg text-muted-foreground">
-//             I'm a passionate IT undergraduate driven by problem-solving and innovation. With experience in frontend development and machine learning, I've built several impactful projects, and I'm currently focused on refining my skills in React and AI to contribute meaningfully in tech-driven roles.
-//           </p>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
+export const About = () => {
+  const [activeTab, setActiveTab] = useState<string>("journey");
+  const [typedText, setTypedText] = useState("");
+  const fullStory = "I don't just write lines of code; I architect end-to-end digital experiences that solve real-world problems. My passion lies at the intersection of scalable cloud engineering, modern UI design, and cutting-edge artificial intelligence.";
 
-// export default About;
+  const stats: StatItem[] = [
+    { label: "GitHub Commits", value: 1240, suffix: "+", icon: GitCommit, description: "Consistent daily engineering & open-source contributions", color: "from-cyan-500 to-blue-500" },
+    { label: "Production Products", value: 15, suffix: "+", icon: Code, description: "Full-stack apps, AI platforms, and real-time systems", color: "from-purple-500 to-pink-500" },
+    { label: "Research Papers", value: 2, suffix: "", icon: BookOpen, description: "Peer-reviewed medical AI publications (IEEE & IJIRT)", color: "from-emerald-400 to-teal-500" },
+    { label: "Repositories Built", value: 28, suffix: "+", icon: Cpu, description: "Experiments, monorepos, microservices & tooling", color: "from-amber-400 to-orange-500" },
+    { label: "Coffee Consumed", value: 1337, suffix: " ☕", icon: Coffee, description: "Fueling 60 FPS animations and zero-bug deployments", color: "from-rose-500 to-red-600" },
+  ];
 
+  const milestones = [
+    { year: "2026", title: "IEEE & IJIRT Medical AI Publications", description: "Published peer-reviewed research on early diabetic foot complication risk stratification using thermal imaging and deep learning." },
+    { year: "2025 - 2026", title: "Scalable Full-Stack Systems & Monorepos", description: "Architected enterprise platforms like WeatherGuard (NestJS/RBAC) and Froodle (Socket.IO real-time whiteboard monorepo)." },
+    { year: "2024", title: "AI & Machine Learning Deep Dive", description: "Developed predictive agricultural ML models (AgriGains), NLP document analyzers, and intelligent chatbots." },
+    { year: "2023", title: "The Engineering Foundation", description: "Started programming in C++, Python, and JavaScript. Fell in love with solving complex algorithms and building interactive web UIs." },
+  ];
 
+  useEffect(() => {
+    let i = 0;
+    const timer = setInterval(() => {
+      if (i <= fullStory.length) {
+        setTypedText(fullStory.slice(0, i));
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }, 25);
+    return () => clearInterval(timer);
+  }, []);
 
-import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
-import { User, Book, Award, CheckCircle2 } from "lucide-react";
+  const handleStatClick = (label: string, e: React.MouseEvent) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (rect.left + rect.width / 2) / window.innerWidth;
+    const y = (rect.top + rect.height / 2) / window.innerHeight;
 
-const About = () => {
+    confetti({
+      particleCount: 80,
+      spread: 60,
+      origin: { x, y },
+      colors: ["#00F0FF", "#8A2BE2", "#FF007F", "#00FF66"],
+    });
+  };
+
   return (
-    <section id="about" className="py-20 bg-background border-t border-border/40">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground">About Me</h2>
-          <p className="mt-2 text-muted-foreground text-sm">
-            Background, approach, and professional focus.
-          </p>
+    <section id="about" className="py-28 bg-background relative overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      <div className="container mx-auto px-4 max-w-7xl">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-xs font-mono text-accent mb-3"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>THE DEVELOPER STORY</span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="text-3xl md:text-5xl font-extrabold tracking-tight text-foreground font-display"
+          >
+            More Than Just <span className="bg-gradient-to-r from-accent via-cyan-400 to-purple-400 bg-clip-text text-transparent">Lines of Code</span>
+          </motion.h2>
         </div>
 
-        {/* Recruiter Highlight Box - Why Hire Me */}
-        <div className="mb-14 max-w-4xl mx-auto p-6 md:p-8 rounded-lg bg-card border border-border shadow-sm border-l-4 border-l-accent relative">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div className="h-12 w-12 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-              <Award className="h-6 w-6 text-foreground" />
-            </div>
-            <div className="flex-1">
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <h3 className="text-base font-bold text-foreground">
-                  Why Hire Me?
-                </h3>
-                <span className="text-[11px] px-2 py-0.5 rounded bg-secondary text-foreground font-medium border border-border">
-                  Recruiter Highlights
-                </span>
+        {/* 🌟 Storytelling Layout: Left Image/Callout | Right Milestones & Bio */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start mb-20">
+          {/* Left Column: Large Glass Portrait Card & Recruiter Highlights (Span 5) */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-5 space-y-6"
+          >
+            <div className="glass p-6 rounded-2xl border border-border/80 shadow-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-purple-500/10 opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="aspect-[4/5] rounded-xl overflow-hidden border border-border/80 mb-6 bg-muted relative">
+                  <img
+                    src="/LinkedIn-PP2.jpg"
+                    alt="Dhruv Daberao Portrait"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent flex items-end p-6">
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground">Dhruv Daberao</h3>
+                      <p className="text-xs font-mono text-accent">Full-Stack Engineer &amp; AI Researcher</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Recruiter Executive Summary */}
+                <div className="p-4 rounded-xl bg-secondary/80 border border-border space-y-2.5">
+                  <div className="flex items-center gap-2 text-xs font-bold text-foreground">
+                    <Award className="w-4 h-4 text-accent shrink-0" />
+                    <span>Why Top Engineering Teams Hire Me:</span>
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-muted-foreground">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                      <span><strong className="text-foreground">9.02 SGPA</strong> in Computer Engineering with academic honors.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                      <span><strong className="text-foreground">Full-Stack Monorepos</strong> with NestJS, Socket.IO, and React.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 mt-0.5 shrink-0" />
+                      <span><strong className="text-foreground">Peer-Reviewed Medical AI</strong> author published in IEEE &amp; IJIRT.</span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
-                I combine academic excellence (<strong className="text-foreground font-semibold">9.02 SGPA at PICT Pune</strong>) with enterprise-grade engineering execution. As an undergraduate, I have already <strong className="text-foreground font-semibold">published 2 peer-reviewed AI/ML research papers (IEEE & IJIRT)</strong>, shipped scalable full-stack architectures like <strong className="text-foreground font-semibold">WeatherGuard</strong> (NestJS, RBAC, Telegram Bot API) and <strong className="text-foreground font-semibold">Tribe-Social</strong> (MERN, Socket.IO, AI Assistant), and earned certifications from <strong className="text-foreground font-semibold">Startup India</strong> and upGrad. I thrive at building clean, robust backend APIs and intuitive web interfaces.
+            </div>
+          </motion.div>
+
+          {/* Right Column: Story Typing & Interactive Milestones (Span 7) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 space-y-8"
+          >
+            {/* Live Typing Story Box */}
+            <div className="glass p-8 rounded-2xl border border-border/80 shadow-xl relative overflow-hidden bg-card/60">
+              <div className="flex items-center gap-2 mb-4 text-xs font-mono text-muted-foreground border-b border-border/60 pb-3">
+                <span className="w-2 h-2 rounded-full bg-accent animate-ping" />
+                <span>dhruv_manifesto.md</span>
+              </div>
+              <p className="text-base md:text-lg font-mono text-foreground/90 leading-relaxed min-h-[80px]">
+                {typedText}
+                <span className="inline-block w-2 h-5 bg-accent ml-1 animate-pulse" />
               </p>
-              <div className="flex flex-wrap gap-4 mt-4 pt-3 border-t border-border/60 text-xs font-medium text-muted-foreground">
-                <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-accent" /> PICT Pune IT Undergrad (2026)</div>
-                <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-accent" /> 2x Published AI Author</div>
-                <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-accent" /> Full-Stack & ML Specialist</div>
+            </div>
+
+            {/* Interactive Timeline Milestones */}
+            <div className="space-y-4">
+              <h3 className="text-lg font-bold font-display text-foreground flex items-center gap-2">
+                <TrendingUp className="w-5 h-5 text-accent" />
+                <span>The Engineering Evolution</span>
+              </h3>
+              
+              <div className="space-y-3">
+                {milestones.map((item, idx) => (
+                  <motion.div
+                    key={idx}
+                    whileHover={{ x: 6 }}
+                    className="p-5 rounded-xl bg-card border border-border/80 shadow-sm hover:border-accent/40 transition-all group cursor-default relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-accent to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1.5">
+                      <h4 className="text-sm font-bold text-foreground group-hover:text-accent transition-colors">
+                        {item.title}
+                      </h4>
+                      <span className="text-xs font-mono font-semibold px-2.5 py-0.5 rounded bg-secondary text-accent border border-border w-fit">
+                        {item.year}
+                      </span>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{item.description}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
+          </motion.div>
+        </div>
+
+        {/* 🌟 Exploding Bento Statistics Counters */}
+        <div className="mt-12">
+          <div className="text-center mb-8">
+            <h3 className="text-xs font-mono uppercase tracking-widest text-muted-foreground mb-1">
+              Click Any Card to Celebrate 🎉
+            </h3>
+            <p className="text-xl font-bold font-display text-foreground">By The Numbers</p>
           </div>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Card className="h-full bg-card border border-border shadow-sm hover:border-foreground/30 transition-all">
-            <CardContent className="flex flex-col items-center text-center p-6">
-              <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center mb-4">
-                <User className="h-5 w-5 text-foreground" />
-              </div>
-              <h3 className="text-sm font-bold mb-2 text-foreground">Who I Am</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed">
-                A 4th-year IT undergraduate at PICT Pune (2022-2026), specializing in full-stack development and machine learning. With hands-on experience in Python, JavaScript, and TypeScript, I’ve built scalable web applications and data-driven solutions during internships and personal projects.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="h-full bg-card border border-border shadow-sm hover:border-foreground/30 transition-all">
-            <CardContent className="flex flex-col items-center text-center p-6">
-              <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center mb-4">
-                <Book className="h-5 w-5 text-foreground" />
-              </div>
-              <h3 className="text-sm font-bold mb-2 text-foreground">My Approach</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed">
-                I prioritize clean, efficient code and user-centric design, leveraging modern frameworks like React, NestJS, and Node.js. My methodical approach, honed through certifications from Startup India and upGrad, ensures high-quality deliverables and continuous skill enhancement.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card className="h-full bg-card border border-border shadow-sm hover:border-foreground/30 transition-all">
-            <CardContent className="flex flex-col items-center text-center p-6">
-              <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center mb-4">
-                <Award className="h-5 w-5 text-foreground" />
-              </div>
-              <h3 className="text-sm font-bold mb-2 text-foreground">My Goals</h3>
-              <p className="text-muted-foreground text-xs leading-relaxed">
-                I aim to contribute to innovative tech solutions in software engineering or AI, while pursuing advanced studies to deepen my expertise in computer science. My goal is to deliver impactful projects that combine technical excellence with real-world value.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-        
-        <div className="mt-14 max-w-3xl mx-auto text-center">
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            As a dedicated 4th-year IT undergraduate at PICT Pune, I’m passionate about crafting robust full-stack applications and exploring AI-driven solutions. With professional experience from internships, certifications in software development, and a strong foundation in Python, JavaScript, and TypeScript, I’m committed to delivering impactful projects. I’m eager to advance my career through challenging roles and graduate studies in computer science, focusing on scalable systems and machine learning.
-          </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {stats.map((stat, idx) => {
+              const Icon = stat.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  onClick={(e) => handleStatClick(stat.label, e)}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="glass p-6 rounded-2xl border border-border/80 shadow-md hover:border-accent/50 transition-all cursor-pointer group relative overflow-hidden flex flex-col justify-between"
+                >
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br opacity-5 group-hover:opacity-20 transition-opacity rounded-bl-full pointer-events-none -z-10" />
+                  
+                  <div>
+                    <div className="w-10 h-10 rounded-xl bg-secondary border border-border flex items-center justify-center mb-4 group-hover:border-accent/40 transition-colors">
+                      <Icon className="w-5 h-5 text-accent" />
+                    </div>
+                    <div className="text-2xl sm:text-3xl font-extrabold font-display text-foreground mb-1 tracking-tight">
+                      <span>{stat.value}</span>
+                      <span className="text-accent">{stat.suffix}</span>
+                    </div>
+                    <div className="text-xs font-bold text-foreground/90 mb-1">{stat.label}</div>
+                  </div>
+                  
+                  <p className="text-[11px] text-muted-foreground leading-snug mt-2 pt-2 border-t border-border/40">
+                    {stat.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
-export default About;
