@@ -1,348 +1,322 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Sparkles, Code2, Database, Cpu, Layers, Flame, CheckCircle2, Star, ExternalLink } from "lucide-react";
 
-interface SkillNode {
-  id: string;
+
+
+
+
+
+
+// import React from "react";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+// import { ChevronDown } from "lucide-react";
+// import { cn } from "@/lib/utils";
+
+// interface Skill {
+//   name: string;
+//   level: number; // 1-5 scale (1: Beginner, 5: Expert)
+//   description?: string;
+// }
+
+// interface SkillCategory {
+//   name: string;
+//   skills: Skill[];
+// }
+
+// const Skills = () => {
+//   const skillCategories: SkillCategory[] = [
+//     {
+//       name: "Programming Languages",
+//       skills: [
+//         { name: "Python", level: 5, description: "Web development, data processing, ML pipelines" },
+//         { name: "JavaScript", level: 4, description: "ES6+, async programming, client-side scripting" },
+//         { name: "TypeScript", level: 4, description: "Type-safe JavaScript, React development" },
+//         { name: "C++", level: 4, description: "Algorithms, data structures, performance-critical code" },
+//         { name: "Java", level: 3, description: "OOP, Android development basics" },
+//         { name: "SQL", level: 3, description: "Database queries, schema design" },
+//       ],
+//     },
+//     {
+//       name: "Frontend Development",
+//       skills: [
+//         { name: "HTML", level: 5, description: "Semantic markup, SEO optimization" },
+//         { name: "CSS", level: 5, description: "Responsive design, animations, Tailwind CSS" },
+//         { name: "React.js", level: 4, description: "Hooks, state management, component architecture" },
+//         { name: "Tailwind CSS", level: 4, description: "Utility-first styling, rapid prototyping" },
+//         { name: "Next.js", level: 3, description: "Server-side rendering, static site generation" },
+//       ],
+//     },
+//     {
+//       name: "Backend & Databases",
+//       skills: [
+//         { name: "Node.js", level: 4, description: "API development, server-side logic" },
+//         { name: "Express.js", level: 4, description: "RESTful APIs, middleware" },
+//         { name: "Flask", level: 4, description: "Python web apps, Therapy-Cat backend" },
+//         { name: "MongoDB", level: 3, description: "NoSQL, document-based databases" },
+//         { name: "Firebase", level: 3, description: "Authentication, real-time databases" },
+//         { name: "PostgreSQL", level: 3, description: "Relational database management" },
+//       ],
+//     },
+//     {
+//       name: "Machine Learning / Data Science",
+//       skills: [
+//         { name: "scikit-learn", level: 4, description: "Machine learning models, hyperparameter tuning" },
+//         { name: "pandas", level: 4, description: "Data analysis, manipulation" },
+//         { name: "NumPy", level: 4, description: "Numerical computations, array operations" },
+//         { name: "TensorFlow", level: 3, description: "Neural networks, deep learning basics" },
+//         { name: "Matplotlib", level: 3, description: "Data visualization, plotting" },
+//         { name: "Seaborn", level: 3, description: "Statistical data visualization" },
+//       ],
+//     },
+//     {
+//       name: "Tools & Platforms",
+//       skills: [
+//         { name: "Git", level: 4, description: "Version control, branching, GitHub workflows" },
+//         { name: "GitHub", level: 4, description: "CI/CD, repository management" },
+//         { name: "VS Code", level: 5, description: "Development environment, extensions" },
+//         { name: "Docker", level: 3, description: "Containerization, deployment" },
+//         { name: "Vercel", level: 3, description: "Frontend deployment, serverless functions" },
+//         { name: "AWS", level: 2, description: "Cloud basics, S3, EC2" },
+//       ],
+//     },
+//     {
+//       name: "Soft Skills",
+//       skills: [
+//         { name: "Communication", level: 5, description: "Technical writing, presentations" },
+//         { name: "Teamwork", level: 5, description: "Collaboration, agile methodologies" },
+//         { name: "Problem-Solving", level: 5, description: "Analytical thinking, debugging" },
+//         { name: "Time Management", level: 4, description: "Project planning, prioritization" },
+//         { name: "Leadership", level: 4, description: "Team coordination, mentorship" },
+//       ],
+//     },
+//   ];
+
+//   const getLevelLabel = (level: number): string => {
+//     switch (level) {
+//       case 1: return "Beginner";
+//       case 2: return "Elementary";
+//       case 3: return "Intermediate";
+//       case 4: return "Advanced";
+//       case 5: return "Expert";
+//       default: return "Intermediate";
+//     }
+//   };
+
+//   return (
+//     <section id="skills" className="py-20 bg-background">
+//       <div className="container mx-auto px-4">
+//         <div className="text-center mb-12">
+//           <h2 className="text-3xl font-bold text-foreground">🛠 My Tech Stack & Strengths</h2>
+//           <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
+//           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+//             A comprehensive set of skills honed through academic projects, internships, and real-world applications
+//           </p>
+//         </div>
+
+//         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3 max-w-7xl mx-auto">
+//           {skillCategories.map((category, categoryIndex) => (
+//             <Card key={categoryIndex} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+//               <Collapsible defaultOpen={true}>
+//                 <CollapsibleTrigger className="w-full">
+//                   <CardHeader className="flex flex-row items-center justify-between pb-2">
+//                     <CardTitle className="text-xl text-foreground">{category.name}</CardTitle>
+//                     <ChevronDown className="h-5 w-5 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
+//                   </CardHeader>
+//                 </CollapsibleTrigger>
+                
+//                 <CollapsibleContent>
+//                   <CardContent className="pt-2">
+//                     <div className="flex flex-wrap gap-2">
+//                       {category.skills.map((skill, skillIndex) => (
+//                         <div
+//                           key={skillIndex}
+//                           className="px-3 py-1.5 text-sm bg-accent text-white rounded-full hover:bg-accent/80 transition-colors duration-200"
+//                         >
+//                           <span className="font-medium">{skill.name}</span>
+//                           <span className="text-xs text-white/70 ml-2">({getLevelLabel(skill.level)})</span>
+//                         </div>
+//                       ))}
+//                     </div>
+//                   </CardContent>
+//                 </CollapsibleContent>
+//               </Collapsible>
+//             </Card>
+//           ))}
+//         </div>
+
+//         <div className="mt-12 max-w-3xl mx-auto text-center">
+//           <p className="text-lg text-muted-foreground">
+//             Continuously learning and adapting to new technologies to build impactful solutions.
+//           </p>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Skills;
+
+
+
+
+
+
+// Updated Skills component with additional skills
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ChevronDown } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+interface Skill {
   name: string;
-  category: string;
-  experience: string;
-  confidence: number;
-  level: string;
-  projects: string[];
-  description: string;
-  orbitRadius: number;
-  orbitDuration: number;
-  angle: number;
-  color: string;
+  level: number;
+  description?: string;
 }
 
-export const Skills = () => {
-  const [selectedSkill, setSelectedSkill] = useState<SkillNode | null>(null);
+interface SkillCategory {
+  name: string;
+  skills: Skill[];
+}
 
-  const skills: SkillNode[] = [
+const Skills = () => {
+  const skillCategories: SkillCategory[] = [
     {
-      id: "react",
-      name: "React 18",
-      category: "Frontend Core",
-      experience: "3+ Years",
-      confidence: 98,
-      level: "Expert",
-      projects: ["Froodle", "WeatherGuard", "Tribe-Social", "Counto"],
-      description: "Building responsive, highly interactive SPAs and monorepos with custom Hooks, Context API, and state management.",
-      orbitRadius: 130,
-      orbitDuration: 18,
-      angle: 0,
-      color: "#00F0FF",
+      name: "Programming Languages",
+      skills: [
+        { name: "Python", level: 5, description: "Web development, data processing, ML pipelines" },
+        { name: "JavaScript", level: 4, description: "ES6+, async programming, client-side scripting" },
+        { name: "TypeScript", level: 4, description: "Type-safe JavaScript, React development" },
+        { name: "C++", level: 4, description: "Algorithms, data structures, performance-critical code" },
+        { name: "Java", level: 3, description: "OOP, Android development basics" },
+        { name: "SQL", level: 3, description: "Database queries, schema design" },
+        { name: "Bash / Shell Scripting", level: 3, description: "Automation, server management" },
+      ],
     },
     {
-      id: "ts",
-      name: "TypeScript",
-      category: "Language",
-      experience: "2.5+ Years",
-      confidence: 94,
-      level: "Expert",
-      projects: ["Froodle", "WeatherGuard", "AI Cert Verifier"],
-      description: "Enforcing strict type safety, interfaces, and generics across enterprise frontend and backend codebases.",
-      orbitRadius: 130,
-      orbitDuration: 18,
-      angle: 120,
-      color: "#3178C6",
+      name: "Frontend Development",
+      skills: [
+        { name: "HTML", level: 5, description: "Semantic markup, SEO optimization" },
+        { name: "CSS", level: 5, description: "Responsive design, animations, Tailwind CSS" },
+        { name: "React.js", level: 4, description: "Hooks, component architecture" },
+        { name: "Tailwind CSS", level: 4, description: "Utility-first styling, rapid prototyping" },
+        { name: "Next.js", level: 3, description: "SSR, SSG, API routes" },
+        { name: "Redux Toolkit", level: 3, description: "State management" },
+        { name: "Framer Motion", level: 3, description: "Animations, UI transitions" },
+      ],
     },
     {
-      id: "node",
-      name: "Node.js",
-      category: "Backend Core",
-      experience: "3+ Years",
-      confidence: 95,
-      level: "Expert",
-      projects: ["Froodle", "Tribe-Social", "Resume Insight"],
-      description: "Architecting asynchronous event-driven backend services, REST APIs, and microservices.",
-      orbitRadius: 130,
-      orbitDuration: 18,
-      angle: 240,
-      color: "#539E43",
+      name: "Backend & Databases",
+      skills: [
+        { name: "Node.js", level: 4, description: "API development, server-side logic" },
+        { name: "Express.js", level: 4, description: "REST APIs, middleware" },
+        { name: "Flask", level: 4, description: "Python backend, ML model serving" },
+        { name: "MongoDB", level: 3, description: "NoSQL database" },
+        { name: "Firebase", level: 3, description: "Auth, Firestore, hosting" },
+        { name: "PostgreSQL", level: 3, description: "Relational DBMS" },
+        { name: "WebSockets", level: 3, description: "Real-time communication" },
+        { name: "REST API Design", level: 4, description: "Clean architecture, scalable endpoints" },
+      ],
     },
     {
-      id: "nestjs",
-      name: "NestJS",
-      category: "Enterprise Backend",
-      experience: "2+ Years",
-      confidence: 90,
-      level: "Advanced",
-      projects: ["WeatherGuard"],
-      description: "Developing scalable, modular backend architectures using decorators, dependency injection, and strict validation.",
-      orbitRadius: 220,
-      orbitDuration: 26,
-      angle: 45,
-      color: "#E0234E",
+      name: "Machine Learning / Data Science",
+      skills: [
+        { name: "scikit-learn", level: 4, description: "ML models, training pipelines" },
+        { name: "pandas", level: 4, description: "Data analysis" },
+        { name: "NumPy", level: 4, description: "Numerical operations" },
+        { name: "TensorFlow", level: 3, description: "Neural networks" },
+        { name: "Matplotlib", level: 3, description: "Plotting" },
+        { name: "Seaborn", level: 3, description: "Statistical visualization" },
+        { name: "OpenCV", level: 3, description: "Computer vision basics" },
+        { name: "Data Cleaning / Preprocessing", level: 4, description: "ETL operations" },
+      ],
     },
     {
-      id: "python",
-      name: "Python 3",
-      category: "AI & ML",
-      experience: "3+ Years",
-      confidence: 95,
-      level: "Expert",
-      projects: ["AgriGains", "Diabetic Foot Research", "BrandPulse"],
-      description: "Scientific computing, predictive machine learning pipelines, data processing, and automation scripting.",
-      orbitRadius: 220,
-      orbitDuration: 26,
-      angle: 135,
-      color: "#FFD43B",
+      name: "Tools & Platforms",
+      skills: [
+        { name: "Git", level: 4, description: "Version control" },
+        { name: "GitHub", level: 4, description: "Repos, CI/CD" },
+        { name: "VS Code", level: 5, description: "Extensions, debugging" },
+        { name: "Docker", level: 3, description: "Containerization" },
+        { name: "Vercel", level: 4, description: "Next.js deployment" },
+        { name: "Render", level: 3, description: "Backend hosting" },
+        { name: "Postman", level: 4, description: "API testing" },
+        { name: "Jira", level: 3, description: "Agile project management" },
+      ],
     },
     {
-      id: "tensorflow",
-      name: "TensorFlow & Keras",
-      category: "Deep Learning",
-      experience: "2+ Years",
-      confidence: 88,
-      level: "Advanced",
-      projects: ["Diabetic Foot Complications Paper (IEEE/IJIRT)", "AgriGains"],
-      description: "Training and evaluating deep Convolutional Neural Networks (CNNs) for medical image classification.",
-      orbitRadius: 220,
-      orbitDuration: 26,
-      angle: 225,
-      color: "#FF6F00",
-    },
-    {
-      id: "mongodb",
-      name: "MongoDB",
-      category: "Database",
-      experience: "3+ Years",
-      confidence: 92,
-      level: "Expert",
-      projects: ["Froodle", "WeatherGuard", "Tribe-Social", "Counto"],
-      description: "Designing high-throughput NoSQL schemas, aggregation pipelines, and cloud database indexing on Atlas.",
-      orbitRadius: 220,
-      orbitDuration: 26,
-      angle: 315,
-      color: "#47A248",
-    },
-    {
-      id: "socketio",
-      name: "Socket.IO",
-      category: "Realtime Sync",
-      experience: "2+ Years",
-      confidence: 92,
-      level: "Expert",
-      projects: ["Froodle", "Tribe-Social", "Counto"],
-      description: "Implementing bi-directional WebSocket communication for live collaborative whiteboards and chat systems.",
-      orbitRadius: 300,
-      orbitDuration: 34,
-      angle: 20,
-      color: "#010101",
-    },
-    {
-      id: "tailwind",
-      name: "TailwindCSS",
-      category: "UI & Styling",
-      experience: "3+ Years",
-      confidence: 98,
-      level: "Master",
-      projects: ["Portfolio", "WeatherGuard", "Counto"],
-      description: "Crafting bespoke, award-winning glassmorphism interfaces, aurora gradients, and responsive layouts.",
-      orbitRadius: 300,
-      orbitDuration: 34,
-      angle: 110,
-      color: "#38B2AC",
-    },
-    {
-      id: "opencv",
-      name: "OpenCV",
-      category: "Computer Vision",
-      experience: "2+ Years",
-      confidence: 85,
-      level: "Advanced",
-      projects: ["Diabetic Foot Complications Paper (IEEE/IJIRT)"],
-      description: "Processing thermal plantar foot images, feature extraction, and noise filtering for clinical AI diagnosis.",
-      orbitRadius: 300,
-      orbitDuration: 34,
-      angle: 200,
-      color: "#5C2D91",
-    },
-    {
-      id: "nextjs",
-      name: "Next.js & Vite",
-      category: "Modern Tooling",
-      experience: "2.5+ Years",
-      confidence: 90,
-      level: "Advanced",
-      projects: ["Portfolio", "Froodle"],
-      description: "Optimizing bundle splitting, server-side rendering, and ultra-fast hot module replacement.",
-      orbitRadius: 300,
-      orbitDuration: 34,
-      angle: 290,
-      color: "#000000",
+      name: "Soft Skills",
+      skills: [
+        { name: "Communication", level: 5, description: "Technical writing, clarity" },
+        { name: "Teamwork", level: 5, description: "Collaboration" },
+        { name: "Problem-Solving", level: 5, description: "Debugging, logical thinking" },
+        { name: "Time Management", level: 4, description: "Planning, prioritizing" },
+        { name: "Leadership", level: 4, description: "Team handling, guidance" },
+        { name: "Adaptability", level: 5, description: "Learning new tech quickly" },
+        { name: "Creativity", level: 4, description: "Design thinking, UI ideas" },
+      ],
     },
   ];
 
-  return (
-    <section id="skills" className="py-28 bg-background relative overflow-hidden">
-      {/* Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] bg-accent/5 rounded-full blur-[180px] pointer-events-none -z-10" />
+  const getLevelLabel = (level: number): string => {
+    switch (level) {
+      case 1: return "Beginner";
+      case 2: return "Elementary";
+      case 3: return "Intermediate";
+      case 4: return "Advanced";
+      case 5: return "Expert";
+      default: return "Intermediate";
+    }
+  };
 
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary border border-border text-xs font-mono text-accent mb-3"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>INTERACTIVE PLANETARY CONSTELLATION</span>
-          </motion.div>
-          <h2 className="text-3xl md:text-6xl font-extrabold tracking-tight text-foreground font-display">
-            The <span className="bg-gradient-to-r from-accent via-cyan-400 to-purple-400 bg-clip-text text-transparent">Orbital Skills System</span>
-          </h2>
-          <p className="mt-3 text-sm text-muted-foreground max-w-xl mx-auto font-mono">
-            Click any orbiting planetary skill node below to inspect real-world production experience and codebase metrics.
+  return (
+    <section id="skills" className="py-20 bg-background border-t border-border/40">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Technical Skills & Strengths</h2>
+          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
+            A comprehensive set of skills honed through academic projects, internships, and real-world engineering applications.
           </p>
         </div>
 
-        {/* 🌟 Animated Orbital Constellation Canvas */}
-        <div className="relative w-full h-[550px] md:h-[650px] flex items-center justify-center my-10 overflow-hidden bg-card/20 rounded-3xl border border-border/60 backdrop-blur-md shadow-inner">
-          {/* Orbital Rings */}
-          <div className="absolute w-[260px] h-[260px] rounded-full border border-border/60 border-dashed animate-spin" style={{ animationDuration: "60s" }} />
-          <div className="absolute w-[440px] h-[440px] rounded-full border border-border/50 border-dashed animate-spin" style={{ animationDuration: "90s", animationDirection: "reverse" }} />
-          <div className="absolute w-[600px] h-[600px] rounded-full border border-border/40 border-dashed animate-spin" style={{ animationDuration: "120s" }} />
-
-          {/* Central Glowing Core */}
-          <motion.div
-            className="relative z-20 w-28 h-28 md:w-36 md:h-36 rounded-full bg-gradient-to-tr from-accent via-purple-600 to-pink-500 p-1 shadow-[0_0_50px_rgba(0,240,255,0.4)] flex items-center justify-center text-center cursor-pointer group"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            onClick={() => setSelectedSkill(null)}
-          >
-            <div className="w-full h-full rounded-full bg-background flex flex-col items-center justify-center p-3">
-              <Cpu className="w-7 h-7 text-accent mb-1 group-hover:rotate-12 transition-transform" />
-              <span className="text-[11px] font-display font-extrabold text-foreground leading-tight">DHRUV&apos;S CORE</span>
-              <span className="text-[9px] font-mono text-accent">Full Stack + AI</span>
-            </div>
-          </motion.div>
-
-          {/* Orbiting Planetary Nodes */}
-          {skills.map((skill) => {
-            const isSelected = selectedSkill?.id === skill.id;
-            return (
-              <motion.div
-                key={skill.id}
-                className="absolute z-30 cursor-pointer group"
-                initial={{
-                  x: Math.cos((skill.angle * Math.PI) / 180) * (window.innerWidth < 768 ? skill.orbitRadius * 0.65 : skill.orbitRadius),
-                  y: Math.sin((skill.angle * Math.PI) / 180) * (window.innerWidth < 768 ? skill.orbitRadius * 0.65 : skill.orbitRadius),
-                }}
-                animate={{
-                  x: Math.cos((skill.angle * Math.PI) / 180) * (window.innerWidth < 768 ? skill.orbitRadius * 0.65 : skill.orbitRadius),
-                  y: Math.sin((skill.angle * Math.PI) / 180) * (window.innerWidth < 768 ? skill.orbitRadius * 0.65 : skill.orbitRadius),
-                  scale: isSelected ? 1.3 : 1,
-                }}
-                transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                onClick={() => setSelectedSkill(skill)}
-                whileHover={{ scale: 1.2, zIndex: 50 }}
-              >
-                <div
-                  className={`px-3 py-1.5 rounded-full backdrop-blur-xl border flex items-center gap-1.5 shadow-lg transition-all duration-300 ${
-                    isSelected
-                      ? "bg-accent text-background font-bold border-accent shadow-[0_0_20px_rgba(0,240,255,0.8)] scale-110"
-                      : "bg-card/90 text-foreground border-border/80 hover:border-accent group-hover:shadow-[0_0_15px_rgba(0,240,255,0.4)]"
-                  }`}
-                >
-                  <span className="w-2 h-2 rounded-full" style={{ backgroundColor: skill.color }} />
-                  <span className="text-xs font-mono font-bold whitespace-nowrap">{skill.name}</span>
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* 🌟 Selected Skill Inspector Box (Or Default Prompt) */}
-        <div className="min-h-[220px]">
-          <AnimatePresence mode="wait">
-            {selectedSkill ? (
-              <motion.div
-                key={selectedSkill.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="glass p-8 rounded-3xl border border-accent/60 shadow-2xl bg-card/80 backdrop-blur-2xl relative overflow-hidden"
-              >
-                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-bl-full pointer-events-none -z-10 blur-2xl" />
-
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                  <div className="md:col-span-6 space-y-3">
-                    <div className="flex items-center gap-2">
-                      <span className="px-3 py-1 rounded-full bg-secondary text-xs font-mono text-accent font-bold border border-border">
-                        {selectedSkill.category}
-                      </span>
-                      <span className="text-xs font-mono text-muted-foreground font-semibold">
-                        Experience: {selectedSkill.experience}
-                      </span>
-                    </div>
-
-                    <h3 className="text-3xl font-extrabold font-display text-foreground flex items-center gap-3">
-                      <span>{selectedSkill.name}</span>
-                      <span className="text-sm font-mono font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                        {selectedSkill.level} ({selectedSkill.confidence}%)
-                      </span>
-                    </h3>
-
-                    <p className="text-sm text-muted-foreground leading-relaxed font-sans">
-                      {selectedSkill.description}
-                    </p>
-                  </div>
-
-                  <div className="md:col-span-6 bg-secondary/60 p-6 rounded-2xl border border-border space-y-4">
-                    <div className="flex items-center justify-between text-xs font-mono text-foreground font-bold border-b border-border/60 pb-2">
-                      <span className="flex items-center gap-1.5">
-                        <Flame className="w-4 h-4 text-orange-400" /> Shipped Production Projects:
-                      </span>
-                      <span className="text-accent">{selectedSkill.projects.length} Built</span>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {selectedSkill.projects.map((proj, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1.5 rounded-xl bg-card border border-border text-xs font-mono font-semibold text-foreground flex items-center gap-1.5 shadow-sm"
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3 max-w-7xl mx-auto">
+          {skillCategories.map((category, categoryIndex) => (
+            <Card key={categoryIndex} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Collapsible defaultOpen={true}>
+                <CollapsibleTrigger className="w-full">
+                  <CardHeader className="flex flex-row items-center justify-between pb-3 pt-5 px-6">
+                    <CardTitle className="text-base font-bold text-foreground">{category.name}</CardTitle>
+                    <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                  </CardHeader>
+                </CollapsibleTrigger>
+                
+                <CollapsibleContent>
+                  <CardContent className="pt-0 pb-6 px-6">
+                    <div className="flex flex-wrap gap-1.5">
+                      {category.skills.map((skill, skillIndex) => (
+                        <div
+                          key={skillIndex}
+                          className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground border border-border/60 rounded font-medium hover:border-foreground/40 transition-colors"
                         >
-                          <CheckCircle2 className="w-3.5 h-3.5 text-accent" />
-                          <span>{proj}</span>
-                        </span>
+                          <span>{skill.name}</span>
+                          <span className="text-[10px] text-muted-foreground ml-1.5">({getLevelLabel(skill.level)})</span>
+                        </div>
                       ))}
                     </div>
+                  </CardContent>
+                </CollapsibleContent>
+              </Collapsible>
+            </Card>
+          ))}
+        </div>
 
-                    <div className="w-full bg-background h-2 rounded-full overflow-hidden border border-border/40 mt-3">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        animate={{ width: `${selectedSkill.confidence}%` }}
-                        transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="h-full bg-gradient-to-r from-accent via-purple-500 to-pink-500 rounded-full"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="glass p-8 rounded-3xl border border-border/80 shadow-md text-center bg-card/40 flex flex-col items-center justify-center space-y-3"
-              >
-                <Cpu className="w-10 h-10 text-accent animate-pulse" />
-                <h3 className="text-xl font-bold font-display text-foreground">
-                  Select a Skill Node above to Inspect Telemetry
-                </h3>
-                <p className="text-xs font-mono text-muted-foreground max-w-md">
-                  Explore my 10+ core technologies spanning frontend frameworks, enterprise backend systems, NoSQL databases, and deep learning AI models.
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <div className="mt-14 max-w-3xl mx-auto text-center">
+          <p className="text-sm text-muted-foreground font-medium">
+            Continuously learning and adapting to new technologies to build scalable, impactful software solutions.
+          </p>
         </div>
       </div>
     </section>
   );
 };
+
+export default Skills;

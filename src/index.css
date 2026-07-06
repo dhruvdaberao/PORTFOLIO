@@ -37,33 +37,33 @@
   }
 
   .dark {
-    --background: 230 25% 5%; /* Deep Black #090A0F */
+    --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
 
-    --card: 222 35% 8%; /* Rich Navy #0E1424 */
+    --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 35% 8%;
+    --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 185 100% 50%; /* Electric Cyan */
-    --primary-foreground: 222 84% 5%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
 
-    --secondary: 222 30% 14%;
+    --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 30% 14%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 185 100% 50%; /* Electric Cyan */
-    --accent-foreground: 222 84% 5%;
+    --accent: 170 75% 41%;
+    --accent-foreground: 210 40% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 25% 18%;
-    --input: 222 25% 18%;
-    --ring: 185 100% 50%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 174 76% 31%;
   }
 }
 
@@ -73,9 +73,9 @@
   }
 
   body {
-    @apply bg-background text-foreground selection:bg-accent/30 selection:text-accent;
+    @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
-    font-family: 'Inter', 'Space Grotesk', 'Poppins', sans-serif;
+    font-family: 'Inter', 'Poppins', sans-serif;
   }
 
   html {
@@ -100,69 +100,42 @@
     }
   }
   
-  .animate-delay-100 { animation-delay: 100ms; }
-  .animate-delay-200 { animation-delay: 200ms; }
-  .animate-delay-300 { animation-delay: 300ms; }
-  .animate-delay-400 { animation-delay: 400ms; }
-  .animate-delay-500 { animation-delay: 500ms; }
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
   
   .hover-lift {
-    @apply transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/5;
+    @apply transition-transform duration-300;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-5px);
   }
 
+  /* Custom animations for elements */
   .story-link {
     @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
   
+  /* Glass effect styling */
   .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-border/80 shadow-2xl;
-  }
-
-  /* Aurora & Cinematic Animations */
-  @keyframes aurora-1 {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.4; }
-    50% { transform: translate(50px, -30px) scale(1.15); opacity: 0.7; }
-  }
-
-  @keyframes aurora-2 {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-    50% { transform: translate(-40px, 40px) scale(1.2); opacity: 0.6; }
-  }
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(3deg); }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.05); }
-  }
-
-  .animate-aurora-1 { animation: aurora-1 12s ease-in-out infinite; }
-  .animate-aurora-2 { animation: aurora-2 15s ease-in-out infinite reverse; }
-  .animate-float { animation: float 6s ease-in-out infinite; }
-  .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
-
-  /* Gradient border glow */
-  .gradient-border {
-    position: relative;
-    background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-    background-clip: padding-box;
-    border: 1px solid transparent;
-  }
-  .gradient-border::after {
-    content: '';
-    position: absolute;
-    top: -1px; bottom: -1px; left: -1px; right: -1px;
-    background: linear-gradient(135deg, rgba(0,240,255,0.4), rgba(138,43,226,0.4), rgba(255,0,127,0.4));
-    z-index: -1;
-    border-radius: inherit;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  .gradient-border:hover::after {
-    opacity: 1;
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl;
   }
 }
 
