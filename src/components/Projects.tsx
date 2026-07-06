@@ -355,6 +355,17 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      id: 16,
+      title: "Keshvi Crafts",
+      description: "A premium e-commerce platform designed to showcase and sell handcrafted crochet items and artisanal products. Features a dynamic JSON catalog, global cart & wishlist, secure Supabase auth, verified reviews with dynamic ratings, multi-step guided checkout, and an admin dashboard for order management.",
+      image: "/keshvi-crafts.png",
+      tags: ["Next.js 14", "React 18", "Supabase", "Tailwind CSS", "PostgreSQL", "E-Commerce", "Admin Dashboard"],
+      githubUrl: "https://github.com/dhruvdaberao/keshvicrafts",
+      liveUrl: "https://keshvicrafts.vercel.app/",
+      featured: true,
+      category: "Full-Stack"
+    },
+    {
       id: 15,
       title: "Froodle",
       description: "A scalable, real-time collaborative whiteboard platform built with a modern monorepo architecture. Features low-latency drawing synchronization via Socket.IO, live chat, room-based collaboration, freehand sketching, infinite canvas with pan/zoom, JWT/OTP auth, guest sessions, and Cloudinary media handling.",
