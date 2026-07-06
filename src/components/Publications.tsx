@@ -9,6 +9,9 @@ interface Publication {
   date: string;
   description: string;
   link?: string;
+  certificate?: string;
+  badge?: string;
+  badgeColor?: string;
 }
 
 interface Certification {
@@ -24,21 +27,27 @@ interface Certification {
 const Publications = () => {
   const publications: Publication[] = [
     {
-      title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
-      venue: "IEEE GITCON 2025",
-      date: "Accepted July 2025",
+      title: "Diabetes Detection Using Thermal Footprints: An AI-Driven Framework for Early Risk Stratification of Diabetic Foot Complications",
+      venue: "International Journal of Innovative Research in Technology (IJIRT)",
+      date: "Published May 2026 (Paper ID: IJIRT202021)",
       description:
-        "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3\% F1-score for skill tagging and 75\% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 (Paper ID: 703) and published on IEEE Xplore.",
-      link: "https://ieeexplore.ieee.org/document/11377312" // GitHub link from resume
+        "Published a peer-reviewed research paper proposing an AI-powered framework for the early detection of diabetic foot complications using plantar thermal imaging. Leverages deep learning-based CNN image classification, automated risk reporting, and clinical workflow support to enable scalable non-invasive preventive healthcare.",
+      link: "https://ijirt.org/article?manuscript=202021",
+      certificate: "/IJIRT_Certificate.pdf",
+      badge: "IJIRT Certified",
+      badgeColor: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30"
     },
     {
-      title: "Optimizing Federated Learning for Non-IID Data and Edge Devices",
-      venue: "In Progress",
-      date: "Ongoing",
+      title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
+      venue: "IEEE GITCON 2025",
+      date: "Accepted July 2025 (Paper ID: 703)",
       description:
-        "Researching federated learning techniques to enable optimized, privacy-preserving machine learning on decentralized datasets. Exploring optimization algorithms, model aggregation, and secure communication protocols to enhance scalability and robustness in real-world applications.",
-      link: "#" // Replace with actual link when available
-    },
+        "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3% F1-score for skill tagging and 75% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 and published on IEEE Xplore.",
+      link: "https://ieeexplore.ieee.org/document/11377312",
+      certificate: "/703_Dhruv Prakash Daberao.pdf",
+      badge: "IEEE Xplore Accepted",
+      badgeColor: "bg-blue-500/10 text-blue-600 border-blue-500/30"
+    }
   ];
 
   const certifications: Certification[] = [
@@ -123,14 +132,17 @@ const Publications = () => {
     <section id="publications" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold">Publications & Certifications</h2>
-          <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
+          <h2 className="text-4xl font-bold text-foreground">Publications & Certifications</h2>
+          <div className="mt-3 h-1 w-24 bg-accent mx-auto"></div>
+          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+            Peer-reviewed academic research published in international medical AI & NLP journals, accompanied by professional industry certifications.
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           {publications.length > 0 && (
             <div className="mb-16">
-              <h3 className="text-2xl font-bold text-center mb-8">Publications</h3>
+              <h3 className="text-2xl font-bold text-center mb-8 text-foreground">Peer-Reviewed Research</h3>
               <div className="space-y-8">
                 {publications.map((item, index) => (
                   <div 
@@ -138,29 +150,48 @@ const Publications = () => {
                     className="animate-in"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <Card>
-                      <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                        <div className="flex items-center gap-4">
-                          <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                            <FileText className="h-5 w-5 text-accent" />
+                    <Card className="bg-card/90 backdrop-blur-md border border-border/60 shadow-lg hover:shadow-xl hover:border-accent/40 transition-all duration-300">
+                      <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="h-12 w-12 shrink-0 rounded-2xl bg-accent/10 flex items-center justify-center mt-1">
+                            <FileText className="h-6 w-6 text-accent" />
                           </div>
-                          <CardTitle className="text-xl">{item.title}</CardTitle>
+                          <div>
+                            <CardTitle className="text-xl font-bold leading-snug">{item.title}</CardTitle>
+                            <div className="flex flex-wrap items-center gap-2 mt-2">
+                              {item.badge && (
+                                <span className={`inline-block px-3 py-0.5 text-xs font-bold rounded-full border ${item.badgeColor || 'bg-accent/10 text-accent'}`}>
+                                  {item.badge}
+                                </span>
+                              )}
+                              <span className="text-sm font-semibold text-muted-foreground">{item.venue}</span>
+                            </div>
+                          </div>
                         </div>
-                        <div className="mt-2 md:mt-0 text-sm text-muted-foreground px-3 py-1 bg-muted rounded-full">
+                        <div className="text-xs font-semibold text-muted-foreground px-3.5 py-1.5 bg-muted rounded-full shrink-0">
                           {item.date}
                         </div>
                       </CardHeader>
-                      <CardContent>
-                        <div className="mb-2 font-medium">{item.venue}</div>
-                        <p className="mb-4 text-muted-foreground">{item.description}</p>
-                        {item.link && (
-                          <Button variant="outline" size="sm" asChild>
-                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                              <ExternalLink className="h-4 w-4" />
-                              View Publication
-                            </a>
-                          </Button>
-                        )}
+                      <CardContent className="pt-2">
+                        <p className="mb-6 text-muted-foreground text-sm leading-relaxed">{item.description}</p>
+                        <div className="flex flex-wrap gap-3">
+                          {item.link && (
+                            <Button variant="default" size="sm" className="bg-accent hover:bg-accent/90 text-white font-medium shadow-sm" asChild>
+                              <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                                <ExternalLink className="h-4 w-4" />
+                                View Publication
+                              </a>
+                            </Button>
+                          )}
+                          {item.certificate && (
+                            <Button variant="outline" size="sm" className="border-border hover:border-foreground font-medium" asChild>
+                              <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                                <Download className="h-4 w-4 text-accent" />
+                                View Certificate
+                              </a>
+                            </Button>
+                          )}
+                        </div>
                       </CardContent>
                     </Card>
                   </div>
