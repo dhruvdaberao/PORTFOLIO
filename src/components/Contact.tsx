@@ -16,10 +16,10 @@ const Contact = () => {
         <div className="flex justify-center">
           <div className="w-full max-w-4xl">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <Card className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Card className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                 <CardContent className="flex items-center gap-4 p-5 h-full">
-                  <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-                    <Mail className="h-5 w-5 text-foreground" />
+                  <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
+                    <Mail className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="font-semibold text-sm text-foreground">Email</div>
@@ -30,10 +30,10 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Card className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                 <CardContent className="flex items-center gap-4 p-5 h-full">
-                  <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-                    <Linkedin className="h-5 w-5 text-foreground" />
+                  <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
+                    <Linkedin className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="font-semibold text-sm text-foreground">LinkedIn</div>
@@ -44,10 +44,10 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Card className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                 <CardContent className="flex items-center gap-4 p-5 h-full">
-                  <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-                    <Github className="h-5 w-5 text-foreground" />
+                  <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
+                    <Github className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="font-semibold text-sm text-foreground">GitHub</div>
@@ -58,15 +58,15 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Card className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                 <CardContent className="flex items-center gap-4 p-5 h-full">
-                  <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-                    <Download className="h-5 w-5 text-foreground" />
+                  <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
+                    <Download className="h-5 w-5 text-accent" />
                   </div>
                   <div className="flex-1">
                     <div className="font-semibold text-sm text-foreground">Resume</div>
                     <a 
-                      href="/DhruvDaberao_Resume_Placements.pdf" 
+                      href="/I2K221215_DhruvDaberao_Resume.pdf" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-foreground text-xs font-medium transition-colors inline-flex items-center gap-1"
@@ -77,10 +77,10 @@ const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="md:col-span-2 bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
-                <CardContent className="flex items-center justify-center gap-4 p-5 h-full">
-                  <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
-                    <Phone className="h-5 w-5 text-foreground" />
+              <Card className="md:col-span-2 bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
+                <CardContent className="flex items-center gap-4 p-5 h-full">
+                  <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
+                    <Phone className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="font-semibold text-sm text-foreground">WhatsApp / Phone</div>

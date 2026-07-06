@@ -19,7 +19,7 @@ const Education = () => {
       description: "Currently in 4th year, specializing in full-stack development, algorithms, and machine learning. Actively contributing to research projects and technical competitions.",
       achievements: [
         "CGPA: 7.12 (up to 6th semester)",
-        "SGPA: 9.021 (latest semester)",
+        "SGPA: 9.25 (latest semester)",
         "Published research paper on ResumeInsight for IEEE submission",
         "Developed full-stack projects using React, Node.js, and Python"
       ]
@@ -53,10 +53,10 @@ const Education = () => {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-4">
             {educationList.map((item, index) => (
-              <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Card key={index} className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                 <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center pb-3 pt-5 px-6">
                   <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                    <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
                       {index === 0 ? (
                         <GraduationCap className="h-5 w-5 text-accent" />
                       ) : (

@@ -65,10 +65,10 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-4">
             {experienceList.map((item, index) => (
-              <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+              <Card key={index} className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                 <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center pb-3 pt-5 px-6">
                   <div className="flex items-center gap-4">
-                    <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                    <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
                       <Briefcase className="h-5 w-5 text-accent" />
                     </div>
                     <div>
@@ -90,9 +90,9 @@ const Experience = () => {
                   </ul>
                   {item.certificate && (
                     <div className="mt-5 pt-4 border-t border-border/40">
-                      <Button variant="outline" size="sm" className="border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-medium text-xs h-8" asChild>
+                      <Button variant="outline" size="sm" className="border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-xs h-8" asChild>
                         <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                          <FileText className="h-3.5 w-3.5 text-foreground" />
+                          <FileText className="h-3.5 w-3.5 text-accent" />
                           View Certificate
                         </a>
                       </Button>

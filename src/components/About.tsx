@@ -86,9 +86,9 @@ const About = () => {
         </div>
 
         {/* Recruiter Highlight Box - Why Hire Me */}
-        <div className="mb-14 max-w-4xl mx-auto p-6 md:p-8 rounded-lg bg-card border border-border shadow-sm border-l-4 border-l-accent relative">
+        <div className="mb-14 max-w-4xl mx-auto p-6 md:p-8 rounded-lg bg-card border border-accent/30 shadow-sm border-l-4 border-l-accent hover:border-accent hover:shadow-md transition-all duration-200 relative">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div className="h-12 w-12 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+            <div className="h-12 w-12 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
               <Award className="h-6 w-6 text-accent" />
             </div>
             <div className="flex-1">
@@ -96,12 +96,12 @@ const About = () => {
                 <h3 className="text-base font-bold text-foreground">
                   Why Hire Me?
                 </h3>
-                <span className="text-[11px] px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/20">
+                <span className="text-[11px] px-2 py-0.5 rounded bg-accent/10 text-accent font-semibold border border-accent/30">
                   Recruiter Highlights
                 </span>
               </div>
               <p className="text-foreground/90 text-xs md:text-sm leading-relaxed font-normal">
-                I combine academic excellence (<strong className="text-foreground font-semibold">9.02 SGPA at PICT Pune</strong>) with enterprise-grade engineering execution. As an undergraduate, I have already <strong className="text-foreground font-semibold">published 2 peer-reviewed AI/ML research papers (IEEE & IJIRT)</strong>, shipped scalable full-stack architectures like <strong className="text-foreground font-semibold">WeatherGuard</strong> (NestJS, RBAC, Telegram Bot API) and <strong className="text-foreground font-semibold">Tribe-Social</strong> (MERN, Socket.IO, AI Assistant), and earned certifications from <strong className="text-foreground font-semibold">Startup India</strong> and upGrad. I thrive at building clean, robust backend APIs and intuitive web interfaces.
+                I combine academic excellence (<strong className="text-foreground font-semibold">9.25 SGPA at PICT Pune</strong>) with enterprise-grade engineering execution. As an undergraduate, I have already <strong className="text-foreground font-semibold">published 2 peer-reviewed AI/ML research papers (IEEE & IJIRT)</strong>, shipped scalable full-stack architectures like <strong className="text-foreground font-semibold">WeatherGuard</strong> (NestJS, RBAC, Telegram Bot API) and <strong className="text-foreground font-semibold">Tribe-Social</strong> (MERN, Socket.IO, AI Assistant), and earned certifications from <strong className="text-foreground font-semibold">Startup India</strong> and upGrad. I thrive at building clean, robust backend APIs and intuitive web interfaces.
               </p>
               <div className="flex flex-wrap gap-4 mt-4 pt-3 border-t border-border/60 text-xs font-semibold text-foreground/80">
                 <div className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5 text-accent" /> PICT Pune IT Undergrad (2026)</div>
@@ -113,9 +113,9 @@ const About = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <Card className="h-full bg-card border border-border shadow-sm hover:border-foreground/30 transition-all">
+          <Card className="h-full bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
             <CardContent className="flex flex-col items-center text-center p-6">
-              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center mb-4">
                 <User className="h-5 w-5 text-accent" />
               </div>
               <h3 className="text-base font-bold mb-2 text-foreground">Who I Am</h3>
@@ -125,9 +125,9 @@ const About = () => {
             </CardContent>
           </Card>
           
-          <Card className="h-full bg-card border border-border shadow-sm hover:border-foreground/30 transition-all">
+          <Card className="h-full bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
             <CardContent className="flex flex-col items-center text-center p-6">
-              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center mb-4">
                 <Book className="h-5 w-5 text-accent" />
               </div>
               <h3 className="text-base font-bold mb-2 text-foreground">My Approach</h3>
@@ -137,9 +137,9 @@ const About = () => {
             </CardContent>
           </Card>
           
-          <Card className="h-full bg-card border border-border shadow-sm hover:border-foreground/30 transition-all">
+          <Card className="h-full bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
             <CardContent className="flex flex-col items-center text-center p-6">
-              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mb-4">
+              <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center mb-4">
                 <Award className="h-5 w-5 text-accent" />
               </div>
               <h3 className="text-base font-bold mb-2 text-foreground">My Goals</h3>

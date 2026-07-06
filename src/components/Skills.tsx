@@ -280,7 +280,7 @@ const Skills = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3 max-w-7xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+            <Card key={categoryIndex} className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
               <Collapsible defaultOpen={true}>
                 <CollapsibleTrigger className="w-full">
                   <CardHeader className="flex flex-row items-center justify-between pb-3 pt-5 px-6">
@@ -295,7 +295,7 @@ const Skills = () => {
                       {category.skills.map((skill, skillIndex) => (
                         <div
                           key={skillIndex}
-                          className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground border border-border/60 rounded font-medium hover:border-foreground/40 transition-colors"
+                          className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground border border-accent/20 rounded font-medium hover:border-accent hover:bg-accent/10 hover:text-accent transition-colors"
                         >
                           <span>{skill.name}</span>
                           <span className="text-[10px] text-muted-foreground ml-1.5">({getLevelLabel(skill.level)})</span>

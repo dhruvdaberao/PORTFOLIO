@@ -557,7 +557,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {filteredProjects.map((project) => (
             <div key={project.id} className="group">
-              <Card className="h-full overflow-hidden flex flex-col bg-card border border-border shadow-sm hover:shadow-md hover:border-foreground/30 transition-all duration-200 relative">
+              <Card className="h-full overflow-hidden flex flex-col bg-card border border-accent/30 shadow-sm hover:shadow-md hover:border-accent transition-all duration-200 relative">
                 {project.featured && (
                   <div className="absolute top-3 right-3 z-10 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded border border-accent shadow-sm flex items-center gap-1">
                     ⭐ Featured
@@ -603,7 +603,7 @@ const Projects = () => {
                     </Button>
                   )}
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1 border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-medium text-xs h-9" asChild>
+                    <Button variant="outline" size="sm" className="flex-1 border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-xs h-9" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
                         <Github className="h-3.5 w-3.5" />
                         Code

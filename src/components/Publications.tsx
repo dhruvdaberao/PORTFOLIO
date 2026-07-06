@@ -144,10 +144,10 @@ const Publications = () => {
               <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-6">Peer-Reviewed Research</h3>
               <div className="space-y-4">
                 {publications.map((item, index) => (
-                  <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+                  <Card key={index} className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                     <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-3 pt-5 px-6">
                       <div className="flex items-start gap-4 flex-1">
-                        <div className="h-10 w-10 shrink-0 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center mt-0.5">
+                        <div className="h-10 w-10 shrink-0 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center mt-0.5">
                           <FileText className="h-5 w-5 text-accent" />
                         </div>
                         <div>
@@ -178,9 +178,9 @@ const Publications = () => {
                           </Button>
                         )}
                         {item.certificate && (
-                          <Button variant="outline" size="sm" className="border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-medium text-xs h-8" asChild>
+                          <Button variant="outline" size="sm" className="border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-xs h-8" asChild>
                             <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                              <Download className="h-3.5 w-3.5 text-foreground" />
+                              <Download className="h-3.5 w-3.5 text-accent" />
                               View Certificate
                             </a>
                           </Button>
@@ -198,10 +198,10 @@ const Publications = () => {
               <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-6">Industry Certifications</h3>
               <div className="space-y-4">
                 {certifications.map((item, index) => (
-                  <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+                  <Card key={index} className="bg-card border border-accent/30 shadow-sm hover:border-accent hover:shadow-md transition-all duration-200">
                     <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-3 pt-5 px-6">
                       <div className="flex items-center gap-4">
-                        <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center shrink-0">
+                        <div className="h-10 w-10 rounded-lg bg-accent/10 border border-accent/30 flex items-center justify-center shrink-0">
                           <Award className="h-5 w-5 text-accent" />
                         </div>
                         <div>
@@ -216,9 +216,9 @@ const Publications = () => {
                     <CardContent className="pt-1 pb-5 px-6">
                       <p className="mb-4 text-muted-foreground text-xs leading-relaxed">{item.description}</p>
                       {item.certificate && (
-                        <Button variant="outline" size="sm" className="border-border hover:bg-secondary font-medium text-xs h-8" asChild>
+                        <Button variant="outline" size="sm" className="border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-xs h-8" asChild>
                           <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                            <Download className="h-3.5 w-3.5 text-foreground" />
+                            <Download className="h-3.5 w-3.5 text-accent" />
                             View Certificate
                           </a>
                         </Button>
