@@ -43,7 +43,7 @@ const Hero = () => {
           <div className="mb-6">
             <div className="h-32 w-32 md:h-36 md:w-36 rounded-full overflow-hidden border-2 border-accent/40 shadow-md bg-muted">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300&auto=format&fit=crop"
+                src="/LinkedIn-PP2.jpg"
                 alt="Dhruv Daberao"
                 className="w-full h-full object-cover"
               />
