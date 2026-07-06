@@ -180,7 +180,7 @@ const Header = () => {
               <Button 
                 variant="outline"
                 asChild
-                className="w-full border-border hover:bg-secondary font-semibold text-xs h-9"
+                className="w-full border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-semibold text-xs h-9"
               >
                 <a href="/Dhruv_Daberao_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
                   <Download className="h-3.5 w-3.5 text-foreground" />

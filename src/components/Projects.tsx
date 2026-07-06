@@ -603,7 +603,7 @@ const Projects = () => {
                     </Button>
                   )}
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1 border-border hover:bg-secondary font-medium text-xs h-9" asChild>
+                    <Button variant="outline" size="sm" className="flex-1 border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-medium text-xs h-9" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
                         <Github className="h-3.5 w-3.5" />
                         Code

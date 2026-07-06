@@ -90,7 +90,7 @@ const Experience = () => {
                   </ul>
                   {item.certificate && (
                     <div className="mt-5 pt-4 border-t border-border/40">
-                      <Button variant="outline" size="sm" className="border-border hover:bg-secondary font-medium text-xs h-8" asChild>
+                      <Button variant="outline" size="sm" className="border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-medium text-xs h-8" asChild>
                         <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
                           <FileText className="h-3.5 w-3.5 text-foreground" />
                           View Certificate

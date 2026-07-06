@@ -86,7 +86,7 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border border-border hover:bg-secondary px-7 py-5 rounded-md font-medium text-sm transition-all"
+              className="border border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 px-7 py-5 rounded-md font-medium text-sm transition-all"
               onClick={() => window.open("/DhruvDaberao_Resume_Placements.pdf", "_blank")}
             >
               <Download className="mr-2 h-4 w-4" /> Download Resume
