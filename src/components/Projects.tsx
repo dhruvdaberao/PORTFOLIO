@@ -355,6 +355,17 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      id: 14,
+      title: "WeatherGuard",
+      description: "An enterprise-grade, secure weather notification platform built with NestJS, React, and MongoDB. Features OAuth authentication, Role-Based Access Control (RBAC), automated weather monitoring via Vercel Cron, and instant Telegram alerts.",
+      image: "/weatherguard.png",
+      tags: ["NestJS", "React", "TypeScript", "TailwindCSS", "MongoDB", "Telegram Bot API", "OAuth", "RBAC", "Vercel Cron"],
+      githubUrl: "https://github.com/dhruvdaberao/WeatherGuard",
+      liveUrl: "https://weather-guard-two.vercel.app",
+      featured: true,
+      category: "Full-Stack"
+    },
+    {
       id: 16,
       title: "Keshvi Crafts",
       description: "A premium e-commerce platform designed to showcase and sell handcrafted crochet items and artisanal products. Features a dynamic JSON catalog, global cart & wishlist, secure Supabase auth, verified reviews with dynamic ratings, multi-step guided checkout, and an admin dashboard for order management.",
@@ -377,15 +388,15 @@ const Projects = () => {
       category: "Full-Stack"
     },
     {
-      id: 14,
-      title: "WeatherGuard",
-      description: "An enterprise-grade, secure weather notification platform built with NestJS, React, and MongoDB. Features OAuth authentication, Role-Based Access Control (RBAC), automated weather monitoring via Vercel Cron, and instant Telegram alerts.",
-      image: "/weatherguard.png",
-      tags: ["NestJS", "React", "TypeScript", "TailwindCSS", "MongoDB", "Telegram Bot API", "OAuth", "RBAC", "Vercel Cron"],
-      githubUrl: "https://github.com/dhruvdaberao/WeatherGuard",
-      liveUrl: "https://weather-guard-two.vercel.app",
+      id: 17,
+      title: "Diabetic Neuropathy AI",
+      description: "A clinical-grade podiatric AI screening platform for early detection of Diabetic Neuropathy and pre-ulcerative foot risks using plantar thermography. Features an optimized 4-Stage CNN executed via ONNX Runtime (<140MB RAM), HSV medical color space heuristic filtering, Otsu's inverse binary thresholding, ACID-compliant SQLite3 diagnostic logs, Chart.js trends, and one-click clinical PDF report export. Co-authored IEEE & IJIRT research paper.",
+      image: "/diabetes-tracker.png",
+      tags: ["Python 3.10", "FastAPI", "ONNX Runtime", "Computer Vision", "CNN", "OpenCV", "SQLite3", "Medical AI"],
+      githubUrl: "https://github.com/dhruvdaberao/BE-Project.git",
+      liveUrl: "https://be-project-fdnk.onrender.com/",
       featured: true,
-      category: "Full-Stack"
+      category: "AI/ML"
     },
     {
       id: 12,
