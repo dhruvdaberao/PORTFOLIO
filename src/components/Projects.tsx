@@ -554,16 +554,16 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
           {filteredProjects.map((project) => (
             <div key={project.id} className="group">
               <Card className="h-full overflow-hidden flex flex-col bg-card border border-accent/30 shadow-sm hover:shadow-md hover:border-accent transition-all duration-200 relative">
                 {project.featured && (
-                  <div className="absolute top-3 right-3 z-10 bg-accent text-white text-[10px] font-semibold px-2.5 py-1 rounded border border-accent shadow-sm flex items-center gap-1">
+                  <div className="absolute top-2.5 right-2.5 z-10 bg-accent text-white text-[9px] font-semibold px-2 py-0.5 rounded border border-accent shadow-sm flex items-center gap-1">
                     ⭐ Featured
                   </div>
                 )}
-                <div className="h-48 overflow-hidden relative bg-muted">
+                <div className="h-36 sm:h-40 overflow-hidden relative bg-muted">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -573,39 +573,39 @@ const Projects = () => {
                     }}
                   />
                 </div>
-                <CardHeader className="pb-2 pt-5 px-6">
+                <CardHeader className="pb-1.5 pt-4 px-4.5">
                   <div className="flex items-center justify-between gap-2">
-                    <CardTitle className="text-base font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">{project.title}</CardTitle>
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded bg-accent/10 text-accent border border-accent/20">{project.category}</span>
+                    <CardTitle className="text-sm md:text-base font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">{project.title}</CardTitle>
+                    <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-accent/10 text-accent border border-accent/20 shrink-0">{project.category}</span>
                   </div>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col justify-between px-6 pb-4">
-                  <p className="text-muted-foreground text-xs leading-relaxed mt-1">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-border/40">
+                <CardContent className="flex-1 flex flex-col justify-between px-4.5 pb-3">
+                  <p className="text-muted-foreground text-[11px] md:text-xs leading-relaxed mt-1 line-clamp-3">{project.description}</p>
+                  <div className="flex flex-wrap gap-1 mt-3 pt-3 border-t border-border/40">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-2 py-0.5 text-[10px] font-medium rounded bg-secondary text-secondary-foreground border border-border/40"
+                        className="px-1.5 py-0.5 text-[9px] font-medium rounded bg-secondary text-secondary-foreground border border-border/40"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="pt-0 pb-5 px-6 flex gap-2">
+                <CardFooter className="pt-0 pb-4 px-4.5 flex gap-2">
                   {project.liveUrl && (
-                    <Button variant="default" size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-none font-medium text-xs h-9" asChild>
+                    <Button variant="default" size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-none font-medium text-[11px] h-8" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
-                        <ExternalLink className="h-3.5 w-3.5" />
+                        <ExternalLink className="h-3 w-3" />
                         Live Demo
                       </a>
                     </Button>
                   )}
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1 border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-xs h-9" asChild>
+                    <Button variant="outline" size="sm" className="flex-1 border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-[11px] h-8" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
-                        <Github className="h-3.5 w-3.5" />
+                        <Github className="h-3 w-3" />
                         Code
                       </a>
                     </Button>
