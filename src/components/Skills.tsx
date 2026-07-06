@@ -269,37 +269,36 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-20 bg-background">
+    <section id="skills" className="py-20 bg-background border-t border-border/40">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-foreground">🛠 My Tech Stack & Strengths</h2>
-          <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            A comprehensive set of skills honed through academic projects, internships, and real-world applications
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Technical Skills & Strengths</h2>
+          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
+            A comprehensive set of skills honed through academic projects, internships, and real-world engineering applications.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:grid-cols-3 max-w-7xl mx-auto">
           {skillCategories.map((category, categoryIndex) => (
-            <Card key={categoryIndex} className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm">
+            <Card key={categoryIndex} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
               <Collapsible defaultOpen={true}>
                 <CollapsibleTrigger className="w-full">
-                  <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <CardTitle className="text-xl text-foreground">{category.name}</CardTitle>
-                    <ChevronDown className="h-5 w-5 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
+                  <CardHeader className="flex flex-row items-center justify-between pb-3 pt-5 px-6">
+                    <CardTitle className="text-base font-bold text-foreground">{category.name}</CardTitle>
+                    <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
                   </CardHeader>
                 </CollapsibleTrigger>
                 
                 <CollapsibleContent>
-                  <CardContent className="pt-2">
-                    <div className="flex flex-wrap gap-2">
+                  <CardContent className="pt-0 pb-6 px-6">
+                    <div className="flex flex-wrap gap-1.5">
                       {category.skills.map((skill, skillIndex) => (
                         <div
                           key={skillIndex}
-                          className="px-3 py-1.5 text-sm bg-accent text-white rounded-full hover:bg-accent/80 transition-colors duration-200"
+                          className="px-2.5 py-1 text-xs bg-secondary text-secondary-foreground border border-border/60 rounded font-medium hover:border-foreground/40 transition-colors"
                         >
-                          <span className="font-medium">{skill.name}</span>
-                          <span className="text-xs text-white/70 ml-2">({getLevelLabel(skill.level)})</span>
+                          <span>{skill.name}</span>
+                          <span className="text-[10px] text-muted-foreground ml-1.5">({getLevelLabel(skill.level)})</span>
                         </div>
                       ))}
                     </div>
@@ -310,9 +309,9 @@ const Skills = () => {
           ))}
         </div>
 
-        <div className="mt-12 max-w-3xl mx-auto text-center">
-          <p className="text-lg text-muted-foreground">
-            Continuously learning and adapting to new technologies to build impactful solutions.
+        <div className="mt-14 max-w-3xl mx-auto text-center">
+          <p className="text-sm text-muted-foreground font-medium">
+            Continuously learning and adapting to new technologies to build scalable, impactful software solutions.
           </p>
         </div>
       </div>

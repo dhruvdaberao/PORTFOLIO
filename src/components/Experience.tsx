@@ -53,55 +53,53 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-background">
+    <section id="experience" className="py-20 bg-secondary/20 border-t border-border/40">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold">Work Experience</h2>
-          <div className="mt-2 h-1 w-20 bg-accent mx-auto"></div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Work Experience</h2>
+          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
+            Professional internships and engineering roles across full-stack development, UI/UX, and machine learning.
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
+          <div className="space-y-4">
             {experienceList.map((item, index) => (
-              <div 
-                key={index} 
-                className="animate-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <Card>
-                  <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div className="flex items-center gap-4">
-                      <div className="h-10 w-10 rounded-full bg-accent/10 flex items-center justify-center">
-                        <Briefcase className="h-5 w-5 text-accent" />
-                      </div>
-                      <CardTitle className="text-xl">{item.position}</CardTitle>
+              <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+                <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center pb-3 pt-5 px-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
+                      <Briefcase className="h-5 w-5 text-foreground" />
                     </div>
-                    <div className="mt-2 md:mt-0 text-sm text-muted-foreground px-3 py-1 bg-muted rounded-full">
-                      {item.period}
+                    <div>
+                      <CardTitle className="text-base font-bold text-foreground">{item.position}</CardTitle>
+                      <div className="text-xs font-medium text-muted-foreground mt-0.5">{item.company}</div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-2 font-medium">{item.company}</div>
-                    <p className="mb-4 text-muted-foreground">{item.description}</p>
-                    <h4 className="text-sm font-semibold mb-2">Key Achievements:</h4>
-                    <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-                      {item.achievements.map((achievement, i) => (
-                        <li key={i}>{achievement}</li>
-                      ))}
-                    </ul>
-                    {item.certificate && (
-                      <div className="mt-4">
-                        <Button variant="outline" size="sm" asChild>
-                          <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1">
-                            <FileText className="h-4 w-4" />
-                            View Certificate
-                          </a>
-                        </Button>
-                      </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                  <div className="mt-2 md:mt-0 text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded border border-border shrink-0">
+                    {item.period}
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-1 pb-5 px-6">
+                  <p className="mb-4 text-muted-foreground text-xs leading-relaxed">{item.description}</p>
+                  <h4 className="text-xs font-semibold text-foreground mb-2">Key Achievements:</h4>
+                  <ul className="list-disc list-inside space-y-1 text-muted-foreground text-xs">
+                    {item.achievements.map((achievement, i) => (
+                      <li key={i}>{achievement}</li>
+                    ))}
+                  </ul>
+                  {item.certificate && (
+                    <div className="mt-5 pt-4 border-t border-border/40">
+                      <Button variant="outline" size="sm" className="border-border hover:bg-secondary font-medium text-xs h-8" asChild>
+                        <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                          <FileText className="h-3.5 w-3.5 text-foreground" />
+                          View Certificate
+                        </a>
+                      </Button>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

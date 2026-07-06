@@ -355,6 +355,17 @@ const Projects = () => {
 
   const projects: Project[] = [
     {
+      id: 15,
+      title: "Froodle",
+      description: "A scalable, real-time collaborative whiteboard platform built with a modern monorepo architecture. Features low-latency drawing synchronization via Socket.IO, live chat, room-based collaboration, freehand sketching, infinite canvas with pan/zoom, JWT/OTP auth, guest sessions, and Cloudinary media handling.",
+      image: "/froodle.png",
+      tags: ["React", "Node.js", "Socket.IO", "TypeScript", "MongoDB", "Cloudinary", "JWT", "Monorepo"],
+      githubUrl: "https://github.com/dhruvdaberao/froodle",
+      liveUrl: "https://froodle.vercel.app",
+      featured: true,
+      category: "Full-Stack"
+    },
+    {
       id: 14,
       title: "WeatherGuard",
       description: "An enterprise-grade, secure weather notification platform built with NestJS, React, and MongoDB. Features OAuth authentication, Role-Based Access Control (RBAC), automated weather monitoring via Vercel Cron, and instant Telegram alerts.",
@@ -517,26 +528,25 @@ const Projects = () => {
   });
 
   return (
-    <section id="projects" className="py-20 bg-background relative">
+    <section id="projects" className="py-20 bg-background border-t border-border/40">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-foreground">Featured Projects & Applications</h2>
-          <div className="mt-3 h-1 w-24 bg-accent mx-auto"></div>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            From enterprise-grade NestJS microservices to AI-powered computer vision and MERN real-time apps.
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Featured Projects</h2>
+          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
+            A curated selection of full-stack web platforms, machine learning models, and developer tools.
           </p>
         </div>
 
         {/* Interactive Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2.5 mb-14">
+        <div className="flex flex-wrap justify-center gap-1.5 mb-12">
           {["All", "Featured ⭐", "Full-Stack", "AI/ML", "Tools & Utilities"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveTab(tab)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`px-4 py-2 rounded-md text-xs font-medium transition-all ${
                 activeTab === tab
-                  ? "bg-gradient-to-r from-accent to-purple-600 text-white shadow-lg shadow-accent/25 scale-105"
-                  : "bg-card/80 text-muted-foreground hover:bg-card hover:text-foreground border border-border/60 shadow-sm"
+                  ? "bg-foreground text-background shadow-sm"
+                  : "bg-secondary/70 text-muted-foreground hover:bg-secondary hover:text-foreground border border-border/50"
               }`}
             >
               {tab}
@@ -544,64 +554,58 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {filteredProjects.map((project, index) => (
-            <div 
-              key={project.id} 
-              className="animate-in group"
-              style={{ animationDelay: `${index * 80}ms` }}
-            >
-              <Card className="h-full overflow-hidden flex flex-col bg-card/80 backdrop-blur-md border border-border/50 shadow-md hover:shadow-xl hover:border-accent/40 transition-all duration-300 hover:-translate-y-1.5 relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="group">
+              <Card className="h-full overflow-hidden flex flex-col bg-card border border-border shadow-sm hover:shadow-md hover:border-foreground/30 transition-all duration-200 relative">
                 {project.featured && (
-                  <div className="absolute top-3 right-3 z-10 bg-amber-500 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md backdrop-blur-sm flex items-center gap-1 border border-white/20">
+                  <div className="absolute top-3 right-3 z-10 bg-background/90 text-foreground text-[10px] font-semibold px-2.5 py-1 rounded border border-border shadow-sm backdrop-blur-sm flex items-center gap-1">
                     ⭐ Featured
                   </div>
                 )}
-                <div className="h-52 overflow-hidden relative bg-muted">
+                <div className="h-48 overflow-hidden relative bg-muted">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {
-                      // Fallback if image not generated yet or missing
                       (e.target as HTMLImageElement).src = "/Portfolio.jpg";
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                <CardHeader className="pb-3">
-                  <div className="flex items-center justify-between">
-                    <CardTitle className="text-xl font-bold group-hover:text-accent transition-colors">{project.title}</CardTitle>
-                    <span className="text-xs font-medium px-2.5 py-0.5 rounded-md bg-muted text-muted-foreground">{project.category}</span>
+                <CardHeader className="pb-2 pt-5 px-6">
+                  <div className="flex items-center justify-between gap-2">
+                    <CardTitle className="text-base font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">{project.title}</CardTitle>
+                    <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-secondary text-muted-foreground border border-border/50">{project.category}</span>
                   </div>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col justify-between">
-                  <p className="text-muted-foreground text-sm leading-relaxed">{project.description}</p>
-                  <div className="flex flex-wrap gap-1.5 mt-5">
+                <CardContent className="flex-1 flex flex-col justify-between px-6 pb-4">
+                  <p className="text-muted-foreground text-xs leading-relaxed mt-1">{project.description}</p>
+                  <div className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-border/40">
                     {project.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-2.5 py-1 text-[11px] font-medium rounded-md bg-accent/10 text-accent border border-accent/15"
+                        className="px-2 py-0.5 text-[10px] font-medium rounded bg-secondary text-secondary-foreground border border-border/40"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="pt-4 pb-5 px-6 border-t border-border/40 flex gap-3 bg-muted/20">
+                <CardFooter className="pt-0 pb-5 px-6 flex gap-2">
                   {project.liveUrl && (
-                    <Button variant="default" size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-sm font-medium" asChild>
+                    <Button variant="default" size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-none font-medium text-xs h-9" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <ExternalLink className="h-4 w-4" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                        <ExternalLink className="h-3.5 w-3.5" />
                         Live Demo
                       </a>
                     </Button>
                   )}
                   {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1 border-border hover:border-foreground hover:bg-card font-medium" asChild>
+                    <Button variant="outline" size="sm" className="flex-1 border-border hover:bg-secondary font-medium text-xs h-9" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
-                        <Github className="h-4 w-4" />
+                        <Github className="h-3.5 w-3.5" />
                         Code
                       </a>
                     </Button>

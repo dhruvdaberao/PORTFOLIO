@@ -129,72 +129,65 @@ const Publications = () => {
   ];
 
   return (
-    <section id="publications" className="py-20 bg-secondary/30">
+    <section id="publications" className="py-20 bg-secondary/20 border-t border-border/40">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground">Publications & Certifications</h2>
-          <div className="mt-3 h-1 w-24 bg-accent mx-auto"></div>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Publications & Certifications</h2>
+          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
             Peer-reviewed academic research published in international medical AI & NLP journals, accompanied by professional industry certifications.
           </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
           {publications.length > 0 && (
-            <div className="mb-16">
-              <h3 className="text-2xl font-bold text-center mb-8 text-foreground">Peer-Reviewed Research</h3>
-              <div className="space-y-8">
+            <div className="mb-14">
+              <h3 className="text-sm font-semibold tracking-wider uppercase text-muted-foreground mb-6">Peer-Reviewed Research</h3>
+              <div className="space-y-4">
                 {publications.map((item, index) => (
-                  <div 
-                    key={index} 
-                    className="animate-in"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <Card className="bg-card/90 backdrop-blur-md border border-border/60 shadow-lg hover:shadow-xl hover:border-accent/40 transition-all duration-300">
-                      <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-4">
-                        <div className="flex items-start gap-4 flex-1">
-                          <div className="h-12 w-12 shrink-0 rounded-2xl bg-accent/10 flex items-center justify-center mt-1">
-                            <FileText className="h-6 w-6 text-accent" />
-                          </div>
-                          <div>
-                            <CardTitle className="text-xl font-bold leading-snug">{item.title}</CardTitle>
-                            <div className="flex flex-wrap items-center gap-2 mt-2">
-                              {item.badge && (
-                                <span className={`inline-block px-3 py-0.5 text-xs font-bold rounded-full border ${item.badgeColor || 'bg-accent/10 text-accent'}`}>
-                                  {item.badge}
-                                </span>
-                              )}
-                              <span className="text-sm font-semibold text-muted-foreground">{item.venue}</span>
-                            </div>
+                  <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+                    <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-3 pt-5 px-6">
+                      <div className="flex items-start gap-4 flex-1">
+                        <div className="h-10 w-10 shrink-0 rounded-lg bg-secondary border border-border flex items-center justify-center mt-0.5">
+                          <FileText className="h-5 w-5 text-foreground" />
+                        </div>
+                        <div>
+                          <CardTitle className="text-base font-bold leading-snug text-foreground">{item.title}</CardTitle>
+                          <div className="flex flex-wrap items-center gap-2 mt-1.5">
+                            {item.badge && (
+                              <span className="inline-block px-2 py-0.5 text-[11px] font-medium rounded bg-secondary text-foreground border border-border">
+                                {item.badge}
+                              </span>
+                            )}
+                            <span className="text-xs font-medium text-muted-foreground">{item.venue}</span>
                           </div>
                         </div>
-                        <div className="text-xs font-semibold text-muted-foreground px-3.5 py-1.5 bg-muted rounded-full shrink-0">
-                          {item.date}
-                        </div>
-                      </CardHeader>
-                      <CardContent className="pt-2">
-                        <p className="mb-6 text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-                        <div className="flex flex-wrap gap-3">
-                          {item.link && (
-                            <Button variant="default" size="sm" className="bg-accent hover:bg-accent/90 text-white font-medium shadow-sm" asChild>
-                              <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                                <ExternalLink className="h-4 w-4" />
-                                View Publication
-                              </a>
-                            </Button>
-                          )}
-                          {item.certificate && (
-                            <Button variant="outline" size="sm" className="border-border hover:border-foreground font-medium" asChild>
-                              <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
-                                <Download className="h-4 w-4 text-accent" />
-                                View Certificate
-                              </a>
-                            </Button>
-                          )}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </div>
+                      </div>
+                      <div className="text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded border border-border shrink-0">
+                        {item.date}
+                      </div>
+                    </CardHeader>
+                    <CardContent className="pt-2 pb-5 px-6">
+                      <p className="mb-5 text-muted-foreground text-xs leading-relaxed">{item.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.link && (
+                          <Button variant="default" size="sm" className="bg-accent hover:bg-accent/90 text-white font-medium text-xs h-8 shadow-none" asChild>
+                            <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                              <ExternalLink className="h-3.5 w-3.5" />
+                              View Publication
+                            </a>
+                          </Button>
+                        )}
+                        {item.certificate && (
+                          <Button variant="outline" size="sm" className="border-border hover:bg-secondary font-medium text-xs h-8" asChild>
+                            <a href={item.certificate} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5">
+                              <Download className="h-3.5 w-3.5 text-foreground" />
+                              View Certificate
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
                 ))}
               </div>
             </div>

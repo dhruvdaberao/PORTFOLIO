@@ -41,50 +41,48 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-secondary/20">
+    <section id="education" className="py-20 bg-background border-t border-border/40">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground">Education</h2>
-          <div className="mt-3 h-1 w-24 bg-accent mx-auto"></div>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Education</h2>
+          <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
+            Academic background and technical qualifications.
+          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
+          <div className="space-y-4">
             {educationList.map((item, index) => (
-              <div 
-                key={index} 
-                className="animate-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <Card className="shadow-lg transition-shadow duration-300 hover:shadow-xl">
-                  <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                    <div className="flex items-center gap-4">
-                      <div className="h-12 w-12 rounded-full bg-accent/10 flex items-center justify-center">
-                        {index === 0 ? (
-                          <GraduationCap className="h-6 w-6 text-accent" />
-                        ) : (
-                          <Book className="h-6 w-6 text-accent" />
-                        )}
-                      </div>
-                      <CardTitle className="text-xl font-semibold">{item.degree}</CardTitle>
+              <Card key={index} className="bg-card border border-border shadow-sm hover:border-foreground/30 transition-all duration-200">
+                <CardHeader className="flex flex-col md:flex-row justify-between items-start md:items-center pb-3 pt-5 px-6">
+                  <div className="flex items-center gap-4">
+                    <div className="h-10 w-10 rounded-lg bg-secondary border border-border flex items-center justify-center shrink-0">
+                      {index === 0 ? (
+                        <GraduationCap className="h-5 w-5 text-foreground" />
+                      ) : (
+                        <Book className="h-5 w-5 text-foreground" />
+                      )}
                     </div>
-                    <div className="mt-2 md:mt-0 text-sm text-muted-foreground px-3 py-1 bg-muted rounded-full">
-                      {item.period}
+                    <div>
+                      <CardTitle className="text-base font-bold text-foreground">{item.degree}</CardTitle>
+                      <div className="text-xs font-medium text-muted-foreground mt-0.5">{item.institution}</div>
                     </div>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-2 font-medium">{item.institution}</div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">{item.description}</p>
-                    {item.achievements && (
-                      <ul className="mt-4 text-sm text-muted-foreground list-disc list-inside">
-                        {item.achievements.map((achievement, idx) => (
-                          <li key={idx}>{achievement}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </CardContent>
-                </Card>
-              </div>
+                  </div>
+                  <div className="mt-2 md:mt-0 text-xs font-medium text-muted-foreground px-2.5 py-1 bg-secondary rounded border border-border shrink-0">
+                    {item.period}
+                  </div>
+                </CardHeader>
+                <CardContent className="pt-1 pb-5 px-6">
+                  <p className="text-muted-foreground text-xs leading-relaxed">{item.description}</p>
+                  {item.achievements && (
+                    <ul className="mt-4 text-xs text-muted-foreground list-disc list-inside space-y-1">
+                      {item.achievements.map((achievement, idx) => (
+                        <li key={idx}><strong className="text-foreground font-medium">{achievement}</strong></li>
+                      ))}
+                    </ul>
+                  )}
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

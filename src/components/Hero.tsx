@@ -19,58 +19,58 @@ const Hero = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-background to-secondary/30 pt-20 pb-16 relative overflow-hidden">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"></div>
+    <section className="min-h-screen flex items-center justify-center bg-background pt-24 pb-16 relative overflow-hidden">
+      {/* Sleek Fading Checkered / Grid Background Pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:3.5rem_3.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_35%,#000_60%,transparent_100%)] opacity-70 pointer-events-none"></div>
+      {/* Subtle Ambient Theme Accent Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[280px] bg-accent/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center text-center max-w-4xl mx-auto">
-          {/* Profile Avatar with Glowing Ring */}
-          <div className="animate-in mb-8 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-accent via-purple-500 to-cyan-500 rounded-full blur-md opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-            <div className="relative h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden border-4 border-background shadow-2xl">
+      <div className="container mx-auto px-4 z-10 relative">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          {/* Profile Avatar */}
+          <div className="mb-6 relative">
+            <div className="h-32 w-32 md:h-36 md:w-36 rounded-full overflow-hidden border-2 border-border shadow-sm bg-muted">
               <img
                 src="/LinkedIn-PP2.jpg"
                 alt="Dhruv Daberao"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover"
               />
             </div>
-            <div className="absolute bottom-1 right-1 bg-emerald-500 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full border-2 border-background shadow flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-white animate-ping"></span>
-              Open to Work
+            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-secondary text-foreground text-[11px] font-medium px-3 py-0.5 rounded-full border border-border shadow-sm flex items-center gap-1.5 whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Open to work
             </div>
           </div>
 
-          {/* Role Badges */}
-          <div className="animate-in flex flex-wrap justify-center gap-2.5 mb-4">
-            <span className="px-3.5 py-1 text-xs font-semibold rounded-full bg-accent/10 text-accent border border-accent/20 backdrop-blur-sm shadow-sm">
-              ⚡ Full-Stack Engineer
+          {/* Role Badges / Subtitle */}
+          <div className="flex flex-wrap justify-center gap-2 mb-6 mt-3">
+            <span className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border">
+              Full-Stack Engineer
             </span>
-            <span className="px-3.5 py-1 text-xs font-semibold rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 backdrop-blur-sm shadow-sm">
-              🤖 AI/ML Researcher
+            <span className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border">
+              AI/ML Researcher
             </span>
-            <span className="px-3.5 py-1 text-xs font-semibold rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 backdrop-blur-sm shadow-sm">
-              🎓 4th Year IT @ PICT Pune
+            <span className="px-3 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground border border-border">
+              4th Year IT @ PICT Pune
             </span>
           </div>
 
-          <h1 className="animate-in text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">
-            <span className="block text-foreground">Hi, I'm</span>
-            <span className="block mt-2 bg-gradient-to-r from-accent via-purple-500 to-cyan-500 bg-clip-text text-transparent">Dhruv Daberao</span>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground">
+            Hi, I'm <span className="text-accent">Dhruv Daberao</span>
           </h1>
           
-          <p className="animate-in animate-delay-200 mt-4 text-xl md:text-2xl font-medium text-muted-foreground">
+          <p className="mt-4 text-lg md:text-xl font-medium text-muted-foreground">
             Building scalable full-stack applications & applied machine learning systems.
           </p>
           
-          <p className="animate-in animate-delay-300 mt-4 text-base md:text-lg text-muted-foreground/80 max-w-2xl">
+          <p className="mt-4 text-sm md:text-base text-muted-foreground/80 max-w-xl leading-relaxed">
             Co-author of 2 peer-reviewed AI research papers (IEEE & IJIRT). Passionate about clean architecture, real-time systems, and creating impactful developer experiences.
           </p>
 
-          <div className="animate-in animate-delay-400 mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
             <Button 
               onClick={scrollToProjects}
-              className="bg-gradient-to-r from-accent to-purple-600 hover:opacity-90 text-white px-8 py-6 rounded-xl shadow-lg shadow-accent/25 font-semibold text-base transition-all hover:scale-105"
+              className="bg-accent hover:bg-accent/90 text-white px-7 py-5 rounded-md shadow-sm font-medium text-sm transition-all"
               size="lg"
             >
               View My Work
@@ -78,38 +78,38 @@ const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-border hover:border-accent hover:bg-accent/5 px-8 py-6 rounded-xl font-semibold text-base transition-all hover:scale-105"
+              className="border border-border hover:bg-secondary px-7 py-5 rounded-md font-medium text-sm transition-all"
               onClick={() => window.open("/DhruvDaberao_Resume_Placements.pdf", "_blank")}
             >
-              <Download className="mr-2 h-5 w-5 text-accent" /> Download Resume
+              <Download className="mr-2 h-4 w-4" /> Download Resume
             </Button>
           </div>
 
-          <div className="animate-in animate-delay-500 mt-8 flex space-x-5">
-            <a href="https://www.linkedin.com/in/dhruvdaberao/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card/80 border border-border/50 shadow-sm hover:text-accent hover:border-accent hover:shadow-md transition-all">
-              <Linkedin size={22} />
+          <div className="mt-8 flex space-x-4">
+            <a href="https://www.linkedin.com/in/dhruvdaberao/" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-card border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">
+              <Linkedin size={18} />
             </a>
-            <a href="https://github.com/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card/80 border border-border/50 shadow-sm hover:text-accent hover:border-accent hover:shadow-md transition-all">
-              <Github size={22} />
+            <a href="https://github.com/dhruvdaberao" target="_blank" rel="noopener noreferrer" className="p-2.5 rounded-md bg-card border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-colors">
+              <Github size={18} />
             </a>
           </div>
 
           {/* Quick Stats Bar */}
-          <div className="animate-in animate-delay-500 mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 w-full max-w-3xl">
-            <div className="p-4 rounded-2xl bg-card/60 backdrop-blur-md border border-border/50 shadow-sm hover:shadow-md hover:border-accent/30 transition-all hover:-translate-y-1">
-              <div className="text-2xl md:text-3xl font-extrabold text-accent">14+</div>
+          <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl">
+            <div className="p-4 rounded-lg bg-card border border-border shadow-sm text-center">
+              <div className="text-2xl font-bold text-foreground">14+</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Projects Shipped</div>
             </div>
-            <div className="p-4 rounded-2xl bg-card/60 backdrop-blur-md border border-border/50 shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all hover:-translate-y-1">
-              <div className="text-2xl md:text-3xl font-extrabold text-purple-500">2</div>
-              <div className="text-xs text-muted-foreground font-medium mt-1">IEEE & IJIRT Papers</div>
+            <div className="p-4 rounded-lg bg-card border border-border shadow-sm text-center">
+              <div className="text-2xl font-bold text-foreground">2</div>
+              <div className="text-xs text-muted-foreground font-medium mt-1">Research Papers</div>
             </div>
-            <div className="p-4 rounded-2xl bg-card/60 backdrop-blur-md border border-border/50 shadow-sm hover:shadow-md hover:border-cyan-500/30 transition-all hover:-translate-y-1">
-              <div className="text-2xl md:text-3xl font-extrabold text-cyan-500">9.02</div>
+            <div className="p-4 rounded-lg bg-card border border-border shadow-sm text-center">
+              <div className="text-2xl font-bold text-foreground">9.02</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Latest SGPA @ PICT</div>
             </div>
-            <div className="p-4 rounded-2xl bg-card/60 backdrop-blur-md border border-border/50 shadow-sm hover:shadow-md hover:border-emerald-500/30 transition-all hover:-translate-y-1">
-              <div className="text-2xl md:text-3xl font-extrabold text-emerald-500">5+</div>
+            <div className="p-4 rounded-lg bg-card border border-border shadow-sm text-center">
+              <div className="text-2xl font-bold text-foreground">5+</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Certifications</div>
             </div>
           </div>
@@ -123,9 +123,9 @@ const Hero = () => {
           onClick={() => {
             document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="animate-bounce rounded-full hover:bg-accent/10"
+          className="rounded-full text-muted-foreground hover:text-foreground"
         >
-          <ArrowDown className="h-6 w-6 text-accent" />
+          <ArrowDown className="h-5 w-5" />
         </Button>
       </div>
     </section>
