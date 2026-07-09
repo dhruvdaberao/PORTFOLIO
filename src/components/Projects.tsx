@@ -352,6 +352,14 @@ interface Project {
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<string>("All");
+  const [expandedProjects, setExpandedProjects] = useState<Record<number, boolean>>({});
+
+  const toggleDescription = (id: number) => {
+    setExpandedProjects((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
 
   const projects: Project[] = [
     {
@@ -602,7 +610,21 @@ const Projects = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between px-4.5 pb-3">
-                  <p className="text-muted-foreground text-[11px] md:text-xs leading-relaxed mt-1 line-clamp-3">{project.description}</p>
+                  <div className="flex-1 flex flex-col">
+                    <p className={`text-muted-foreground text-[11px] md:text-xs leading-relaxed mt-1 ${
+                      expandedProjects[project.id] ? "" : "line-clamp-3"
+                    }`}>
+                      {project.description}
+                    </p>
+                    {project.description.length > 120 && (
+                      <button
+                        onClick={() => toggleDescription(project.id)}
+                        className="text-accent hover:text-accent/80 text-[10px] md:text-[11px] font-semibold mt-1 self-start transition-colors focus:outline-none"
+                      >
+                        {expandedProjects[project.id] ? "View Less" : "View More"}
+                      </button>
+                    )}
+                  </div>
                   <div className="flex flex-wrap gap-1 mt-3 pt-3 border-t border-border/40">
                     {project.tags.map((tag, tagIndex) => (
                       <span
