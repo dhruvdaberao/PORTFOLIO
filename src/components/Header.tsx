@@ -115,10 +115,10 @@ const Header = () => {
             variant="ghost"
             size="icon"
             onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden rounded-lg h-9 w-9 border border-border bg-card shadow-sm"
+            className="md:hidden rounded-lg h-9 w-9 border border-accent/40 hover:border-accent hover:bg-accent/10 bg-card shadow-sm transition-all duration-200"
             aria-label="Open mobile menu"
           >
-            <Menu className="h-4 w-4 text-foreground" />
+            <Menu className="h-4 w-4 text-accent" />
           </Button>
         </div>
       </div>
@@ -182,7 +182,7 @@ const Header = () => {
                 asChild
                 className="w-full border-border hover:bg-secondary hover:text-foreground hover:border-foreground/30 font-semibold text-xs h-9"
               >
-                <a href="/I2K221215_DhruvDaberao_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
+                <a href="/documents/resume/Dhruv_Daberao_Resume.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
                   <Download className="h-3.5 w-3.5 text-foreground" />
                   Download Resume
                 </a>

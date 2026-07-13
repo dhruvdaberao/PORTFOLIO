@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FileText, Award, Download, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface Publication {
+export interface Publication {
   title: string;
   venue: string;
   date: string;
@@ -14,7 +14,7 @@ interface Publication {
   badgeColor?: string;
 }
 
-interface Certification {
+export interface Certification {
   title: string;
   issuer: string;
   date: string;
@@ -24,109 +24,112 @@ interface Certification {
   certificate?: string;
 }
 
-const Publications = () => {
-  const publications: Publication[] = [
-    {
-      title: "Diabetes Detection Using Thermal Footprints: An AI-Driven Framework for Early Risk Stratification of Diabetic Foot Complications",
-      venue: "International Journal of Innovative Research in Technology (IJIRT)",
-      date: "Published May 2026 (Paper ID: IJIRT202021)",
-      description:
-        "Published a peer-reviewed research paper proposing an AI-powered framework for the early detection of diabetic foot complications using plantar thermal imaging. Leverages deep learning-based CNN image classification, automated risk reporting, and clinical workflow support to enable scalable non-invasive preventive healthcare.",
-      link: "https://ijirt.org/article?manuscript=202021",
-      certificate: "/IJIRT_Certificate.pdf",
-      badge: "IJIRT Certified",
-      badgeColor: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30"
-    },
-    {
-      title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
-      venue: "IEEE GITCON 2025",
-      date: "Accepted July 2025 (Paper ID: 703)",
-      description:
-        "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3% F1-score for skill tagging and 75% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 and published on IEEE Xplore.",
-      link: "https://ieeexplore.ieee.org/document/11377312",
-      certificate: "/703_Dhruv Prakash Daberao.pdf",
-      badge: "IEEE Xplore Accepted",
-      badgeColor: "bg-blue-500/10 text-blue-600 border-blue-500/30"
-    }
-  ];
+export const publicationsData: Publication[] = [
+  {
+    title: "Diabetes Detection Using Thermal Footprints: An AI-Driven Framework for Early Risk Stratification of Diabetic Foot Complications",
+    venue: "International Journal of Innovative Research in Technology (IJIRT)",
+    date: "Published May 2026 (Paper ID: IJIRT202021)",
+    description:
+      "Published a peer-reviewed research paper proposing an AI-powered framework for the early detection of diabetic foot complications using plantar thermal imaging. Leverages deep learning-based CNN image classification, automated risk reporting, and clinical workflow support to enable scalable non-invasive preventive healthcare.",
+    link: "https://ijirt.org/article?manuscript=202021",
+    certificate: "/documents/certificates/IJIRT_Diabetes_Detection_Paper_Certificate.pdf",
+    badge: "IJIRT Certified",
+    badgeColor: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30"
+  },
+  {
+    title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
+    venue: "IEEE GITCON 2025",
+    date: "Accepted July 2025 (Paper ID: 703)",
+    description:
+      "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3% F1-score for skill tagging and 75% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 and published on IEEE Xplore.",
+    link: "https://ieeexplore.ieee.org/document/11377312",
+    certificate: "/documents/certificates/IEEE_GITCON_2025_ResumeInsight_Paper_Certificate.pdf",
+    badge: "IEEE Xplore Accepted",
+    badgeColor: "bg-blue-500/10 text-blue-600 border-blue-500/30"
+  }
+];
 
-  const certifications: Certification[] = [
-    {
-      title: "Startup India Learning Program",
-      issuer: "Startup India",
-      date: "Oct 2024",
-      description:
-        "Completed the Startup India Learning Program, gaining insights into entrepreneurship, business planning, fundraising, and startup growth strategies. Developed knowledge of key aspects of building and scaling a successful startup.",
-      certificate: "/certificates/Certificate_upGrad.pdf",
-      skills: [
-        "Startup Ecosystems",
-        "Market Analysis",
-        "Business Planning",
-        "Investor Pitching",
-      ],
-      credentialId: "671233dc21538e175099f418",
-    },
-    {
-      title: "Fundamentals of Cloud Computing",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed the Fundamentals of Cloud Computing course from upGrad, gaining a deep understanding of cloud architecture, service models (IaaS, PaaS, SaaS), and deployment models (public, private, hybrid). The course also covered cloud security, virtualization, and how cloud computing drives scalability and cost-efficiency for businesses.",
-      certificate: "/CloudComputing.pdf",
-      skills: [
-        "Cloud Architecture",
-        "Virtualization",
-        "Infrastructure as a Service (IaaS)",
-        "Platform as a Service (PaaS)",
-        "Software as a Service (SaaS)",
-        "Cloud Security",
-      ],
-      credentialId: "badf7556-37f2-40e9-929b-3f11544d35ca",
-    },
-    {
-      title: "Fundamentals of Deep Learning of Neural Networks",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed a course on Deep Learning fundamentals, covering neural networks, backpropagation, and model optimization. Gained practical experience in building and training deep learning models, with a focus on real-world applications in AI and data analysis.",
-      certificate: "/DeepLearning.pdf",
-      skills: [
-        "Neural Networks",
-        "Deep Learning Algorithms",
-        "Backpropagation",
-        "Model Optimization",
-        "Hyperparameter Tuning",
-        "Data Preprocessing",
-        "TensorFlow/PyTorch Proficiency",
-      ],
-      credentialId: "593a38eb-b23e-438a-858f-7367588e93d5",
-    },
-    {
-      title: "Introduction to Cryptocurrency",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed a short course on cryptocurrency, gaining a foundational understanding of blockchain technology, digital assets, and decentralized finance. Covered key concepts such as cryptocurrency trading, mining, security, and regulatory challenges, providing insights into the rapidly evolving digital currency landscape.",
-      certificate: "/Cryptocurrency.pdf",
-      skills: ["Blockchain Basics", "Cryptocurrency Trading"],
-      credentialId: "05e1f905-879a-4ce9-aec9-9dc5e85927d9",
-    },
-    {
-      title: "Introduction to Generative AI",
-      issuer: "upGrad",
-      date: "Oct 2024",
-      description:
-        "Completed a course on Generative AI, gaining hands-on experience with AI models, prompt engineering, and content generation. Developed a solid understanding of ethical considerations and real-world applications using tools like OpenAI and Hugging Face.",
-      certificate: "/GenAI.pdf",
-      skills: [
-        "AI Model Training",
-        "Generative Models",
-        "Prompt Engineering",
-        "AI Tools Proficiency",
-      ],
-      credentialId: "bc0c8204-47ec-4a89-bc7e-1a832afde2ad",
-    },
-  ];
+export const certificationsData: Certification[] = [
+  {
+    title: "Startup India Learning Program",
+    issuer: "Startup India",
+    date: "Oct 2024",
+    description:
+      "Completed the Startup India Learning Program, gaining insights into entrepreneurship, business planning, fundraising, and startup growth strategies. Developed knowledge of key aspects of building and scaling a successful startup.",
+    certificate: "/documents/certificates/Startup_India_Learning_Program_Certificate.jpg",
+    skills: [
+      "Startup Ecosystems",
+      "Market Analysis",
+      "Business Planning",
+      "Investor Pitching",
+    ],
+    credentialId: "671233dc21538e175099f418",
+  },
+  {
+    title: "Fundamentals of Cloud Computing",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed the Fundamentals of Cloud Computing course from upGrad, gaining a deep understanding of cloud architecture, service models (IaaS, PaaS, SaaS), and deployment models (public, private, hybrid). The course also covered cloud security, virtualization, and how cloud computing drives scalability and cost-efficiency for businesses.",
+    certificate: "https://upgrad.certificate.givemycertificate.com/c/badf7556-37f2-40e9-929b-3f11544d35ca",
+    skills: [
+      "Cloud Architecture",
+      "Virtualization",
+      "Infrastructure as a Service (IaaS)",
+      "Platform as a Service (PaaS)",
+      "Software as a Service (SaaS)",
+      "Cloud Security",
+    ],
+    credentialId: "badf7556-37f2-40e9-929b-3f11544d35ca",
+  },
+  {
+    title: "Fundamentals of Deep Learning of Neural Networks",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed a course on Deep Learning fundamentals, covering neural networks, backpropagation, and model optimization. Gained practical experience in building and training deep learning models, with a focus on real-world applications in AI and data analysis.",
+    certificate: "https://upgrad.certificate.givemycertificate.com/c/593a38eb-b23e-438a-858f-7367588e93d5",
+    skills: [
+      "Neural Networks",
+      "Deep Learning Algorithms",
+      "Backpropagation",
+      "Model Optimization",
+      "Hyperparameter Tuning",
+      "Data Preprocessing",
+      "TensorFlow/PyTorch Proficiency",
+    ],
+    credentialId: "593a38eb-b23e-438a-858f-7367588e93d5",
+  },
+  {
+    title: "Introduction to Cryptocurrency",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed a short course on cryptocurrency, gaining a foundational understanding of blockchain technology, digital assets, and decentralized finance. Covered key concepts such as cryptocurrency trading, mining, security, and regulatory challenges, providing insights into the rapidly evolving digital currency landscape.",
+    certificate: "https://upgrad.certificate.givemycertificate.com/c/05e1f905-879a-4ce9-aec9-9dc5e85927d9",
+    skills: ["Blockchain Basics", "Cryptocurrency Trading"],
+    credentialId: "05e1f905-879a-4ce9-aec9-9dc5e85927d9",
+  },
+  {
+    title: "Introduction to Generative AI",
+    issuer: "upGrad",
+    date: "Oct 2024",
+    description:
+      "Completed a course on Generative AI, gaining hands-on experience with AI models, prompt engineering, and content generation. Developed a solid understanding of ethical considerations and real-world applications using tools like OpenAI and Hugging Face.",
+    certificate: "https://upgrad.certificate.givemycertificate.com/c/bc0c8204-47ec-4a89-bc7e-1a832afde2ad",
+    skills: [
+      "AI Model Training",
+      "Generative Models",
+      "Prompt Engineering",
+      "AI Tools Proficiency",
+    ],
+    credentialId: "bc0c8204-47ec-4a89-bc7e-1a832afde2ad",
+  },
+];
+
+const Publications = () => {
+  const publications = publicationsData;
+  const certifications = certificationsData;
 
   return (
     <section id="publications" className="py-20 bg-secondary/20 border-t border-border/40">

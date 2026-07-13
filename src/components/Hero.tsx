@@ -1,7 +1,9 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Download, Github, Linkedin, Mail } from "lucide-react";
+import { projectsData } from "./Projects";
+import { publicationsData, certificationsData } from "./Publications";
+import { experienceData } from "./Experience";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -87,7 +89,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent px-7 py-5 rounded-md font-medium text-sm transition-all"
-              onClick={() => window.open("/I2K221215_DhruvDaberao_Resume.pdf", "_blank")}
+              onClick={() => window.open("/documents/resume/Dhruv_Daberao_Resume.pdf", "_blank")}
             >
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Button>
@@ -108,11 +110,11 @@ const Hero = () => {
           {/* Quick Stats Bar */}
           <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl">
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
-              <div className="text-2xl md:text-3xl font-extrabold text-accent">14+</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-accent">{projectsData.length}</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Projects Shipped</div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
-              <div className="text-2xl md:text-3xl font-extrabold text-accent">2</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-accent">{publicationsData.length}</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Research Papers</div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
@@ -120,7 +122,7 @@ const Hero = () => {
               <div className="text-xs text-muted-foreground font-medium mt-1">Latest SGPA @ PICT</div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
-              <div className="text-2xl md:text-3xl font-extrabold text-accent">5+</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-accent">{certificationsData.length + experienceData.filter(e => e.certificate).length}</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Certifications</div>
             </div>
           </div>

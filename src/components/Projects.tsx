@@ -336,9 +336,9 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Search } from "lucide-react";
 
-interface Project {
+export interface Project {
   id: number;
   title: string;
   description: string;
@@ -350,8 +350,199 @@ interface Project {
   category: string;
 }
 
+export const projectsData: Project[] = [
+  {
+    id: 14,
+    title: "WeatherGuard",
+    description: "An enterprise-grade, secure weather notification platform built with NestJS, React, and MongoDB. Features OAuth authentication, Role-Based Access Control (RBAC), automated weather monitoring via Vercel Cron, and instant Telegram alerts.",
+    image: "/weatherguard.png",
+    tags: ["NestJS", "React", "TypeScript", "TailwindCSS", "MongoDB", "Telegram Bot API", "OAuth", "RBAC", "Vercel Cron"],
+    githubUrl: "https://github.com/dhruvdaberao/WeatherGuard",
+    liveUrl: "https://weather-guard-two.vercel.app",
+    featured: true,
+    category: "Full-Stack"
+  },
+  {
+    id: 16,
+    title: "Keshvi Crafts",
+    description: "A premium e-commerce platform designed to showcase and sell handcrafted crochet items and artisanal products. Features a dynamic JSON catalog, global cart & wishlist, secure Supabase auth, verified reviews with dynamic ratings, multi-step guided checkout, and an admin dashboard for order management.",
+    image: "/keshvi-crafts.png",
+    tags: ["Next.js 14", "React 18", "Supabase", "Tailwind CSS", "PostgreSQL", "E-Commerce", "Admin Dashboard"],
+    githubUrl: "https://github.com/dhruvdaberao/keshvicrafts",
+    liveUrl: "https://keshvicrafts.vercel.app/",
+    featured: true,
+    category: "Full-Stack"
+  },
+  {
+    id: 15,
+    title: "Froodle",
+    description: "A scalable, real-time collaborative whiteboard platform built with a modern monorepo architecture. Features low-latency drawing synchronization via Socket.IO, live chat, room-based collaboration, freehand sketching, infinite canvas with pan/zoom, JWT/OTP auth, guest sessions, and Cloudinary media handling.",
+    image: "/froodle.png",
+    tags: ["React", "Node.js", "Socket.IO", "TypeScript", "MongoDB", "Cloudinary", "JWT", "Monorepo"],
+    githubUrl: "https://github.com/dhruvdaberao/froodle",
+    liveUrl: "https://froodle.vercel.app",
+    featured: true,
+    category: "Full-Stack"
+  },
+  {
+    id: 17,
+    title: "Diabetic Neuropathy AI",
+    description: "A clinical-grade podiatric AI screening platform for early detection of Diabetic Neuropathy and pre-ulcerative foot risks using plantar thermography. Features an optimized 4-Stage CNN executed via ONNX Runtime (<140MB RAM), HSV medical color space heuristic filtering, Otsu's inverse binary thresholding, ACID-compliant SQLite3 diagnostic logs, Chart.js trends, and one-click clinical PDF report export. Co-authored IEEE & IJIRT research paper.",
+    image: "/diabetes-tracker.png",
+    tags: ["Python 3.10", "FastAPI", "ONNX Runtime", "Computer Vision", "CNN", "OpenCV", "SQLite3", "Medical AI"],
+    githubUrl: "https://github.com/dhruvdaberao/BE-Project.git",
+    liveUrl: "https://be-project-fdnk.onrender.com/",
+    featured: true,
+    category: "AI/ML"
+  },
+  {
+    id: 12,
+    title: "Tribe-Social",
+    description: "A full-stack social media app built with the MERN stack. Features a realtime feed, Socket.IO-powered DMs and Tribe chats, JWT auth, story editor with TTL expiry, and an AI assistant (Chuk) for conversational help and content moderation.",
+    image: "/tribe-social.png",
+    tags: ["React", "Node.js", "Socket.IO", "MongoDB", "TypeScript", "AI"],
+    githubUrl: "https://github.com/dhruvdaberao/tribe-social",
+    liveUrl: "https://tribe-social.vercel.app",
+    featured: true,
+    category: "Full-Stack"
+  },
+  {
+    id: 13,
+    title: "Counto",
+    description: "A quirky, scrapbook-style countdown app for couples and friends. Features real-time shared rooms, draggable stickers, taped photos, bucket lists, looping music, chat, and a beautifully animated countdown.",
+    image: "/counto.png",
+    tags: ["React", "TailwindCSS", "MongoDB", "Vercel Serverless", "Real-Time Sync", "Aesthetic UI"],
+    githubUrl: "https://github.com/dhruvdaberao/CountDown",
+    liveUrl: "https://counto.vercel.app",
+    featured: true,
+    category: "Full-Stack"
+  },
+  {
+    id: 2,
+    title: "Resume Insight",
+    description: "An intelligent resume analyzer that scores resumes and provides actionable feedback. Helps job seekers optimize their applications and stand out to recruiters.",
+    image: "/ResumeInsight.jpg",
+    tags: ["Node.js", "Express.js", "MongoDB", "Text Analytics"],
+    githubUrl: "https://github.com/dhruvdaberao/resume-insight",
+    liveUrl: "https://resume-insight.vercel.app/",
+    featured: true,
+    category: "AI/ML"
+  },
+  {
+    id: 1,
+    title: "AgriGains",
+    description: "A smart agricultural platform that predicts crop yield, suggests optimal crops, and recommends fertilizers using machine learning and user inputs. Empowers farmers with data-driven insights.",
+    image: "/Agrigains.jpg",
+    tags: ["Python", "Machine Learning", "React", "Agricultural Tech"],
+    githubUrl: "https://github.com/dhruvdaberao/agrigains",
+    liveUrl: "https://agrigains.onrender.com",
+    featured: true,
+    category: "AI/ML"
+  },
+  {
+    id: 3,
+    title: "Dopa Track",
+    description: "A productivity companion that tracks dopamine-related activities and visualizes patterns. Encourages balanced habits to improve focus and mental health.",
+    image: "/DopaTrack.jpg",
+    tags: ["React", "MongoDB", "Health Tech", "Productivity"],
+    githubUrl: "https://github.com/dhruvdaberao/dopa-track",
+    liveUrl: "https://dopa-track.vercel.app/",
+    featured: false,
+    category: "Full-Stack"
+  },
+  {
+    id: 4,
+    title: "Therapy-Cat",
+    description: "A calming mental wellness assistant featuring animated cats and AI-powered affirmations. Designed to reduce stress and improve mood through playful guided interactions.",
+    image: "/TherapyCat.jpg",
+    tags: ["React", "JavaScript", "Animation", "Mental Health", "AI"],
+    githubUrl: "https://github.com/dhruvdaberao/therapy-cat",
+    liveUrl: "https://therapy-cat-dbl1.onrender.com/",
+    featured: false,
+    category: "AI/ML"
+  },
+  {
+    id: 5,
+    title: "BrandPulse",
+    description: "A reputation monitoring tool that performs real-time sentiment analysis on LeapScholar’s online presence. Features interactive charts and cloud integration.",
+    image: "/BrandPulse.jpg",
+    tags: ["Flask", "Render", "Chart.js", "Google Sheets API", "Cloud"],
+    githubUrl: "https://github.com/dhruvdaberao/BrandPulse",
+    liveUrl: "https://brandpulse.onrender.com",
+    featured: false,
+    category: "Tools & Utilities"
+  },
+  {
+    id: 6,
+    title: "Portfolio",
+    description: "My personal developer portfolio showcasing projects, skills, and achievements in a clean and responsive design.",
+    image: "/Portfolio.jpg",
+    tags: ["React", "TailwindCSS", "Vercel", "Frontend"],
+    githubUrl: "https://github.com/dhruvdaberao/resume-project",
+    liveUrl: "https://dhruvdaberao.vercel.app",
+    featured: false,
+    category: "Full-Stack"
+  },
+  {
+    id: 7,
+    title: "AI Certificate Verifier",
+    description: "An AI-powered web app that verifies the authenticity of certificates and diplomas. Extracts key details, detects tampering signs, and provides an authenticity score with detailed red flags.",
+    image: "/ai-certificate-verifer.png",
+    tags: ["TypeScript", "HTML/CSS", "AI", "Document Analysis"],
+    githubUrl: "https://github.com/dhruvdaberao/ai-certificate-verifier",
+    liveUrl: "https://ai-cert-verifier.vercel.app",
+    featured: false,
+    category: "AI/ML"
+  },
+  {
+    id: 8,
+    title: "Culinary Lens",
+    description: "An AI-driven kitchen assistant that analyzes food freshness, generates recipes from ingredients, and estimates calories. Designed with a modern UI and seamless AI integration.",
+    image: "/culinary-lens.png",
+    tags: ["React", "TypeScript", "TailwindCSS", "AI"],
+    githubUrl: "https://github.com/dhruvdaberao/culinary-lens",
+    liveUrl: "https://culinary-lens.vercel.app",
+    featured: false,
+    category: "AI/ML"
+  },
+  {
+    id: 9,
+    title: "Intra-Quest",
+    description: "A personality insights platform that combines quizzes with AI-powered analysis. Provides detailed personality breakdowns, strengths, weaknesses, and lifestyle recommendations.",
+    image: "/intraquest.png",
+    tags: ["React", "TypeScript", "TailwindCSS", "AI"],
+    githubUrl: "https://github.com/dhruvdaberao/clarity",
+    liveUrl: "https://intra-quest.vercel.app",
+    featured: false,
+    category: "AI/ML"
+  },
+  {
+    id: 10,
+    title: "Raccoon Scan",
+    description: "A quirky text-scanning app that lets users scan text using their camera and instantly get answers. Great for solving homework, extracting code, and quick document understanding.",
+    image: "/raccoon-scan.png",
+    tags: ["React", "Camera API", "AI", "Utility"],
+    githubUrl: "https://github.com/dhruvdaberao/raccoon-scan",
+    liveUrl: "https://raccoon-scan.vercel.app",
+    featured: false,
+    category: "Tools & Utilities"
+  },
+  {
+    id: 11,
+    title: "CROCO",
+    description: "A personalized AI chatbot pal designed to feel like a digital friend. Offers engaging, conversational interactions and adapts to user moods and preferences.",
+    image: "/croco.png",
+    tags: ["React", "Chatbot", "AI", "Companion"],
+    githubUrl: "https://github.com/dhruvdaberao/croco",
+    liveUrl: "https://croco-ai-pal.vercel.app",
+    featured: false,
+    category: "AI/ML"
+  }
+];
+
 const Projects = () => {
   const [activeTab, setActiveTab] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [expandedProjects, setExpandedProjects] = useState<Record<number, boolean>>({});
 
   const toggleDescription = (id: number) => {
@@ -361,200 +552,15 @@ const Projects = () => {
     }));
   };
 
-  const projects: Project[] = [
-    {
-      id: 14,
-      title: "WeatherGuard",
-      description: "An enterprise-grade, secure weather notification platform built with NestJS, React, and MongoDB. Features OAuth authentication, Role-Based Access Control (RBAC), automated weather monitoring via Vercel Cron, and instant Telegram alerts.",
-      image: "/weatherguard.png",
-      tags: ["NestJS", "React", "TypeScript", "TailwindCSS", "MongoDB", "Telegram Bot API", "OAuth", "RBAC", "Vercel Cron"],
-      githubUrl: "https://github.com/dhruvdaberao/WeatherGuard",
-      liveUrl: "https://weather-guard-two.vercel.app",
-      featured: true,
-      category: "Full-Stack"
-    },
-    {
-      id: 16,
-      title: "Keshvi Crafts",
-      description: "A premium e-commerce platform designed to showcase and sell handcrafted crochet items and artisanal products. Features a dynamic JSON catalog, global cart & wishlist, secure Supabase auth, verified reviews with dynamic ratings, multi-step guided checkout, and an admin dashboard for order management.",
-      image: "/keshvi-crafts.png",
-      tags: ["Next.js 14", "React 18", "Supabase", "Tailwind CSS", "PostgreSQL", "E-Commerce", "Admin Dashboard"],
-      githubUrl: "https://github.com/dhruvdaberao/keshvicrafts",
-      liveUrl: "https://keshvicrafts.vercel.app/",
-      featured: true,
-      category: "Full-Stack"
-    },
-    {
-      id: 15,
-      title: "Froodle",
-      description: "A scalable, real-time collaborative whiteboard platform built with a modern monorepo architecture. Features low-latency drawing synchronization via Socket.IO, live chat, room-based collaboration, freehand sketching, infinite canvas with pan/zoom, JWT/OTP auth, guest sessions, and Cloudinary media handling.",
-      image: "/froodle.png",
-      tags: ["React", "Node.js", "Socket.IO", "TypeScript", "MongoDB", "Cloudinary", "JWT", "Monorepo"],
-      githubUrl: "https://github.com/dhruvdaberao/froodle",
-      liveUrl: "https://froodle.vercel.app",
-      featured: true,
-      category: "Full-Stack"
-    },
-    {
-      id: 17,
-      title: "Diabetic Neuropathy AI",
-      description: "A clinical-grade podiatric AI screening platform for early detection of Diabetic Neuropathy and pre-ulcerative foot risks using plantar thermography. Features an optimized 4-Stage CNN executed via ONNX Runtime (<140MB RAM), HSV medical color space heuristic filtering, Otsu's inverse binary thresholding, ACID-compliant SQLite3 diagnostic logs, Chart.js trends, and one-click clinical PDF report export. Co-authored IEEE & IJIRT research paper.",
-      image: "/diabetes-tracker.png",
-      tags: ["Python 3.10", "FastAPI", "ONNX Runtime", "Computer Vision", "CNN", "OpenCV", "SQLite3", "Medical AI"],
-      githubUrl: "https://github.com/dhruvdaberao/BE-Project.git",
-      liveUrl: "https://be-project-fdnk.onrender.com/",
-      featured: true,
-      category: "AI/ML"
-    },
-    {
-      id: 12,
-      title: "Tribe-Social",
-      description: "A full-stack social media app built with the MERN stack. Features a realtime feed, Socket.IO-powered DMs and Tribe chats, JWT auth, story editor with TTL expiry, and an AI assistant (Chuk) for conversational help and content moderation.",
-      image: "/tribe-social.png",
-      tags: ["React", "Node.js", "Socket.IO", "MongoDB", "TypeScript", "AI"],
-      githubUrl: "https://github.com/dhruvdaberao/tribe-social",
-      liveUrl: "https://tribe-social.vercel.app",
-      featured: true,
-      category: "Full-Stack"
-    },
-    {
-      id: 13,
-      title: "Counto",
-      description: "A quirky, scrapbook-style countdown app for couples and friends. Features real-time shared rooms, draggable stickers, taped photos, bucket lists, looping music, chat, and a beautifully animated countdown.",
-      image: "/counto.png",
-      tags: ["React", "TailwindCSS", "MongoDB", "Vercel Serverless", "Real-Time Sync", "Aesthetic UI"],
-      githubUrl: "https://github.com/dhruvdaberao/CountDown",
-      liveUrl: "https://counto.vercel.app",
-      featured: true,
-      category: "Full-Stack"
-    },
-    {
-      id: 2,
-      title: "Resume Insight",
-      description: "An intelligent resume analyzer that scores resumes and provides actionable feedback. Helps job seekers optimize their applications and stand out to recruiters.",
-      image: "/ResumeInsight.jpg",
-      tags: ["Node.js", "Express.js", "MongoDB", "Text Analytics"],
-      githubUrl: "https://github.com/dhruvdaberao/resume-insight",
-      liveUrl: "https://resume-insight.vercel.app/",
-      featured: true,
-      category: "AI/ML"
-    },
-    {
-      id: 1,
-      title: "AgriGains",
-      description: "A smart agricultural platform that predicts crop yield, suggests optimal crops, and recommends fertilizers using machine learning and user inputs. Empowers farmers with data-driven insights.",
-      image: "/Agrigains.jpg",
-      tags: ["Python", "Machine Learning", "React", "Agricultural Tech"],
-      githubUrl: "https://github.com/dhruvdaberao/agrigains",
-      liveUrl: "https://agrigains.onrender.com",
-      featured: true,
-      category: "AI/ML"
-    },
-    {
-      id: 3,
-      title: "Dopa Track",
-      description: "A productivity companion that tracks dopamine-related activities and visualizes patterns. Encourages balanced habits to improve focus and mental health.",
-      image: "/DopaTrack.jpg",
-      tags: ["React", "MongoDB", "Health Tech", "Productivity"],
-      githubUrl: "https://github.com/dhruvdaberao/dopa-track",
-      liveUrl: "https://dopa-track.vercel.app/",
-      featured: false,
-      category: "Full-Stack"
-    },
-    {
-      id: 4,
-      title: "Therapy-Cat",
-      description: "A calming mental wellness assistant featuring animated cats and AI-powered affirmations. Designed to reduce stress and improve mood through playful guided interactions.",
-      image: "/TherapyCat.jpg",
-      tags: ["React", "JavaScript", "Animation", "Mental Health", "AI"],
-      githubUrl: "https://github.com/dhruvdaberao/therapy-cat",
-      liveUrl: "https://therapy-cat-dbl1.onrender.com/",
-      featured: false,
-      category: "AI/ML"
-    },
-    {
-      id: 5,
-      title: "BrandPulse",
-      description: "A reputation monitoring tool that performs real-time sentiment analysis on LeapScholar’s online presence. Features interactive charts and cloud integration.",
-      image: "/BrandPulse.jpg",
-      tags: ["Flask", "Render", "Chart.js", "Google Sheets API", "Cloud"],
-      githubUrl: "https://github.com/dhruvdaberao/BrandPulse",
-      liveUrl: "https://brandpulse.onrender.com",
-      featured: false,
-      category: "Tools & Utilities"
-    },
-    {
-      id: 6,
-      title: "Portfolio",
-      description: "My personal developer portfolio showcasing projects, skills, and achievements in a clean and responsive design.",
-      image: "/Portfolio.jpg",
-      tags: ["React", "TailwindCSS", "Vercel", "Frontend"],
-      githubUrl: "https://github.com/dhruvdaberao/resume-project",
-      liveUrl: "https://dhruvdaberao.vercel.app",
-      featured: false,
-      category: "Full-Stack"
-    },
-    {
-      id: 7,
-      title: "AI Certificate Verifier",
-      description: "An AI-powered web app that verifies the authenticity of certificates and diplomas. Extracts key details, detects tampering signs, and provides an authenticity score with detailed red flags.",
-      image: "/ai-certificate-verifer.png",
-      tags: ["TypeScript", "HTML/CSS", "AI", "Document Analysis"],
-      githubUrl: "https://github.com/dhruvdaberao/ai-certificate-verifier",
-      liveUrl: "https://ai-cert-verifier.vercel.app",
-      featured: false,
-      category: "AI/ML"
-    },
-    {
-      id: 8,
-      title: "Culinary Lens",
-      description: "An AI-driven kitchen assistant that analyzes food freshness, generates recipes from ingredients, and estimates calories. Designed with a modern UI and seamless AI integration.",
-      image: "/culinary-lens.png",
-      tags: ["React", "TypeScript", "TailwindCSS", "AI"],
-      githubUrl: "https://github.com/dhruvdaberao/culinary-lens",
-      liveUrl: "https://culinary-lens.vercel.app",
-      featured: false,
-      category: "AI/ML"
-    },
-    {
-      id: 9,
-      title: "Intra-Quest",
-      description: "A personality insights platform that combines quizzes with AI-powered analysis. Provides detailed personality breakdowns, strengths, weaknesses, and lifestyle recommendations.",
-      image: "/intraquest.png",
-      tags: ["React", "TypeScript", "TailwindCSS", "AI"],
-      githubUrl: "https://github.com/dhruvdaberao/clarity",
-      liveUrl: "https://intra-quest.vercel.app",
-      featured: false,
-      category: "AI/ML"
-    },
-    {
-      id: 10,
-      title: "Raccoon Scan",
-      description: "A quirky text-scanning app that lets users scan text using their camera and instantly get answers. Great for solving homework, extracting code, and quick document understanding.",
-      image: "/raccoon-scan.png",
-      tags: ["React", "Camera API", "AI", "Utility"],
-      githubUrl: "https://github.com/dhruvdaberao/raccoon-scan",
-      liveUrl: "https://raccoon-scan.vercel.app",
-      featured: false,
-      category: "Tools & Utilities"
-    },
-    {
-      id: 11,
-      title: "CROCO",
-      description: "A personalized AI chatbot pal designed to feel like a digital friend. Offers engaging, conversational interactions and adapts to user moods and preferences.",
-      image: "/croco.png",
-      tags: ["React", "Chatbot", "AI", "Companion"],
-      githubUrl: "https://github.com/dhruvdaberao/croco",
-      liveUrl: "https://croco-ai-pal.vercel.app",
-      featured: false,
-      category: "AI/ML"
-    }
-  ];
+  const projects = projectsData;
 
   const filteredProjects = projects.filter((project) => {
-    if (activeTab === "All") return true;
-    if (activeTab === "Featured ⭐") return project.featured;
-    return project.category === activeTab;
+    const matchesTab = activeTab === "All" || (activeTab === "Featured ⭐" ? project.featured : project.category === activeTab);
+    const matchesSearch = searchQuery.trim() === "" || 
+      project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      project.tags.some(tag => tag.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesTab && matchesSearch;
   });
 
   return (
@@ -565,6 +571,28 @@ const Projects = () => {
           <p className="mt-2 text-muted-foreground max-w-xl mx-auto text-sm">
             A curated selection of full-stack web platforms, machine learning models, and developer tools.
           </p>
+        </div>
+
+        {/* Interactive Search Bar */}
+        <div className="max-w-md mx-auto mb-8 relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search className="h-4 w-4 text-accent/70" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search by title, description or technology..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-9 pr-10 py-2.5 text-xs rounded-lg border border-accent/30 bg-card text-foreground focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/40 shadow-sm transition-all duration-200"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery("")}
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-xs font-semibold text-muted-foreground hover:text-accent"
+            >
+              Clear
+            </button>
+          )}
         </div>
 
         {/* Interactive Category Tabs */}
@@ -584,81 +612,98 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
-          {filteredProjects.map((project) => (
-            <div key={project.id} className="group">
-              <Card className="h-full overflow-hidden flex flex-col bg-card border border-accent/30 shadow-sm hover:shadow-md hover:border-accent transition-all duration-200 relative">
-                {project.featured && (
-                  <div className="absolute top-2.5 right-2.5 z-10 bg-accent text-white text-[9px] font-semibold px-2 py-0.5 rounded border border-accent shadow-sm flex items-center gap-1">
-                    ⭐ Featured
+        {filteredProjects.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-muted-foreground text-sm">No projects found matching "{searchQuery}"</p>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => {
+                setSearchQuery("");
+                setActiveTab("All");
+              }}
+              className="mt-4 border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-xs h-8"
+            >
+              Reset Search & Filters
+            </Button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
+            {filteredProjects.map((project) => (
+              <div key={project.id} className="group">
+                <Card className="h-full overflow-hidden flex flex-col bg-card border border-accent/30 shadow-sm hover:shadow-md hover:border-accent transition-all duration-200 relative">
+                  {project.featured && (
+                    <div className="absolute top-2.5 right-2.5 z-10 bg-accent text-white text-[9px] font-semibold px-2 py-0.5 rounded border border-accent shadow-sm flex items-center gap-1">
+                      ⭐ Featured
+                    </div>
+                  )}
+                  <div className="h-36 sm:h-40 overflow-hidden relative bg-muted">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/Portfolio.jpg";
+                      }}
+                    />
                   </div>
-                )}
-                <div className="h-36 sm:h-40 overflow-hidden relative bg-muted">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = "/Portfolio.jpg";
-                    }}
-                  />
-                </div>
-                <CardHeader className="pb-1.5 pt-4 px-4.5">
-                  <div className="flex items-center justify-between gap-2">
-                    <CardTitle className="text-sm md:text-base font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">{project.title}</CardTitle>
-                    <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-accent/10 text-accent border border-accent/20 shrink-0">{project.category}</span>
-                  </div>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col justify-between px-4.5 pb-3">
-                  <div className="flex-1 flex flex-col">
-                    <p className={`text-muted-foreground text-[11px] md:text-xs leading-relaxed mt-1 ${
-                      expandedProjects[project.id] ? "" : "line-clamp-3"
-                    }`}>
-                      {project.description}
-                    </p>
-                    {project.description.length > 120 && (
-                      <button
-                        onClick={() => toggleDescription(project.id)}
-                        className="text-accent hover:text-accent/80 text-[10px] md:text-[11px] font-semibold mt-1 self-start transition-colors focus:outline-none"
-                      >
-                        {expandedProjects[project.id] ? "View Less" : "View More"}
-                      </button>
+                  <CardHeader className="pb-1.5 pt-4 px-4.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <CardTitle className="text-sm md:text-base font-bold tracking-tight text-foreground group-hover:text-accent transition-colors">{project.title}</CardTitle>
+                      <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-accent/10 text-accent border border-accent/20 shrink-0">{project.category}</span>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex-1 flex flex-col justify-between px-4.5 pb-3">
+                    <div className="flex-1 flex flex-col">
+                      <p className={`text-muted-foreground text-[11px] md:text-xs leading-relaxed mt-1 ${
+                        expandedProjects[project.id] ? "" : "line-clamp-3"
+                      }`}>
+                        {project.description}
+                      </p>
+                      {project.description.length > 120 && (
+                        <button
+                          onClick={() => toggleDescription(project.id)}
+                          className="text-accent hover:text-accent/80 text-[10px] md:text-[11px] font-semibold mt-1 self-start transition-colors focus:outline-none"
+                        >
+                          {expandedProjects[project.id] ? "View Less" : "View More"}
+                        </button>
+                      )}
+                    </div>
+                    <div className="flex flex-wrap gap-1 mt-3 pt-3 border-t border-border/40">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="px-1.5 py-0.5 text-[9px] font-medium rounded bg-accent/10 text-accent border border-accent/20"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </CardContent>
+                  <CardFooter className="pt-0 pb-4 px-4.5 flex gap-2">
+                    {project.liveUrl && (
+                      <Button variant="default" size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-none font-medium text-[11px] h-8" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
+                          <ExternalLink className="h-3 w-3" />
+                          Live Demo
+                        </a>
+                      </Button>
                     )}
-                  </div>
-                  <div className="flex flex-wrap gap-1 mt-3 pt-3 border-t border-border/40">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-1.5 py-0.5 text-[9px] font-medium rounded bg-accent/10 text-accent border border-accent/20"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-                <CardFooter className="pt-0 pb-4 px-4.5 flex gap-2">
-                  {project.liveUrl && (
-                    <Button variant="default" size="sm" className="flex-1 bg-accent hover:bg-accent/90 text-white shadow-none font-medium text-[11px] h-8" asChild>
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
-                        <ExternalLink className="h-3 w-3" />
-                        Live Demo
-                      </a>
-                    </Button>
-                  )}
-                  {project.githubUrl && (
-                    <Button variant="outline" size="sm" className="flex-1 border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-[11px] h-8" asChild>
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
-                        <Github className="h-3 w-3" />
-                        Code
-                      </a>
-                    </Button>
-                  )}
-                </CardFooter>
-              </Card>
-            </div>
-          ))}
-        </div>
+                    {project.githubUrl && (
+                      <Button variant="outline" size="sm" className="flex-1 border border-accent/40 hover:border-accent hover:bg-accent/10 hover:text-accent font-medium text-[11px] h-8" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5">
+                          <Github className="h-3 w-3" />
+                          Code
+                        </a>
+                      </Button>
+                    )}
+                  </CardFooter>
+                </Card>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );

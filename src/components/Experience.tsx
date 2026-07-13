@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Award, FileText, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface Experience {
+export interface Experience {
   position: string;
   company: string;
   period: string;
@@ -12,8 +12,7 @@ interface Experience {
   certificate?: string;
 }
 
-const Experience = () => {
-  const experienceList: Experience[] = [
+export const experienceData: Experience[] = [
     {
       position: "AI/ML Virtual Internship",
       company: "EduSkills in collaboration with Google",
@@ -24,7 +23,7 @@ const Experience = () => {
         "Implemented classification algorithms for real-world data",
         "Completed practical assignments using Python ML ecosystem"
       ],
-      certificate: "/Virtual_Internship_Eduskill.pdf" // Replace with actual certificate link
+      certificate: "/documents/certificates/EduSkills_Google_AIML_Virtual_Internship_Certificate.pdf"
     },
     {
       position: "In-House Developer Intern",
@@ -36,23 +35,25 @@ const Experience = () => {
         "Improved resume scoring model accuracy by 15%",
         "Implemented text analytics features to enhance evaluation capabilities"
       ],
-      certificate: "/Inhouse-certificate.pdf" // Replace with actual certificate link
+      certificate: "/documents/certificates/PICT_ResumeInsight_Internship_Certificate.pdf"
     },
     {
-      position: "UI Developer Intern",
-      company: "Crowdfunding Platform (Remote)",
-      period: "Oct 2024 - Nov 2024",
-      description: "Built UI for campaign modules using HTML/CSS/JavaScript.",
+      position: "Crowdfunding Intern",
+      company: "Muskurahat Foundation (Remote)",
+      period: "Aug 2024 - Sep 2024",
+      description: "Volunteered as a Fundraising and Outreach Intern at Muskurahat Foundation, a non-profit organization dedicated to supporting underprivileged communities. Engaged in organizing awareness campaigns, building donor networks, and contributing to fundraising initiatives.",
       achievements: [
-        "Designed a UI module that boosted user engagement by 30%",
-        "Collaborated with cross-functional teams to improve user experience",
-        "Implemented responsive design principles for mobile and desktop users"
+        "Developed strong communication, leadership, and project management skills",
+        "Organized awareness campaigns and built donor networks to drive fundraising initiatives",
+        "Contributed directly to fundraising goals supporting underprivileged social causes"
       ],
-      certificate: "/Muskurahat-foundation.pdf" // Replace with actual certificate link
+      certificate: "/documents/certificates/Muskurahat_Foundation_UI_Developer_Internship_Certificate.jpg"
     }
   ];
 
-  return (
+  const Experience = () => {
+    const experienceList = experienceData;
+    return (
     <section id="experience" className="py-20 bg-secondary/20 border-t border-border/40">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">

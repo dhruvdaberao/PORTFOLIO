@@ -66,7 +66,7 @@ const Contact = () => {
                   <div className="flex-1">
                     <div className="font-semibold text-sm text-foreground">Resume</div>
                     <a 
-                      href="/I2K221215_DhruvDaberao_Resume.pdf" 
+                      href="/documents/resume/Dhruv_Daberao_Resume.pdf" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-muted-foreground hover:text-foreground text-xs font-medium transition-colors inline-flex items-center gap-1"
