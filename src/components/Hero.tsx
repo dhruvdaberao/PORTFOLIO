@@ -43,7 +43,7 @@ const Hero = () => {
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
           {/* Profile Avatar */}
           <div className="mb-6">
-            <div className="h-32 w-32 md:h-36 md:w-36 rounded-full overflow-hidden border-2 border-accent/40 shadow-md bg-muted">
+            <div className="h-36 w-36 md:h-44 md:w-44 rounded-full overflow-hidden border-2 border-accent/40 shadow-md bg-muted">
               <img
                 src="/LinkedIn-PP2.jpg"
                 alt="Dhruv Daberao"
