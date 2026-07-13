@@ -93,7 +93,7 @@ const About = () => {
               </div>
               <h3 className="text-base font-bold mb-2 text-foreground">Who I Am</h3>
               <p className="text-foreground/80 text-xs md:text-sm leading-relaxed font-normal">
-                A 4th-year IT undergraduate at PICT Pune (2022-2026), specializing in full-stack development and machine learning. With hands-on experience in Python, JavaScript, and TypeScript, I’ve built scalable web applications and data-driven solutions during internships and personal projects.
+                A final-year Information Technology student at PICT Pune with a track record of bridging the gap between full-stack engineering and machine learning. I don't just build UI; I design and deploy end-to-end applications—from high-performance NestJS/Express backends to complex spaCy NLP pipelines and thermal imaging CNN models.
               </p>
             </CardContent>
           </Card>
@@ -105,7 +105,7 @@ const About = () => {
               </div>
               <h3 className="text-base font-bold mb-2 text-foreground">My Approach</h3>
               <p className="text-foreground/80 text-xs md:text-sm leading-relaxed font-normal">
-                I prioritize clean, efficient code and user-centric design, leveraging modern frameworks like React, NestJS, and Node.js. My methodical approach, honed through certifications from Startup India and upGrad, ensures high-quality deliverables and continuous skill enhancement.
+                I build for longevity and scale. I advocate for strong typing with TypeScript, secure role-based controls (RBAC), and clean architecture pattern splits. I treat optimization as a core feature—whether it is reducing query latency in PostgreSQL, database indexing, or structuring event-driven Socket.IO systems.
               </p>
             </CardContent>
           </Card>
@@ -117,7 +117,7 @@ const About = () => {
               </div>
               <h3 className="text-base font-bold mb-2 text-foreground">My Goals</h3>
               <p className="text-foreground/80 text-xs md:text-sm leading-relaxed font-normal">
-                I aim to contribute to innovative tech solutions in software engineering or AI, while pursuing advanced studies to deepen my expertise in computer science. My goal is to deliver impactful projects that combine technical excellence with real-world value.
+                I am looking to join high-impact engineering teams where I can design scalable services and productionize ML pipelines. Alongside industry roles, I am preparing for advanced research studies in computer science to continue pushing boundaries in artificial intelligence and systems architecture.
               </p>
             </CardContent>
           </Card>

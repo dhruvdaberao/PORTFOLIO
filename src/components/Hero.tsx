@@ -70,11 +70,11 @@ const Hero = () => {
           </h1>
           
           <p className="mt-4 text-lg md:text-xl font-medium text-muted-foreground">
-            Building scalable full-stack applications & applied machine learning systems.
+            Full-Stack Developer & AI/ML Engineer specializing in robust backend architectures, real-time web applications, and intelligent systems.
           </p>
           
           <p className="mt-4 text-sm md:text-base text-muted-foreground/80 max-w-xl leading-relaxed">
-            Co-author of 2 peer-reviewed AI research papers (IEEE & IJIRT). Passionate about clean architecture, real-time systems, and creating impactful developer experiences.
+            Co-author of 2 peer-reviewed AI/NLP papers published in IEEE Xplore & IJIRT. Driven by clean architecture, type safety (TypeScript/NestJS), and translating complex medical AI & text models into functional production code.
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
