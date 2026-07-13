@@ -110,7 +110,7 @@ const Hero = () => {
           {/* Quick Stats Bar */}
           <div className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full max-w-3xl">
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
-              <div className="text-2xl md:text-3xl font-extrabold text-accent">{projectsData.length}</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-accent">15+</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Projects Shipped</div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
@@ -122,7 +122,7 @@ const Hero = () => {
               <div className="text-xs text-muted-foreground font-medium mt-1">Latest SGPA @ PICT</div>
             </div>
             <div className="p-4 rounded-lg bg-card border border-accent/40 shadow-sm hover:border-accent hover:shadow-md transition-all text-center">
-              <div className="text-2xl md:text-3xl font-extrabold text-accent">{certificationsData.length + experienceData.filter(e => e.certificate).length}</div>
+              <div className="text-2xl md:text-3xl font-extrabold text-accent">5+</div>
               <div className="text-xs text-muted-foreground font-medium mt-1">Certifications</div>
             </div>
           </div>
