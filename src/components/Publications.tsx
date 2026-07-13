@@ -39,12 +39,12 @@ export const publicationsData: Publication[] = [
   {
     title: "ResumeInsight: An AI-Driven Framework for Semantic Resume–Job Matching and Skill-Gap Analysis",
     venue: "IEEE GITCON 2025",
-    date: "Accepted July 2025 (Paper ID: 703)",
+    date: "Published July 2025 (Paper ID: 703)",
     description:
       "Presented an NLP/ML framework using spaCy, regex, and Levenshtein distance for semantic resume-job matching, achieving 89.3% F1-score for skill tagging and 75% accuracy in fit prediction with Random Forest, XGBoost, and ANN. Accepted for oral presentation at IEEE GITCON 2025 and published on IEEE Xplore.",
     link: "https://ieeexplore.ieee.org/document/11377312",
     certificate: "/documents/certificates/IEEE_GITCON_2025_ResumeInsight_Paper_Certificate.pdf",
-    badge: "IEEE Xplore Accepted",
+    badge: "IEEE Xplore Published",
     badgeColor: "bg-blue-500/10 text-blue-600 border-blue-500/30"
   }
 ];
